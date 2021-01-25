@@ -38,12 +38,15 @@ async function* getSections(lines) {
 	}
 
 	if(section) {
+		// Add blank line at end of file
+		//section.lines.push([]);
 		yield section;
 	}
 }
 
 async function parseSection(site, sections, sql) {
 	const tables = {};
+	console.log(site);
 	for await(const section of sections) {
 		const tableName = section.name.replace('.', '_');
 		tables[section.name] = tableName;
@@ -51,13 +54,26 @@ async function parseSection(site, sections, sql) {
 		switch (section.type) {
 			case 'table':
 				const [header,...lines] = section.lines;
+				if(!header) {
+					console.warn(`No data for table ${section.name} (${site})`, section)
+					break;
+				}
+
+				if(header.length === 0) {
+					break;
+				}
+
 				const columns = sql(header.join(','))
 
+				const rows = lines.map(line => [site, ...line]);
+
 				await sql`CREATE TABLE IF NOT EXISTS ${table} (site, ${columns})`;
-				for(const line of lines) {
-					await sql`INSERT INTO ${table} (site, ${columns}) VALUES (${site}, ${line})`;
+
+				// Have to do inserts in batches since sqlite has a limit on the number of variables it can handle in one statement
+				while(rows.length > 0) {
+					const values = rows.splice(0, Math.floor(sql.MAX_VARIABLES/rows[0].length));
+					await sql`INSERT INTO ${table} (site, ${columns}) VALUES ${values}`;
 				}
-				//console.log('table', section.name, header, lines);
 				break;
 			case 'total':
 				const count = parseInt(section.lines[1][0], 10);
@@ -76,7 +92,7 @@ async function parseSection(site, sections, sql) {
 				}
 				break;
 			default:
-				console.log(`Can't parse table type`, section.type)
+				console.warn(`Can't parse table type`, section.type)
 		}
 	}
 
