@@ -1,5 +1,8 @@
 import html from 'encode-html-template-tag';
 
+/**
+ * Template for most recently used sites table
+ */
 export default data => html`
 <table>
 	<thead>
