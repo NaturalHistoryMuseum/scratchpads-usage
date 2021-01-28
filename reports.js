@@ -22,7 +22,7 @@ start(async (req, res)=>{
 // Also generate html pages in reports directory
 import fs from 'fs';
 
-const getReportStatic = GetReport(sql, id => '/' + id + '.html');
+const getReportStatic = GetReport(sql, id => '/scratchpads-usage/' + id + '.html');
 
 for(const [path, page] of getReportStatic) {
 	fs.writeFileSync('docs/'+path+'.html', await page);
