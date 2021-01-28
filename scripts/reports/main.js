@@ -39,6 +39,7 @@ export default function Reports(sql, urlFor = id => '/' + id + '.html') {
 		return page(
 			{
 				title,
+				menu:[{name:'Home', href:urlFor(INDEX)}]
 				//menu:[{name:'Home', href:'/'}, ...menu.map(m=>({ name:m.title, href:m.path }))]
 			},
 			view
