@@ -12,7 +12,7 @@ Then import the data into sqlite with `node index.js`.
 
 This will also generate JSON output and create HTML reports.
 
-Some reports are written in markdown and kept in the markdown folder. They can be generated into HTML by running `node reports.js`, which generates HTML files into the reports directory.
+Reports can be generated into HTML by running `node reports.js`, which generates HTML files into the reports directory.
 
 Todo:
  - Entity/Content types and counts

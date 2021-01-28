@@ -1,12 +1,12 @@
 {
 	"type": "module",
-	"devDependencies": {
-		"sqlite-async": "^1.1.1"
-	},
+	"devDependencies": {},
 	"dependencies": {
-		"encode-html-template-tag": "^2.0.1",
+		"encode-html-template-tag": "^2.1.0",
 		"marked": "^1.2.8",
 		"php-serialize": "^4.0.2",
-		"sql-execute-tag": "^1.0.1"
+		"simple-wsgi": "^1.1.0",
+		"sp-templates": "^1.0.1",
+		"sqlite-execute-tag": "^1.0.1"
 	}
 }

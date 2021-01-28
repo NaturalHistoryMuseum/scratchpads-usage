@@ -1,0 +1,332 @@
+<!doctype HTML><html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Scratchpads → Taxonworks Mappings</title></head><body style="--theme-colour: rebeccapurple">
+	
+<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: Arial, sans-serif;
+}
+
+main.content {
+	flex-grow: 1;
+	margin-top: 30px;
+}
+main h1, main h2 {
+	color: var(--theme-colour);
+}
+header {
+	background: var(--theme-colour);
+	color: white;
+	min-height: 170px;
+	display: flex;
+}
+header a:link,
+header a:visited {
+	color: white;
+}
+.content {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 10px;
+}
+.siteInfo{
+	display: flex;
+	justify-content: space-between;
+}
+.login{
+	display: inline-block;
+	background: #262626;
+	padding: 3px 10.5px 4px;
+	border-radius: 8px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	margin-top: -10px;
+	font-size: 11px;
+	letter-spacing: 0.5px;
+}
+footer {
+	background: #F1F1F1;
+	color: var(--theme-color);
+}
+header h1 {
+	font-weight: normal;
+	margin: 32px 0 0 0;
+}
+main h1 {
+	font-weight: normal;
+	letter-spacing: -0.05em;
+	margin-top: 0;
+}
+header .content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+nav {
+	margin-bottom: -10px;
+}
+nav a {
+	display: inline-block;
+	background: rgba(0,0,0,0.3);
+	border-radius: 8px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	padding: 5px 10.5px 5px;
+	letter-spacing: 0.5px;
+}
+</style>
+
+	<header>
+		<div class="content">
+			<div class="siteInfo">
+		  		<h1>Scratchpads → Taxonworks Mappings</h1>
+				<div></div>
+			</div>
+			<nav>
+				<a href="&#x2F;">Home</a>
+			</nav>
+		</div>
+	</header>
+	<main class="content">
+		<p>Describing the core data models of Scratchpads and how they map to Taxonworks data models.</p>
+<h2 id="data-types">Data Types</h2>
+<p>The core data types of Scratchpads are:</p>
+<ul>
+<li>Biblio<ul>
+<li>Biblio_Contributor</li>
+</ul>
+</li>
+<li>Taxonomy Term</li>
+<li>Location</li>
+<li>Specimen/Observation</li>
+<li>Taxon DescriptionTaxonomy Vocabulary</li>
+<li>Person</li>
+<li>Page</li>
+<li>Media Gallery</li>
+</ul>
+<h2 id="biblio">Biblio</h2>
+<p>Fields:</p>
+<ul>
+<li>biblio_type</li>
+<li>biblio_year</li>
+<li>biblio_original_publication</li>
+<li>title</li>
+<li>biblio_lang</li>
+<li>biblio_contributors (array)</li>
+<li>field_taxonomic_name</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data assumptions</th>
+<th>Taxonworks content type</th>
+<th>Taxonworks field name</th>
+<th>Notes or processing instructions</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>biblio_type</td>
+<td>(ID or string?)</td>
+<td>Source::Bibtex</td>
+<td>bitex_type</td>
+<td>Value needs to be mapped to bibtex type string (<a href="https://www.bibtex.com/e/entry-types/">https://www.bibtex.com/e/entry-types/</a>)</td>
+<td>Bibtex</td>
+</tr>
+</tbody></table>
+<p>Taxonworks mapping:</p>
+<p>Create a new Source::bibtex object with the following properties:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Taxonworks Field</strong></th>
+<th><strong>Scratchpads mapping</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>contributors</td>
+<td>Array containing the mapping of biblio_contributors to taxonworks person</td>
+</tr>
+<tr>
+<td>year</td>
+<td>`Year` if `year` is not 0, else the first four-digit number in `title`</td>
+</tr>
+<tr>
+<td>Bibtex_type</td>
+<td>Biblio_type, mapped to bibtex type string (<a href="https://www.bibtex.com/e/entry-types/">https://www.bibtex.com/e/entry-types/</a>)</td>
+</tr>
+<tr>
+<td>Journal</td>
+<td>Biblio_original_publication</td>
+</tr>
+<tr>
+<td>title</td>
+<td>title</td>
+</tr>
+<tr>
+<td>language</td>
+<td>Biblio_lang</td>
+</tr>
+<tr>
+<td>taxonName</td>
+<td>The associated taxonomy term record mapped to Taxonworks TaxonName object</td>
+</tr>
+</tbody></table>
+<h3 id="biblio_contributor">Biblio_contributor</h3>
+<p>Fields:</p>
+<ul>
+<li><p>  Firstname</p>
+</li>
+<li><p>  Initials</p>
+</li>
+<li><p>  Lastname</p>
+</li>
+<li><p>  Suffix</p>
+</li>
+</ul>
+<p>Taxonworks Mapping:</p>
+<p>Create a new Person object with the following properties</p>
+<table>
+<thead>
+<tr>
+<th><strong>Taxonworks Person Field</strong></th>
+<th><strong>Scratchpads source</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Firstname</td>
+<td>Firstname concatenated with Initials, if not empty</td>
+</tr>
+<tr>
+<td>Lastname</td>
+<td>lastname</td>
+</tr>
+<tr>
+<td>Suffix</td>
+<td>suffix</td>
+</tr>
+</tbody></table>
+<h2 id="taxonomy-term">Taxonomy Term</h2>
+<p>Fields:</p>
+<ul>
+<li><p>  Field_reference</p>
+</li>
+<li><p>  Name</p>
+</li>
+<li><p>  Field_usage</p>
+</li>
+<li><p>  field_rank</p>
+</li>
+<li><p>  Field_authors</p>
+</li>
+</ul>
+<p>Mapping:</p>
+<p>Create a new Protonym object with the following properties</p>
+<table>
+<thead>
+<tr>
+<th><strong>Taxonworks field</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>The last part of name when split on whitespace</td>
+</tr>
+<tr>
+<td>Synonym</td>
+<td>Get the synonym Protonym representing the term’s associated accepted name, if any.<br>Get the field_unacceptability_reason from the associated accepted name<br>Create a new Synonym object with object_taxon_name set to the synonym Protonym and type set to the appropriate TaxonNameRelationshop class for the associated accepted name</td>
+</tr>
+<tr>
+<td>rank</td>
+<td>Field_rank</td>
+</tr>
+<tr>
+<td>roles</td>
+<td>Create an array of authors surnames by splitting Field_authors split by “&amp;” or “and”<br>Create an array of Person objects by mapping author surnames to Person objects with `lastname` set to the author surname<br>Create an array of TaxonNameAuthor records by mapping the array of Person objects to TaxonNameAuthor objects with `person` as the Person object and `position` as Author</td>
+</tr>
+<tr>
+<td>source</td>
+<td>A taxonworks Source object representing the Biblio node in Field_reference</td>
+</tr>
+<tr>
+<td>Parent</td>
+<td>Get the Taxonomy Term’s closest ancestor node with a different rank (ancestors with the same rank are synonyms)<br>Create a taxonwokrs Protonym object representing the ancestor TaxonomyTerm if present, or the Taxonworks project’s Root term</td>
+</tr>
+<tr>
+<td>Rank_class</td>
+<td>Map field_rank to the appropriate Taxonworks NomenclaturalRank subclass</td>
+</tr>
+</tbody></table>
+<h2 id="location">Location</h2>
+<ul>
+<li><p>  Location mustbe split into three records:</p>
+</li>
+<li><p>  Geographic item (spatial definition of area)</p>
+</li>
+<li><p>  Geographic Area (nomenclatural details location name, political or cultural definition)</p>
+</li>
+<li><p>  Georeference (information about a specific collection at a geographic item)</p>
+</li>
+</ul>
+<p>Fields:</p>
+<ul>
+<li><p>  title</p>
+</li>
+<li><p>  field_continent_or_ocean</p>
+</li>
+<li><p>  field_coordinate_system</p>
+</li>
+<li><p>  field_coordinate_uncertainty</p>
+</li>
+<li><p>  field_country</p>
+</li>
+<li><p>  field_county</p>
+</li>
+<li><p>  field_geodetic_datum</p>
+</li>
+<li><p>  field_georeference_protocol</p>
+</li>
+<li><p>  field_georeference_remarks</p>
+</li>
+<li><p>  field_island_group</p>
+</li>
+<li><p>  field_island</p>
+</li>
+<li><p>  field_locality</p>
+</li>
+<li><p>  field_map</p>
+</li>
+<li><p>  field_max_depth</p>
+</li>
+<li><p>  field_max_elevation</p>
+</li>
+<li><p>  field_min_depth</p>
+</li>
+<li><p>  field_min_elevation</p>
+</li>
+<li><p>  field_state_province</p>
+</li>
+<li><p>  field_locality_text</p>
+</li>
+</ul>
+<p>Mapping:</p>
+<p>Create a new Geographic Item object with the following fields:</p>
+
+	</main>
+	<footer>
+		<div class="content"></body>

@@ -1,20 +1,6 @@
-import database from 'sqlite-async';
-import sqlTag from 'sql-execute-tag';
 import parseSites from './scripts/parse.js';
 import fs from 'fs';
-import sqlite3 from 'sqlite3';
-import renderReports from './templates/index.js';
-
-async function sqliteDb(file) {
-	const db = await database.open(file);
-	const sql = sqlTag((lits, vals) => db.all(lits.sql, vals).catch(e=>{
-		console.error(lits);
-		throw e;
-	}));
-	// Limit on the number of variables allowed in SQLITE statements (this was increased in v3.32.0)
-	sql.MAX_VARIABLES = Number(sqlite3.VERSION.substr(2)) < 32 ? 999 : 32766;
-	return sql;
-}
+import sqliteDb from 'sqlite-execute-tag';
 
 function writeJson(file, json) {
 	fs.writeFileSync(file, JSON.stringify(json, null, 2));
@@ -31,7 +17,7 @@ async function importData(db='./db.sqlite', tablefile = './scripts/_data/table-l
 	writeJson(tablefile, tables);
 }
 
-import report from './scripts/report/recently-edited.js';
+import report from './scripts/reports/recently-edited.js';
 
 async function generateData() {
 	const sql = await sqliteDb('./db.sqlite')
@@ -42,5 +28,3 @@ console.log('Importing data to database')
 await importData();
 console.log('Generating interesting information')
 await generateData();
-console.log('Rendering report info');
-await renderReports('./data', './reports')

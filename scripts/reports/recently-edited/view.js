@@ -9,7 +9,7 @@ export default data => html`
 		<tr><th>Site</th><th>Changed</th></tr>
 	</thead>
 	<tbody>${data.map(row=>html`
-		<tr><td>${row.site}</td><td>${row.changed}</td></tr>`)}
+		<tr><td>${row.site}</td><td>${row.changed.toLocaleDateString()}</td></tr>`)}
 	</tbody>
 </table>
 `;
