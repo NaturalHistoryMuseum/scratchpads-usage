@@ -25,5 +25,5 @@ import fs from 'fs';
 const getReportStatic = GetReport(sql, id => '/' + id + '.html');
 
 for(const [path, page] of getReportStatic) {
-	fs.writeFileSync('reports/'+path+'.html', await page);
+	fs.writeFileSync('docs/'+path+'.html', await page);
 }
