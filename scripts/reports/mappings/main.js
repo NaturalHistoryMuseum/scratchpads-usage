@@ -2,17 +2,26 @@ import fs from 'fs';
 import path from 'path';
 import markdown from 'marked';
 import html from 'encode-html-template-tag';
+import biblio from './biblio/main.js';
+import view from './view.js';
 
-const mappingsFile = path.resolve(new URL(import.meta.url).pathname, '../mappings.md');
+const title = 'Scratchpads → Taxonworks Mappings';
+
+const dirname = path.resolve(new URL(import.meta.url).pathname, '..');
+
+const importMarkdown = file => html.safe(
+	markdown(
+		fs.readFileSync(
+			path.join(dirname, file),
+			'utf-8'
+		)
+	)
+)
+const mappings = importMarkdown('mappings.md');
 
 export default () => {
-	const body = fs.readFileSync(mappingsFile, 'utf8');
-	const m = body.match(/^# (.+)$/m);
-
-	const title = m[1];
-
 	return {
 		title,
-		body: html.safe(markdown(body.replace(m[0], '')))
+		body: view(biblio, mappings)
 	}
 };

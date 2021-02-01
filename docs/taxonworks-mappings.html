@@ -101,91 +101,157 @@ nav a {
 		</div>
 	</header>
 	<main class="content">
-		<p>Describing the core data models of Scratchpads and how they map to Taxonworks data models.</p>
-<h2 id="data-types">Data Types</h2>
-<p>The core data types of Scratchpads are:</p>
-<ul>
-<li>Biblio<ul>
-<li>Biblio_Contributor</li>
-</ul>
-</li>
-<li>Taxonomy Term</li>
-<li>Location</li>
-<li>Specimen/Observation</li>
-<li>Taxon DescriptionTaxonomy Vocabulary</li>
-<li>Person</li>
-<li>Page</li>
-<li>Media Gallery</li>
-</ul>
-<h2 id="biblio">Biblio</h2>
-<p>Fields:</p>
-<ul>
-<li>biblio_type</li>
-<li>biblio_year</li>
-<li>biblio_original_publication</li>
-<li>title</li>
-<li>biblio_lang</li>
-<li>biblio_contributors (array)</li>
-<li>field_taxonomic_name</li>
-</ul>
+		
+	Describing the core data models of Scratchpads and how they map to Taxonworks data models.
+
+	<h2>Data Types</h2>
+
+	The core data types of Scratchpads are:
+
+	<ul>
+		<li>Biblio</li>
+		<li>Biblio_Contributor</li>
+		<li>Taxonomy Term</li>
+		<li>Location</li>
+		<li>Specimen/Observation</li>
+		<li>Taxon DescriptionTaxonomy Vocabulary</li>
+		<li>Person</li>
+		<li>Page</li>
+		<li>Media Gallery</li>
+	</ul>
+
+	
+<h2>Biblio</h2>
+
 <table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Data assumptions</th>
-<th>Taxonworks content type</th>
-<th>Taxonworks field name</th>
-<th>Notes or processing instructions</th>
-<th>Standard</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>biblio_type</td>
-<td>(ID or string?)</td>
-<td>Source::Bibtex</td>
-<td>bitex_type</td>
-<td>Value needs to be mapped to bibtex type string (<a href="https://www.bibtex.com/e/entry-types/">https://www.bibtex.com/e/entry-types/</a>)</td>
-<td>Bibtex</td>
-</tr>
-</tbody></table>
-<p>Taxonworks mapping:</p>
-<p>Create a new Source::bibtex object with the following properties:</p>
-<table>
-<thead>
-<tr>
-<th><strong>Taxonworks Field</strong></th>
-<th><strong>Scratchpads mapping</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>contributors</td>
-<td>Array containing the mapping of biblio_contributors to taxonworks person</td>
-</tr>
-<tr>
-<td>year</td>
-<td>`Year` if `year` is not 0, else the first four-digit number in `title`</td>
-</tr>
-<tr>
-<td>Bibtex_type</td>
-<td>Biblio_type, mapped to bibtex type string (<a href="https://www.bibtex.com/e/entry-types/">https://www.bibtex.com/e/entry-types/</a>)</td>
-</tr>
-<tr>
-<td>Journal</td>
-<td>Biblio_original_publication</td>
-</tr>
-<tr>
-<td>title</td>
-<td>title</td>
-</tr>
-<tr>
-<td>language</td>
-<td>Biblio_lang</td>
-</tr>
-<tr>
-<td>taxonName</td>
-<td>The associated taxonomy term record mapped to Taxonworks TaxonName object</td>
-</tr>
-</tbody></table>
+	<thead><tr>
+	<th>Field</th><th>Data assumptions</th><th>Taxonworks content type</th><th>Taxonworks field name</th><th>Notes or processing instructions</th><th>Standard</th>
+</tr></thead>
+	<tbody>
+	<tr>
+		<td>title</td><td>string</td><td>Source::Bibtex</td><td>title</td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_type</td><td>integer representing item from biblio_types table (one of: 
+journal article, conference paper, book chapter, miscelaneous)</td><td>Source::Bibtex</td><td>bibtex_type</td><td>Value needs to be mapped to bibtex type string (https:&#x2F;&#x2F;www.bibtex.com&#x2F;e&#x2F;entry-types&#x2F;); “journal article”&#x3D;&gt;article, “conference paper”&#x3D;&gt;conference, “book chapter”&#x3D;&gt;inbook, “miscelaneous”&#x3D;&gt;misc</td><td>Bibtex</td>
+	</tr><tr>
+		<td>biblio_number</td><td>string</td><td>Source::Bibtex</td><td>number</td><td></td><td>Bibtex</td>
+	</tr><tr>
+		<td>biblio_other_number</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_sort_title</td><td></td><td>n&#x2F;a</td><td>n&#x2F;a</td><td>Derrived from title</td><td></td>
+	</tr><tr>
+		<td>biblio_secondary_title</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_tertiary_title</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_edition</td><td>string</td><td>Source::Bibtex</td><td>edition</td><td></td><td>Bibtex</td>
+	</tr><tr>
+		<td>biblio_publisher</td><td>Publisher name as string</td><td>Source::Bibtex</td><td>publisher</td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_place_published</td><td>Publisher location as string</td><td>Source::Bibtex</td><td>address</td><td></td><td>Bibtex</td>
+	</tr><tr>
+		<td>biblio_year</td><td>Integer &gt; 0 (other TAXONWORKS RESTRICTIONS?)</td><td>Source::Bibtex</td><td>year</td><td></td><td>Bibtex</td>
+	</tr><tr>
+		<td>biblio_volume</td><td>String</td><td>Source::Bibtex</td><td>volume</td><td></td><td>Bibtex</td>
+	</tr><tr>
+		<td>biblio_pages</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_date</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_isbn</td><td>ISBN number</td><td>Source::Bibtex</td><td>isbn</td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_lang</td><td>3 letter ISO 639-2 language code</td><td>Source::Bibtex</td><td>language</td><td></td><td>Bibtex</td>
+	</tr><tr>
+		<td>biblio_abst_e</td><td>abstract as html</td><td>Source::Bibtex</td><td>abstract</td><td></td><td>Bibtex</td>
+	</tr><tr>
+		<td>biblio_abst_f</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_full_text</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_url</td><td>url</td><td>Source::Bibtex</td><td>url</td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_issue</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_type_of_work</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_accession_number</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_call_number</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_notes</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_custom1</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_custom2</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_custom3</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_custom4</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_custom5</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_custom6</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_custom7</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_research_notes</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_number_of_volumes</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_short_title</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_alternate_title</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_original_publication</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_reprint_edition</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_translated_title</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_section</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_citekey</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_coins</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_doi</td><td>doi</td><td>Source::Bibtex</td><td>doi</td><td></td><td>Bibtex</td>
+	</tr><tr>
+		<td>biblio_issn</td><td>issn</td><td>Source::Bibtex</td><td>issn</td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_auth_address</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_remote_db_name</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_remote_db_provider</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_label</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_access_date</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_refereed</td><td>String enum (None|Refereed|Non-Refereed|Does Not Apply|Unknown)</td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_md5</td><td>md5 hash</td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_type_name</td><td>string representing type name from biblio_types table  (one of: 
+journal article, conference paper, book chapter, miscelaneous)</td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_contributors</td><td>array of biblio_contributor objects</td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>biblio_keywords</td><td>array of strings</td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>body</td><td>Full publication body as html</td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>field_taxonomic_name</td><td>tid of associated taxon</td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>field_file</td><td>array of associated file objects</td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td>field_front_cover</td><td></td><td></td><td></td><td></td><td></td>
+	</tr><tr>
+		<td></td>
+	</tr>
+</tbody>
+</table>
+
 <h3 id="biblio_contributor">Biblio_contributor</h3>
 <p>Fields:</p>
 <ul>
@@ -326,6 +392,7 @@ nav a {
 </ul>
 <p>Mapping:</p>
 <p>Create a new Geographic Item object with the following fields:</p>
+
 
 	</main>
 	<footer>
