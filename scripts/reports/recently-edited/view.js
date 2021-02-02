@@ -7,8 +7,8 @@ const sortCol = (sort, getUrl) => function sortCol(name, id=name.toLowerCase()) 
 /**
  * Template for most recently used sites table
  */
-export default (sort, data, getUrl) => {
-	const col = sortCol(sort, getUrl);
+export default ({sort, urlFor, collectionDate}, data) => {
+	const col = sortCol(sort, urlFor);
 
 	return html`
 <style>
@@ -16,7 +16,7 @@ export default (sort, data, getUrl) => {
 	text-align:right;
 }
 </style>
-<p>A list of all Scratchpads for which a node or taxonomy term has been edited in the three months up to the data collection date.</p>
+<p>A list of all Scratchpads for which a node or taxonomy term has been edited in the three months up to ${collectionDate.toLocaleDateString()}.</p>
 <p>This list contains ${data.length} sites.</p>
 <table>
 	<thead>

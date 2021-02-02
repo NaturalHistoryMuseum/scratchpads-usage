@@ -27,7 +27,7 @@ function router(menu, id){
 	}
 }
 
-export default function Reports(sql, urlFor = id => '/' + id + '.html') {
+export default function Reports(sql, urlFor) {
 	const menu = reports.map(r => ({
 		title: r.title,
 		path: urlFor(r.id)
@@ -61,9 +61,9 @@ export default function Reports(sql, urlFor = id => '/' + id + '.html') {
 		for(const m of reports) {
 			if(m.options) {
 				yield* m.options.map(o=>[m.id, getPage(m.id, o), o])
+			} else {
+				yield [m.id, getPage(m.id)];
 			}
-
-			yield [m.id, getPage(m.id)];
 		}
 	}
 

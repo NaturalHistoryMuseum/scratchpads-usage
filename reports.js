@@ -24,6 +24,12 @@ start(async (req, res)=>{
 // Also generate html pages in reports directory
 import fs from 'fs';
 
+const outputDir = 'docs'
+for(const file of fs.readdirSync(outputDir)) {
+	if(file.match(/\.html$/)) {
+		fs.rmSync([outputDir, file].join('/'))
+	}
+}
 
 const getUrlStatic = (path, options) => {
 	const filename = options ? path+'.'+Array.from(options).map(([k,v])=>`${k}_${v}`).join('.') : path;
@@ -34,5 +40,5 @@ const getReportStatic = GetReport(sql, (...args) => '/scratchpads-usage/' + getU
 
 for(const [path, page, options] of getReportStatic) {
 	const filename = getUrlStatic(path, options)
-	fs.writeFileSync('docs/'+filename, await page);
+	fs.writeFileSync(outputDir + '/'+filename, await page);
 }
