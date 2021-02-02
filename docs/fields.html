@@ -1,0 +1,111 @@
+<!doctype HTML><html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Fields</title></head><body style="--theme-colour: rebeccapurple">
+	
+<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: Arial, sans-serif;
+}
+
+main.content {
+	flex-grow: 1;
+	margin-top: 30px;
+}
+main h1, main h2 {
+	color: var(--theme-colour);
+}
+header {
+	background: var(--theme-colour);
+	color: white;
+	min-height: 170px;
+	display: flex;
+}
+header a:link,
+header a:visited {
+	color: white;
+}
+.content {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 10px;
+}
+.siteInfo{
+	display: flex;
+	justify-content: space-between;
+}
+.login{
+	display: inline-block;
+	background: #262626;
+	padding: 3px 10.5px 4px;
+	border-radius: 8px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	margin-top: -10px;
+	font-size: 11px;
+	letter-spacing: 0.5px;
+}
+footer {
+	background: #F1F1F1;
+	color: var(--theme-color);
+}
+header h1 {
+	font-weight: normal;
+	margin: 32px 0 0 0;
+}
+main h1 {
+	font-weight: normal;
+	letter-spacing: -0.05em;
+	margin-top: 0;
+}
+header .content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+nav {
+	margin-bottom: -10px;
+}
+nav a {
+	display: inline-block;
+	background: rgba(0,0,0,0.3);
+	border-radius: 8px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	padding: 5px 10.5px 5px;
+	letter-spacing: 0.5px;
+}
+</style>
+
+	<header>
+		<div class="content">
+			<div class="siteInfo">
+		  		<h1>Fields</h1>
+				<div></div>
+			</div>
+			<nav>
+				<a href="&#x2F;scratchpads-usage&#x2F;index.html">Home</a>
+			</nav>
+		</div>
+	</header>
+	<main class="content">
+		
+	For each of the core data types, what are the most common field names?<br>
+	[{&quot;site&quot;:&quot;phthiraptera.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;dispersedSeedOf_seedsDispersedBy&quot;,&quot;c&quot;:4},{&quot;site&quot;:&quot;phthiraptera.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;flowerVisitedBy_visitedFlowerOf&quot;,&quot;c&quot;:4},{&quot;site&quot;:&quot;phthiraptera.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;host_parasite&quot;,&quot;c&quot;:4},{&quot;site&quot;:&quot;phthiraptera.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;nestedIn_usedAsNestBy&quot;,&quot;c&quot;:4},{&quot;site&quot;:&quot;phthiraptera.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;pathogenOf_infectedBy&quot;,&quot;c&quot;:4},{&quot;site&quot;:&quot;phthiraptera.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;preysUpon_preyedUponBy&quot;,&quot;c&quot;:4},{&quot;site&quot;:&quot;phthiraptera.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;resinExtractedBy_extractsResinFrom&quot;,&quot;c&quot;:4},{&quot;site&quot;:&quot;alifeinthetrees.myspecies.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;character&quot;,&quot;c&quot;:2},{&quot;site&quot;:&quot;alifeinthetrees.myspecies.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;character_state&quot;,&quot;c&quot;:2},{&quot;site&quot;:&quot;acanthaceaeth.myspecies.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;publication_treatments&quot;,&quot;c&quot;:2},{&quot;site&quot;:&quot;aeridinae.e-monocot.org&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;publication_treatments&quot;,&quot;c&quot;:2},{&quot;site&quot;:&quot;benthic-foraminifera.myspecies.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;publication_treatments&quot;,&quot;c&quot;:2},{&quot;site&quot;:&quot;nwatlanticbryozoa.myspecies.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;publication_treatments&quot;,&quot;c&quot;:2},{&quot;site&quot;:&quot;aba.myspecies.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;character&quot;,&quot;c&quot;:1},{&quot;site&quot;:&quot;aconitum.myspecies.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;character&quot;,&quot;c&quot;:1},{&quot;site&quot;:&quot;aframomum.myspecies.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;character&quot;,&quot;c&quot;:1},{&quot;site&quot;:&quot;africhthy.org&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;character&quot;,&quot;c&quot;:1},{&quot;site&quot;:&quot;agelenidsoftheworld.myspecies.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;character&quot;,&quot;c&quot;:1},{&quot;site&quot;:&quot;anolislizards.myspecies.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;character&quot;,&quot;c&quot;:1},{&quot;site&quot;:&quot;anthyllisvulneraria.myspecies.info&quot;,&quot;field_name&quot;:&quot;endpoints&quot;,&quot;entity_type&quot;:&quot;relation&quot;,&quot;bundle&quot;:&quot;character&quot;,&quot;c&quot;:1}]<br>
+	Are those fields actually used?
+
+	</main>
+	<footer>
+		<div class="content"></body>

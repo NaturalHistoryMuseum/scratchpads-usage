@@ -17,14 +17,5 @@ async function importData(db='./db.sqlite', tablefile = './scripts/_data/table-l
 	writeJson(tablefile, tables);
 }
 
-import report from './scripts/reports/recently-edited.js';
-
-async function generateData() {
-	const sql = await sqliteDb('./db.sqlite')
-	writeJson('./data/recently-changed-sites.json', await report(sql));
-}
-
 console.log('Importing data to database')
 await importData();
-console.log('Generating interesting information')
-await generateData();
