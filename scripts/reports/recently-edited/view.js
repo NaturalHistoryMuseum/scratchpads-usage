@@ -16,7 +16,7 @@ export default (sort, data, getUrl) => {
 	text-align:right;
 }
 </style>
-<p>A list of all Scratchpads for which a node or taxonomy term has been edited in the three months up to ${data[0].changed.toLocaleDateString()}.</p>
+<p>A list of all Scratchpads for which a node or taxonomy term has been edited in the three months up to the data collection date.</p>
 <p>This list contains ${data.length} sites.</p>
 <table>
 	<thead>
