@@ -1,0 +1,23 @@
+Field,Data assumptions,Taxonworks content type,Taxonworks field name,Notes or processing instructions,Standard
+field_basis_of_record
+field_catalogue_number
+field_collection_code
+field_collector
+field_collector_number
+field_count
+field_date_collected
+field_date_identified
+field_genbank_number
+field_identification_qualifier
+field_identified_by
+field_institution_code
+field_lifestage
+field_location
+field_media
+field_notes
+field_number
+field_other_catalogue_numbers
+field_remarks
+field_sex
+field_taxonomic_name
+field_type_status

@@ -17,7 +17,7 @@ select type, count(*) as count from node where status>0 group by type;
 
 -- Entity/bundle fields
 select "__table:fields__" as '';
-select field_name, entity_type, bundle from field_config_instance where field_id>0;
+select field_name, entity_type, bundle from field_config_instance where field_id>0 and deleted=0;
 
 select "__serialized:vids.biological__" as ``;
 select value from variable where name like "biological_vids";

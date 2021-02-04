@@ -2,7 +2,7 @@
 	"type": "module",
 	"devDependencies": {},
 	"dependencies": {
-		"encode-html-template-tag": "^2.1.0",
+		"encode-html-template-tag": "^2.2.1",
 		"marked": "^1.2.8",
 		"papaparse": "^5.3.0",
 		"php-serialize": "^4.0.2",

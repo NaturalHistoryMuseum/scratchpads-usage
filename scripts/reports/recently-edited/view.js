@@ -1,14 +1,17 @@
 import html from 'encode-html-template-tag';
+import {thead, tbody, numeric} from '../table.js';
 
 const sortCol = (sort, getUrl) => function sortCol(name, id=name.toLowerCase()) {
 	return id===sort ? html`<i>${name}</i>` : html`<a href="${getUrl(id)}">${name}</a>`;
 }
 
+const date = d => html`<time datetime="${d.toISOString()}">${d.toLocaleDateString()}</time>`
+
 /**
  * Template for most recently used sites table
  */
 export default ({sort, urlFor, collectionDate}, data) => {
-	const col = sortCol(sort, urlFor);
+	const sortable = sortCol(sort, urlFor);
 
 	return html`
 <style>
@@ -16,22 +19,21 @@ export default ({sort, urlFor, collectionDate}, data) => {
 	text-align:right;
 }
 </style>
-<p>A list of all Scratchpads for which a node or taxonomy term has been edited in the three months up to ${collectionDate.toLocaleDateString()}.</p>
+<p>A list of all Scratchpads for which a node or taxonomy term has been edited in the three months up to ${date(collectionDate)}.</p>
 <p>This list contains ${data.length} sites.</p>
 <table>
-	<thead>
-		<tr>
-			<th rowspan=2>Site</th><th rowspan=2>${col('Changed')}</th>
-			<th colspan=3>Number of changed items</th></tr>
-		<tr>
-			<th>${col('Nodes')}</th><th>${col('Taxa')}</th><th>Total</th></tr>
-	</thead>
-	<tbody>${data.map(row=>html`
-		<tr><td>${row.site}</td>
-		<td>${row.changed.toLocaleDateString()}</td>
-		<td class="numeric">${row.nodes}</td>
-		<td class="numeric">${row.taxa}</td>
-		<td class="numeric">${row.total}</td></tr>`)}
-	</tbody>
+	${thead([
+		'Site',
+		sortable('Changed'),
+		{
+			title:'Number of changed items',
+			group: [
+				sortable('Nodes'),
+				sortable('Taxa'),
+				'Total'
+			]
+		}
+	])}
+	${tbody(['site', row=>date(row.changed), numeric('nodes'), numeric('taxa'), numeric('total')], data)}
 </table>
 `};

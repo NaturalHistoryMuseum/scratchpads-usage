@@ -102,6 +102,32 @@ nav a {
 	</header>
 	<main class="content">
 		
+<style>
+table {
+	width: 100%;
+	border-width: 1px;
+	border-color: #D9DADD;
+	border-style: solid solid none solid;
+	border-collapse: collapse;
+}
+
+thead {
+	background: #EBEDED;
+	border: 0;
+}
+
+thead, tbody tr {
+	border-bottom: 1px solid #ccc;
+}
+
+tbody tr:nth-child(odd) {
+	background: #F1F4FB;
+}
+
+th, td {
+	padding: 2px 7px;
+}
+</style>
 	Describing the core data models of Scratchpads and how they map to Taxonworks data models.
 
 	<h2>Data Types</h2>
@@ -123,135 +149,17 @@ nav a {
 	
 <h2>Biblio</h2>
 
-<table>
-	<thead><tr>
-	<th>Field</th><th>Data assumptions</th><th>Taxonworks content type</th><th>Taxonworks field name</th><th>Notes or processing instructions</th><th>Standard</th>
-</tr></thead>
-	<tbody>
-	<tr>
-		<td>title</td><td>string</td><td>Source::Bibtex</td><td>title</td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_type</td><td>integer representing item from biblio_types table (one of: 
-journal article, conference paper, book chapter, miscelaneous)</td><td>Source::Bibtex</td><td>bibtex_type</td><td>Value needs to be mapped to bibtex type string (https:&#x2F;&#x2F;www.bibtex.com&#x2F;e&#x2F;entry-types&#x2F;); “journal article”&#x3D;&gt;article, “conference paper”&#x3D;&gt;conference, “book chapter”&#x3D;&gt;inbook, “miscelaneous”&#x3D;&gt;misc</td><td>Bibtex</td>
-	</tr><tr>
-		<td>biblio_number</td><td>string</td><td>Source::Bibtex</td><td>number</td><td></td><td>Bibtex</td>
-	</tr><tr>
-		<td>biblio_other_number</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_sort_title</td><td></td><td>n&#x2F;a</td><td>n&#x2F;a</td><td>Derrived from title</td><td></td>
-	</tr><tr>
-		<td>biblio_secondary_title</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_tertiary_title</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_edition</td><td>string</td><td>Source::Bibtex</td><td>edition</td><td></td><td>Bibtex</td>
-	</tr><tr>
-		<td>biblio_publisher</td><td>Publisher name as string</td><td>Source::Bibtex</td><td>publisher</td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_place_published</td><td>Publisher location as string</td><td>Source::Bibtex</td><td>address</td><td></td><td>Bibtex</td>
-	</tr><tr>
-		<td>biblio_year</td><td>Integer &gt; 0 (other TAXONWORKS RESTRICTIONS?)</td><td>Source::Bibtex</td><td>year</td><td></td><td>Bibtex</td>
-	</tr><tr>
-		<td>biblio_volume</td><td>String</td><td>Source::Bibtex</td><td>volume</td><td></td><td>Bibtex</td>
-	</tr><tr>
-		<td>biblio_pages</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_date</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_isbn</td><td>ISBN number</td><td>Source::Bibtex</td><td>isbn</td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_lang</td><td>3 letter ISO 639-2 language code</td><td>Source::Bibtex</td><td>language</td><td></td><td>Bibtex</td>
-	</tr><tr>
-		<td>biblio_abst_e</td><td>abstract as html</td><td>Source::Bibtex</td><td>abstract</td><td></td><td>Bibtex</td>
-	</tr><tr>
-		<td>biblio_abst_f</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_full_text</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_url</td><td>url</td><td>Source::Bibtex</td><td>url</td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_issue</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_type_of_work</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_accession_number</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_call_number</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_notes</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_custom1</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_custom2</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_custom3</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_custom4</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_custom5</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_custom6</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_custom7</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_research_notes</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_number_of_volumes</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_short_title</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_alternate_title</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_original_publication</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_reprint_edition</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_translated_title</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_section</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_citekey</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_coins</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_doi</td><td>doi</td><td>Source::Bibtex</td><td>doi</td><td></td><td>Bibtex</td>
-	</tr><tr>
-		<td>biblio_issn</td><td>issn</td><td>Source::Bibtex</td><td>issn</td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_auth_address</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_remote_db_name</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_remote_db_provider</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_label</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_access_date</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_refereed</td><td>String enum (None|Refereed|Non-Refereed|Does Not Apply|Unknown)</td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_md5</td><td>md5 hash</td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_type_name</td><td>string representing type name from biblio_types table  (one of: 
-journal article, conference paper, book chapter, miscelaneous)</td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_contributors</td><td>array of biblio_contributor objects</td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>biblio_keywords</td><td>array of strings</td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>body</td><td>Full publication body as html</td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>field_taxonomic_name</td><td>tid of associated taxon</td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>field_file</td><td>array of associated file objects</td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td>field_front_cover</td><td></td><td></td><td></td><td></td><td></td>
-	</tr><tr>
-		<td></td>
-	</tr>
-</tbody>
-</table><h3 id="biblio_contributor">Biblio_contributor</h3>
+<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
+			<tr><td>title</td><td>string</td><td>Source::Bibtex</td><td>title</td><td></td><td></td></tr><tr><td>biblio_type</td><td>integer representing item from biblio_types table (one of: 
+journal article, conference paper, book chapter, miscelaneous)</td><td>Source::Bibtex</td><td>bibtex_type</td><td>Value needs to be mapped to bibtex type string (https:&#x2F;&#x2F;www.bibtex.com&#x2F;e&#x2F;entry-types&#x2F;); “journal article”&#x3D;&gt;article, “conference paper”&#x3D;&gt;conference, “book chapter”&#x3D;&gt;inbook, “miscelaneous”&#x3D;&gt;misc</td><td>Bibtex</td></tr><tr><td>biblio_number</td><td>string</td><td>Source::Bibtex</td><td>number</td><td></td><td>Bibtex</td></tr><tr><td>biblio_other_number</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_sort_title</td><td></td><td>n&#x2F;a</td><td>n&#x2F;a</td><td>Derrived from title</td><td></td></tr><tr><td>biblio_secondary_title</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_tertiary_title</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_edition</td><td>string</td><td>Source::Bibtex</td><td>edition</td><td></td><td>Bibtex</td></tr><tr><td>biblio_publisher</td><td>Publisher name as string</td><td>Source::Bibtex</td><td>publisher</td><td></td><td></td></tr><tr><td>biblio_place_published</td><td>Publisher location as string</td><td>Source::Bibtex</td><td>address</td><td></td><td>Bibtex</td></tr><tr><td>biblio_year</td><td>Integer &gt; 0 (other TAXONWORKS RESTRICTIONS?)</td><td>Source::Bibtex</td><td>year</td><td></td><td>Bibtex</td></tr><tr><td>biblio_volume</td><td>String</td><td>Source::Bibtex</td><td>volume</td><td></td><td>Bibtex</td></tr><tr><td>biblio_pages</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_date</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_isbn</td><td>ISBN number</td><td>Source::Bibtex</td><td>isbn</td><td></td><td></td></tr><tr><td>biblio_lang</td><td>3 letter ISO 639-2 language code</td><td>Source::Bibtex</td><td>language</td><td></td><td>Bibtex</td></tr><tr><td>biblio_abst_e</td><td>abstract as html</td><td>Source::Bibtex</td><td>abstract</td><td></td><td>Bibtex</td></tr><tr><td>biblio_abst_f</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_full_text</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_url</td><td>url</td><td>Source::Bibtex</td><td>url</td><td></td><td></td></tr><tr><td>biblio_issue</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_type_of_work</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_accession_number</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_call_number</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_notes</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom1</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom2</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom3</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom4</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom5</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom6</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom7</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_research_notes</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_number_of_volumes</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_short_title</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_alternate_title</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_original_publication</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_reprint_edition</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_translated_title</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_section</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_citekey</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_coins</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_doi</td><td>doi</td><td>Source::Bibtex</td><td>doi</td><td></td><td>Bibtex</td></tr><tr><td>biblio_issn</td><td>issn</td><td>Source::Bibtex</td><td>issn</td><td></td><td></td></tr><tr><td>biblio_auth_address</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_remote_db_name</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_remote_db_provider</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_label</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_access_date</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_refereed</td><td>String enum (None|Refereed|Non-Refereed|Does Not Apply|Unknown)</td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_md5</td><td>md5 hash</td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_type_name</td><td>string representing type name from biblio_types table  (one of: 
+journal article, conference paper, book chapter, miscelaneous)</td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_contributors</td><td>array of biblio_contributor objects</td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_keywords</td><td>array of strings</td><td></td><td></td><td></td><td></td></tr><tr><td>body</td><td>Full publication body as html</td><td></td><td></td><td></td><td></td></tr><tr><td>field_taxonomic_name</td><td>tid of associated taxon</td><td></td><td></td><td></td><td></td></tr><tr><td>field_file</td><td>array of associated file objects</td><td></td><td></td><td></td><td></td></tr><tr><td>field_front_cover</td><td></td><td></td><td></td><td></td><td></td></tr>
+	</tbody></table>
+
+
+<h3 id="biblio_contributor">Biblio_contributor</h3>
+
 <p>Fields:</p>
+
 <ul>
 <li><p>  Firstname</p>
 </li>
@@ -262,8 +170,11 @@ journal article, conference paper, book chapter, miscelaneous)</td><td></td><td>
 <li><p>  Suffix</p>
 </li>
 </ul>
+
 <p>Taxonworks Mapping:</p>
+
 <p>Create a new Person object with the following properties</p>
+
 <table>
 <thead>
 <tr>
@@ -284,6 +195,43 @@ journal article, conference paper, book chapter, miscelaneous)</td><td></td><td>
 <td>suffix</td>
 </tr>
 </tbody></table>
+
+
+
+<h2>SPM</h2>
+
+<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
+			<tr><td>field_associations</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_behavious</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_biology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_conservation_status</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_cyclicity</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_cytology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_diagnostic_description</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_diseases</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_dispersal</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_distribution</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_ecology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_evolution</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_general_description</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_genetics</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_growth</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_habitat</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_legislation</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_life_cycle</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_life_expectancy</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_look_alikes</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_management</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_media</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_migration</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_molecular_biology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_morphology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_phylogeny</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_physiology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_population_biology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_procedures</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_reproduction</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_risk_statement</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_size</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_spm_map</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_taxon_biology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_taxonomic_name</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_threats</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_trends</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_trophic_strategy</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_uses</td><td></td><td></td><td></td><td></td><td></td></tr>
+	</tbody></table>
+
+
+<h2>Specimen&#x2F;Observation</h2>
+
+<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
+			<tr><td>field_basis_of_record</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_catalogue_number</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_collection_code</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_collector</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_collector_number</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_count</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_date_collected</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_date_identified</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_genbank_number</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_identification_qualifier</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_identified_by</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_institution_code</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_lifestage</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_location</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_media</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_notes</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_number</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_other_catalogue_numbers</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_remarks</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_sex</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_taxonomic_name</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_type_status</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr>
+	</tbody></table>
+
+
+<h2>Location</h2>
+
+<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
+			<tr><td>field_georeference_protocol</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_georeference_remarks</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_island</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_island_group</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_locality</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_map</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_max_depth</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_max_elevation</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_min_depth</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_min_elevation</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_state_province</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_continent_or_ocean</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_coordinate_system</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_coordinate_uncertainty</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_country</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_county</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_geodetic_datum</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>title</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr>
+	</tbody></table>
+
+
+	Location must be split into three records:
+
+	<ul>
+		<li>Geographic item (spatial definition of area)</li>
+		<li>Geographic Area (nomenclatural details location name, political or cultural definition)</li>
+		<li>Georeference (information about a specific collection at a geographic item)</li>
+	</ul>
+<h2>Ecological Interaction</h2>
+
+<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
+			<tr><td>body</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_date</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_importance</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_int_collection</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_interaction_record_type</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_life_cycle_stage</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_location_ref</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_organism_part</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_reference</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_reference_page</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_species_status</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_specimen_1</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_taxonomic_name</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_interaction_type</td><td></td><td></td><td></td><td></td><td></td></tr>
+	</tbody></table>
+
 <h2 id="taxonomy-term">Taxonomy Term</h2>
 <p>Fields:</p>
 <ul>
@@ -336,60 +284,6 @@ journal article, conference paper, book chapter, miscelaneous)</td><td></td><td>
 <td>Map field_rank to the appropriate Taxonworks NomenclaturalRank subclass</td>
 </tr>
 </tbody></table>
-<h2 id="location">Location</h2>
-<ul>
-<li><p>  Location mustbe split into three records:</p>
-</li>
-<li><p>  Geographic item (spatial definition of area)</p>
-</li>
-<li><p>  Geographic Area (nomenclatural details location name, political or cultural definition)</p>
-</li>
-<li><p>  Georeference (information about a specific collection at a geographic item)</p>
-</li>
-</ul>
-<p>Fields:</p>
-<ul>
-<li><p>  title</p>
-</li>
-<li><p>  field_continent_or_ocean</p>
-</li>
-<li><p>  field_coordinate_system</p>
-</li>
-<li><p>  field_coordinate_uncertainty</p>
-</li>
-<li><p>  field_country</p>
-</li>
-<li><p>  field_county</p>
-</li>
-<li><p>  field_geodetic_datum</p>
-</li>
-<li><p>  field_georeference_protocol</p>
-</li>
-<li><p>  field_georeference_remarks</p>
-</li>
-<li><p>  field_island_group</p>
-</li>
-<li><p>  field_island</p>
-</li>
-<li><p>  field_locality</p>
-</li>
-<li><p>  field_map</p>
-</li>
-<li><p>  field_max_depth</p>
-</li>
-<li><p>  field_max_elevation</p>
-</li>
-<li><p>  field_min_depth</p>
-</li>
-<li><p>  field_min_elevation</p>
-</li>
-<li><p>  field_state_province</p>
-</li>
-<li><p>  field_locality_text</p>
-</li>
-</ul>
-<p>Mapping:</p>
-<p>Create a new Geographic Item object with the following fields:</p>
 
 
 	</main>

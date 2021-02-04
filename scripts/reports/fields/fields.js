@@ -1,4 +1,14 @@
-import data from './data.js';
+import getData from './data.js';
 import view from './view.js';
 
-export default async sql=>view(await data(sql))
+const bundles = ['biblio', 'spm', 'specimen_observation', 'location', 'ecological_interactions'];
+
+export default async sql=>{
+	const data = [];
+
+	for await(const d of getData(sql, bundles)) {
+		data.push(d)
+	}
+
+	return view(data)
+}

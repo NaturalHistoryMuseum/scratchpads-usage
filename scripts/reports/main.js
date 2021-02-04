@@ -3,6 +3,7 @@ import recentlyEdited, {options} from './recently-edited/main.js';
 import mappings from './mappings/main.js'
 import fields from './fields/fields.js'
 import { page } from 'sp-templates';
+import css from './page.js';
 
 import index from './index.js';
 
@@ -51,7 +52,8 @@ export default function Reports(sql, urlFor) {
 				menu:[{name:'Home', href:urlFor(INDEX)}]
 				//menu:[{name:'Home', href:'/'}, ...menu.map(m=>({ name:m.title, href:m.path }))]
 			},
-			view
+			[css,
+			view]
 		).render()
 	}
 
