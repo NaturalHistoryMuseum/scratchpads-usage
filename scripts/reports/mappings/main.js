@@ -1,38 +1,55 @@
-import fs from 'fs';
-import path from 'path';
-import markdown from 'marked';
-import html from 'encode-html-template-tag';
-import biblioBody from './biblio/main.js';
+import biblio from './biblio/main.js';
 import locationBody from './location/main.js';
-import view from './view.js';
-import report from './report-view.js';
-import loadCsv from './load-csv.js';
+import spm from './spm/spm.js';
+import specObs from './specimen-observation/main.js';
+import ecoInt from './ecoint/main.js';
+import importMarkdown from './import-markdown.js';
+import html from 'encode-html-template-tag';
 
 const title = 'Scratchpads → Taxonworks Mappings';
 
-const reports = [
-	report('Biblio', loadCsv('biblio/biblio.csv'), biblioBody),
-	report('SPM', loadCsv('data/spm.csv')),
-	report('Specimen/Observation', loadCsv('data/specimen-observation.csv')),
-	report('Location', loadCsv('location/location.csv'), locationBody),
-	report('Ecological Interaction', loadCsv('data/ecological-interaction.csv'))
-];
+const body = html`
+<style>
+section > h1 {
+	margin-top: 40px;
+}
+</style>
+<h1>${title}</h1>
 
-const dirname = path.resolve(new URL(import.meta.url).pathname, '..');
+Describing the core data models of Scratchpads and how they map to Taxonworks data models.
 
-const importMarkdown = file => html.safe(
-	markdown(
-		fs.readFileSync(
-			path.join(dirname, file),
-			'utf-8'
-		)
-	)
-)
-const mappings = importMarkdown('taxonomy-term.md');
+<section>
+<h1>Data Types</h1>
+
+The core data types of Scratchpads are:
+
+<ul>
+	<li>Biblio</li>
+	<li>Biblio_Contributor</li>
+	<li>Taxonomy Term</li>
+	<li>Location</li>
+	<li>Specimen/Observation</li>
+	<li>Taxon DescriptionTaxonomy Vocabulary</li>
+	<li>Person</li>
+	<li>Page</li>
+	<li>Media Gallery</li>
+</ul>
+</section>
+
+${[
+	biblio,
+	spm,
+	specObs,
+	locationBody,
+	ecoInt,
+	importMarkdown('taxonomy-term.md')
+]}
+`;
+
 
 export default () => {
 	return {
 		title,
-		body: view(reports, mappings),
+		body,
 	}
 };

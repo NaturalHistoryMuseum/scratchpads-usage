@@ -13,25 +13,25 @@ function trh(cols, depth) {
 	return html`<tr>${cols.map(c=>th(c, depth))}</tr>`;
 }
 
-function* getRows(columns) {
+function* getHeaderRows(columns) {
 	if(!columns.length) {
 		return;
 	}
 
 	yield columns;
 
-	yield* getRows(columns.reduce(
+	yield* getHeaderRows(columns.reduce(
 		(cols, col) => col.group ? cols.concat(col.group) : cols,
 		[]
 	));
 }
 
 export function thead(columns){
-	const rows = Array.from(getRows(columns));
+	const rows = Array.from(getHeaderRows(columns));
 	return element('thead', {}, rows.map((row, ix)=>trh(row, rows.length-ix)))
 }
 
-function bodyColumn(options, ix) {
+function bodyColumn(options) {
 	if(!(options && typeof options === 'object')) {
 		options = { value: options }
 	}
@@ -39,25 +39,25 @@ function bodyColumn(options, ix) {
 	const { value, ...attrs } = options;
 
 	return {
-		value: accessor(value, ix),
+		value: accessor(value),
 		attrs
 	}
 }
 
-function accessor(key, ix) {
+function accessor(key) {
 	if(key instanceof Function) {
 		return key;
 	}
 
-	return row => row[key] ?? row[ix];
+	return row => row[key];
 }
 
-function td(row, value, attrs={}) {
-	return element('td', attrs, value(row));
+function td(row, value, attrs={}, ix) {
+	return element('td', attrs, value(row, ix));
 }
 
 function tr(row, keys) {
-	return html`<tr>${keys.map(key => td(row, key.value, key.attrs))}</tr>`;
+	return html`<tr>${keys.map((key, ix) => td(row, key.value, key.attrs, ix))}</tr>`;
 }
 
 export function tbody(keys, data) {
@@ -74,9 +74,13 @@ export function column(options, value) {
 	}
 
 	if(typeof options === 'string') {
+		const key = options.toLowerCase().replace(/ /g, '_');
 		options = {
 			title: options,
-			value: value || options.toLowerCase().replace(/ /g, '_')
+			value: value || ((row, ix) => {
+				const v = Array.isArray(row) ? row[ix] : row[key];
+				return v;
+			})
 		}
 	}
 
@@ -87,17 +91,30 @@ export function column(options, value) {
 	return options;
 }
 
-export default function table(cols, data) {
+function getColumnConfigs(cols) {
 	const head = [];
 	const body = [];
 
 	for(const col of cols) {
-		const { title, group, ...rest } = column(col);
+		const { title, group, ...bodyCfg } = column(col);
 
-		head.push({title, group});
-		body.push(rest);
+		if(group) {
+			const cfgs = getColumnConfigs(group);
+			head.push({ title, group: cfgs.head });
+			body.push(...cfgs.body);
+		} else {
+			head.push({title});
+			body.push(bodyCfg);
+		}
 	}
 
+	return {
+		head, body
+	}
+}
+
+export default function table(cols, data) {
+	const { head, body } = getColumnConfigs(cols);
 	return html`<table>${[
 		thead(head),
 		tbody(body, data)

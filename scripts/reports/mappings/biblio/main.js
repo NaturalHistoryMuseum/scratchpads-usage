@@ -1,6 +1,11 @@
 import html from 'encode-html-template-tag';
+import csvToTable from '../csv-to-table.js';
 
-export default html`
+export default html`<section>
+<h1>Biblio</h1>
+
+${csvToTable('./biblio.csv', import.meta)}
+
 <h3 id="biblio_contributor">Biblio_contributor</h3>
 
 <p>Fields:</p>
@@ -41,5 +46,5 @@ export default html`
 </tr>
 </tbody></table>
 
-
+</section>
 `;

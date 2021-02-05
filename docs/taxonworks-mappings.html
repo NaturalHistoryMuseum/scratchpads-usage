@@ -128,33 +128,41 @@ th, td {
 	padding: 2px 7px;
 }
 </style>
-	Describing the core data models of Scratchpads and how they map to Taxonworks data models.
+<style>
+section > h1 {
+	margin-top: 40px;
+}
+</style>
+<h1>Scratchpads → Taxonworks Mappings</h1>
 
-	<h2>Data Types</h2>
+Describing the core data models of Scratchpads and how they map to Taxonworks data models.
 
-	The core data types of Scratchpads are:
+<section>
+<h1>Data Types</h1>
 
-	<ul>
-		<li>Biblio</li>
-		<li>Biblio_Contributor</li>
-		<li>Taxonomy Term</li>
-		<li>Location</li>
-		<li>Specimen/Observation</li>
-		<li>Taxon DescriptionTaxonomy Vocabulary</li>
-		<li>Person</li>
-		<li>Page</li>
-		<li>Media Gallery</li>
-	</ul>
+The core data types of Scratchpads are:
 
-	
-<h2>Biblio</h2>
+<ul>
+	<li>Biblio</li>
+	<li>Biblio_Contributor</li>
+	<li>Taxonomy Term</li>
+	<li>Location</li>
+	<li>Specimen/Observation</li>
+	<li>Taxon DescriptionTaxonomy Vocabulary</li>
+	<li>Person</li>
+	<li>Page</li>
+	<li>Media Gallery</li>
+</ul>
+</section>
+
+<section>
+<h1>Biblio</h1>
 
 <table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
 			<tr><td>title</td><td>string</td><td>Source::Bibtex</td><td>title</td><td></td><td></td></tr><tr><td>biblio_type</td><td>integer representing item from biblio_types table (one of: 
 journal article, conference paper, book chapter, miscelaneous)</td><td>Source::Bibtex</td><td>bibtex_type</td><td>Value needs to be mapped to bibtex type string (https:&#x2F;&#x2F;www.bibtex.com&#x2F;e&#x2F;entry-types&#x2F;); “journal article”&#x3D;&gt;article, “conference paper”&#x3D;&gt;conference, “book chapter”&#x3D;&gt;inbook, “miscelaneous”&#x3D;&gt;misc</td><td>Bibtex</td></tr><tr><td>biblio_number</td><td>string</td><td>Source::Bibtex</td><td>number</td><td></td><td>Bibtex</td></tr><tr><td>biblio_other_number</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_sort_title</td><td></td><td>n&#x2F;a</td><td>n&#x2F;a</td><td>Derrived from title</td><td></td></tr><tr><td>biblio_secondary_title</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_tertiary_title</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_edition</td><td>string</td><td>Source::Bibtex</td><td>edition</td><td></td><td>Bibtex</td></tr><tr><td>biblio_publisher</td><td>Publisher name as string</td><td>Source::Bibtex</td><td>publisher</td><td></td><td></td></tr><tr><td>biblio_place_published</td><td>Publisher location as string</td><td>Source::Bibtex</td><td>address</td><td></td><td>Bibtex</td></tr><tr><td>biblio_year</td><td>Integer &gt; 0 (other TAXONWORKS RESTRICTIONS?)</td><td>Source::Bibtex</td><td>year</td><td></td><td>Bibtex</td></tr><tr><td>biblio_volume</td><td>String</td><td>Source::Bibtex</td><td>volume</td><td></td><td>Bibtex</td></tr><tr><td>biblio_pages</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_date</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_isbn</td><td>ISBN number</td><td>Source::Bibtex</td><td>isbn</td><td></td><td></td></tr><tr><td>biblio_lang</td><td>3 letter ISO 639-2 language code</td><td>Source::Bibtex</td><td>language</td><td></td><td>Bibtex</td></tr><tr><td>biblio_abst_e</td><td>abstract as html</td><td>Source::Bibtex</td><td>abstract</td><td></td><td>Bibtex</td></tr><tr><td>biblio_abst_f</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_full_text</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_url</td><td>url</td><td>Source::Bibtex</td><td>url</td><td></td><td></td></tr><tr><td>biblio_issue</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_type_of_work</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_accession_number</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_call_number</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_notes</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom1</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom2</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom3</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom4</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom5</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom6</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_custom7</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_research_notes</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_number_of_volumes</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_short_title</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_alternate_title</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_original_publication</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_reprint_edition</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_translated_title</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_section</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_citekey</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_coins</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_doi</td><td>doi</td><td>Source::Bibtex</td><td>doi</td><td></td><td>Bibtex</td></tr><tr><td>biblio_issn</td><td>issn</td><td>Source::Bibtex</td><td>issn</td><td></td><td></td></tr><tr><td>biblio_auth_address</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_remote_db_name</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_remote_db_provider</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_label</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_access_date</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_refereed</td><td>String enum (None|Refereed|Non-Refereed|Does Not Apply|Unknown)</td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_md5</td><td>md5 hash</td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_type_name</td><td>string representing type name from biblio_types table  (one of: 
 journal article, conference paper, book chapter, miscelaneous)</td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_contributors</td><td>array of biblio_contributor objects</td><td></td><td></td><td></td><td></td></tr><tr><td>biblio_keywords</td><td>array of strings</td><td></td><td></td><td></td><td></td></tr><tr><td>body</td><td>Full publication body as html</td><td></td><td></td><td></td><td></td></tr><tr><td>field_taxonomic_name</td><td>tid of associated taxon</td><td></td><td></td><td></td><td></td></tr><tr><td>field_file</td><td>array of associated file objects</td><td></td><td></td><td></td><td></td></tr><tr><td>field_front_cover</td><td></td><td></td><td></td><td></td><td></td></tr>
 	</tbody></table>
-
 
 <h3 id="biblio_contributor">Biblio_contributor</h3>
 
@@ -196,29 +204,72 @@ journal article, conference paper, book chapter, miscelaneous)</td><td></td><td>
 </tr>
 </tbody></table>
 
+</section>
+<section>
+<h1>SPM</h1>
 
+<p>The Species Profile Model was an experimental TDWG ontology that is no longer actively supported.</p>
 
-<h2>SPM</h2>
+<p>Many of the fields have no direct mapping to a specific type in Taxonworks.</p>
 
-<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
-			<tr><td>field_associations</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_behavious</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_biology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_conservation_status</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_cyclicity</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_cytology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_diagnostic_description</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_diseases</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_dispersal</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_distribution</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_ecology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_evolution</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_general_description</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_genetics</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_growth</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_habitat</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_legislation</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_life_cycle</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_life_expectancy</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_look_alikes</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_management</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_media</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_migration</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_molecular_biology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_morphology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_phylogeny</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_physiology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_population_biology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_procedures</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_reproduction</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_risk_statement</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_size</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_spm_map</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_taxon_biology</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_taxonomic_name</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_threats</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_trends</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_trophic_strategy</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_uses</td><td></td><td></td><td></td><td></td><td></td></tr>
+<p>However Taxonworks <i>does</i> support the attachment of extra information to records using the DataAttribute record type.</p>
+
+<p>Under this system, each SPM field can be defined in Taxonworks as a Predicate, and field values defined as InternalAttribute records linking the Predicates to an appropriate TaxonName.</p>
+
+<p>
+	
+<style>
+		pre code {
+			background: #FEE;
+			border: 2px solid #C99;
+			display: block;
+			padding: 10px;
+		}
+	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
+<pre><code><span class="hljs-comment"># Create the size predicate - only needs doing once per project</span>
+sizePredicate = Predicate.create!(
+	<span class="hljs-symbol">name:</span> <span class="hljs-string">&#x27;Size&#x27;</span>,
+	<span class="hljs-symbol">definition:</span> <span class="hljs-string">&#x27;Average size, max, range; type of size (perimeter, length, volume, weight ...)&#x27;</span>,
+	<span class="hljs-symbol">uri:</span> <span class="hljs-string">&#x27;https://tdwg.github.io/ontology/ontology/voc/SPMInfoItems.rdf#Size&#x27;</span>,
+	<span class="hljs-symbol">uri_relation:</span> <span class="hljs-string">&#x27;skos:exactMatch&#x27;</span>
+)
+<span class="hljs-comment"># Add the size information to an individual taxon term</span>
+sizeData = InternalAttribute.create!(
+	<span class="hljs-symbol">attribute_subject_type:</span> TaxonName,
+	<span class="hljs-symbol">attribute_subject_id:</span> <span class="hljs-number">1312</span>,
+	<span class="hljs-symbol">controlled_vocabulary_term:</span> sizePredicate,
+	<span class="hljs-symbol">value:</span> <span class="hljs-string">&#x27;Either very small or very far away&#x27;</span>
+)
+</code></pre>
+</p>
+
+<section>
+	<h1>Predicate definitions</h1>
+	<p>Most SPM fields can be represented as Predicates by using the following values.</p>
+	<table><thead><tr><th rowspan="2">SPM field name</th><th colspan="4">Taxonworks Predicate properties</th></tr><tr><th rowspan="1">name</th><th rowspan="1">definition</th><th rowspan="1">uri</th><th rowspan="1">uri_relation</th></tr></thead><tbody>
+			<tr><td>field_associations</td><td>Associations</td><td>Predator-prey; host-parasite, pollinators, symbiosis, mutualism, commensalism; hybridisation, ...</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Associations</td><td>skos:exactMatch</td></tr><tr><td>field_behavious</td><td>Behaviour</td><td>Covers actions and reactions of organism in relation to its biotic and abiotic environment.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Behaviour</td><td>skos:exactMatch</td></tr><tr><td>field_biology</td><td>Biology</td><td>An account of the biology of the taxon. E.g. behavior, reproduction, dispersal</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Biology</td><td>skos:exactMatch</td></tr><tr><td>field_conservation_status</td><td>Conservation Status</td><td>A description of the likelihood of the species becoming extinct in the present day or in the near future.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#ConservationStatus</td><td>skos:exactMatch</td></tr><tr><td>field_cyclicity</td><td>Cyclicity</td><td>A state or condition characterised by regular repetition in time.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Cyclicity</td><td>skos:exactMatch</td></tr><tr><td>field_cytology</td><td>Cytology</td><td>Cell biology: formation , structure and function of cells.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Cytology</td><td>skos:exactMatch</td></tr><tr><td>field_diagnostic_description</td><td>Diagnostic Description</td><td>Distinguishing feature of this taxon from its closest relatives.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#DiagnosticDescription</td><td>skos:exactMatch</td></tr><tr><td>field_diseases</td><td>Diseases</td><td>Diseases of organisms</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Diseases</td><td>skos:exactMatch</td></tr><tr><td>field_dispersal</td><td>Dispersal</td><td>Dispersal strategies and mechanisms</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Dispersal</td><td>skos:exactMatch</td></tr><tr><td>field_distribution</td><td>Distribution</td><td>Distribution, as per TDWG SPM ontology</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Distribution</td><td>skos:exactMatch</td></tr><tr><td>field_ecology</td><td>Ecology</td><td>Ecology, as per TDWG SPM ontology</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Ecology</td><td>skos:exactMatch</td></tr><tr><td>field_evolution</td><td>Evolution</td><td>Phylogenetic information relating to the taxon</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Evolution</td><td>skos:exactMatch</td></tr><tr><td>field_general_description</td><td>General Description</td><td>A comprehensive description of the characteristics of the taxon</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#GeneralDescription</td><td>skos:exactMatch</td></tr><tr><td>field_genetics</td><td>Genetics</td><td>Including karyotypes;</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Genetics</td><td>skos:exactMatch</td></tr><tr><td>field_growth</td><td>Growth</td><td>Rate; parameters; allometries</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Growth</td><td>skos:exactMatch</td></tr><tr><td>field_habitat</td><td>Habitat</td><td>Includes realm (e.g. Terrestrial etc) and climatic information (e.g. Boreal); also includes requirements and tolerances; horizontal and vertical distribution;</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Habitat</td><td>skos:exactMatch</td></tr><tr><td>field_legislation</td><td>Legislation</td><td>Legal regulations or statutes relating to the taxon.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Legislation</td><td>skos:exactMatch</td></tr><tr><td>field_life_cycle</td><td>Life Cycle</td><td>Obligatory developmental transformations</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#LifeCycle</td><td>skos:exactMatch</td></tr><tr><td>field_life_expectancy</td><td>Life Expectancy</td><td>The average period an organism can be expected to survive.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#LifeExpectancy</td><td>skos:exactMatch</td></tr><tr><td>field_look_alikes</td><td>Look Alikes</td><td>Other taxa that this taxon may be confused with. Common in invasive species communities.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#LookAlikes</td><td>skos:exactMatch</td></tr><tr><td>field_management</td><td>Management</td><td>A statement about the level of need to manage a taxon which can be related to a piece of legislation, e.g., a CITES list.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Management</td><td>skos:exactMatch</td></tr><tr><td>field_migration</td><td>Migration</td><td>Periodic movement of organisms from one locality to another (e.g., for breeding)</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Migration</td><td>skos:exactMatch</td></tr><tr><td>field_molecular_biology</td><td>Molecular Biology</td><td>Molecular Biology, as per TDWG SPM ontology</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#MolecularBiology</td><td>skos:exactMatch</td></tr><tr><td>field_morphology</td><td>Morphology</td><td>The appearance of the taxon (is it only external?); e.g. Habit; antomy (thee branch of morphology that deals with structure of animals)</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Morphology</td><td>skos:exactMatch</td></tr><tr><td>field_physiology</td><td>Physiology</td><td>Physiology, as per TDWG SPM ontology</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Physiology</td><td>skos:exactMatch</td></tr><tr><td>field_population_biology</td><td>Population Biology</td><td>Includes abundance information.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#PopulationBiology</td><td>skos:exactMatch</td></tr><tr><td>field_procedures</td><td>Procedures</td><td>Deals with how you go about managing this taxon; what are the known threats to this taxon?</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Procedures</td><td>skos:exactMatch</td></tr><tr><td>field_reproduction</td><td>Reproduction</td><td>Reproduction cues, strategies, restraints</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Reproduction</td><td>skos:exactMatch</td></tr><tr><td>field_risk_statement</td><td>Risk Statement</td><td>Includes invasiveness, impacts</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#RiskStatement</td><td>skos:exactMatch</td></tr><tr><td>field_size</td><td>Size</td><td>Average size, max, range; type of size (perimeter, length, volume, weight …)</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Size</td><td>skos:exactMatch</td></tr><tr><td>field_taxon_biology</td><td>Taxon Biology</td><td>An account of the biology of the taxon.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#TaxonBiology</td><td>skos:exactMatch</td></tr><tr><td>field_threats</td><td>Threats</td><td>The threats to which this taxon is subject.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Threats</td><td>skos:exactMatch</td></tr><tr><td>field_trends</td><td>Trends</td><td>An indication of whether a population is stable, or increasing or decreasing.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Trends</td><td>skos:exactMatch</td></tr><tr><td>field_trophic_strategy</td><td>Trophic Strategy</td><td>Include nutritional aspects, diet, position in food network.</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#TrophicStrategy</td><td>skos:exactMatch</td></tr><tr><td>field_uses</td><td>Uses</td><td>Use, as per TDWG SPM ontology</td><td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Use</td><td>skos:exactMatch</td></tr>
 	</tbody></table>
+	</section>
 
+	<section>
+		<h1>Other fields</h1>
+		<p>The remaining fields require an individual mapping.</p>
 
-<h2>Specimen&#x2F;Observation</h2>
+		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
+			<tr><td>field_media</td><td>Media</td><td></td><td></td><td></td><td>undefined</td></tr><tr><td>field_phylogeny</td><td>Phylogeny</td><td></td><td></td><td></td><td>undefined</td></tr><tr><td>field_spm_map</td><td>SPM Map</td><td></td><td></td><td></td><td>undefined</td></tr><tr><td>field_taxonomic_name</td><td>Taxonomic Name</td><td></td><td></td><td></td><td>undefined</td></tr>
+	</tbody></table>
+	</section>
+</section><section>
+<h1>Specimen/Observation</h1>
 
 <table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
 			<tr><td>field_basis_of_record</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_catalogue_number</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_collection_code</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_collector</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_collector_number</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_count</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_date_collected</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_date_identified</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_genbank_number</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_identification_qualifier</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_identified_by</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_institution_code</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_lifestage</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_location</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_media</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_notes</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_number</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_other_catalogue_numbers</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_remarks</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_sex</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_taxonomic_name</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_type_status</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr>
 	</tbody></table>
 
-
-<h2>Location</h2>
-
-<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
-			<tr><td>field_georeference_protocol</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_georeference_remarks</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_island</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_island_group</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_locality</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_map</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_max_depth</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_max_elevation</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_min_depth</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_min_elevation</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_state_province</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_continent_or_ocean</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_coordinate_system</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_coordinate_uncertainty</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_country</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_county</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_geodetic_datum</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>title</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr>
-	</tbody></table>
-
-
+</section>
+<section>
+<h1>Location</h1>
 	Location must be split into three records:
 
 	<ul>
@@ -226,12 +277,18 @@ journal article, conference paper, book chapter, miscelaneous)</td><td></td><td>
 		<li>Geographic Area (nomenclatural details location name, political or cultural definition)</li>
 		<li>Georeference (information about a specific collection at a geographic item)</li>
 	</ul>
-<h2>Ecological Interaction</h2>
+
+	<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
+			<tr><td>field_georeference_protocol</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_georeference_remarks</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_island</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_island_group</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_locality</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_map</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_max_depth</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_max_elevation</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_min_depth</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_min_elevation</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_state_province</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_continent_or_ocean</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_coordinate_system</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_coordinate_uncertainty</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_country</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_county</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>field_geodetic_datum</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr><tr><td>title</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td><td>undefined</td></tr>
+	</tbody></table>
+</section><section>
+<h1>Ecological Interactions</h1>
 
 <table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
 			<tr><td>body</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_date</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_importance</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_int_collection</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_interaction_record_type</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_life_cycle_stage</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_location_ref</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_organism_part</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_reference</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_reference_page</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_species_status</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_specimen_1</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_taxonomic_name</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>field_interaction_type</td><td></td><td></td><td></td><td></td><td></td></tr>
 	</tbody></table>
 
+</section>
 <h2 id="taxonomy-term">Taxonomy Term</h2>
 <p>Fields:</p>
 <ul>
