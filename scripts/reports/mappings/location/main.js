@@ -1,7 +1,7 @@
 import html from 'encode-html-template-tag';
 import csvToTable from '../csv-to-table.js';
 
-export default html`<section>
+export default html`<section id="location">
 <h1>Location</h1>
 	Location must be split into three records:
 

@@ -2,7 +2,7 @@ import html from 'encode-html-template-tag';
 import csvToTable from '../csv-to-table.js';
 import {ruby} from '../../code.js';
 
-export default html`<section>
+export default html`<section id="spm">
 <h1>SPM</h1>
 
 <p>The Species Profile Model was an experimental TDWG ontology that is no longer actively supported.</p>

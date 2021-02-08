@@ -24,12 +24,13 @@ Describing the core data models of Scratchpads and how they map to Taxonworks da
 The core data types of Scratchpads are:
 
 <ul>
-	<li>Biblio</li>
+	<li><a href="#biblio">Biblio</a></li>
 	<li>Biblio_Contributor</li>
 	<li>Taxonomy Term</li>
-	<li>Location</li>
-	<li>Specimen/Observation</li>
-	<li>Taxon DescriptionTaxonomy Vocabulary</li>
+	<li><a href="#location">Location</a></li>
+	<li><a href="#specimen-observation">Specimen/Observation</a></li>
+	<li><a href="#spm">Taxon Description</a></li>
+	<li>Taxonomy Vocabulary</li>
 	<li>Person</li>
 	<li>Page</li>
 	<li>Media Gallery</li>

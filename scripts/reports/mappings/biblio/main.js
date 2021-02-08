@@ -1,7 +1,7 @@
 import html from 'encode-html-template-tag';
 import csvToTable from '../csv-to-table.js';
 
-export default html`<section>
+export default html`<section id="biblio">
 <h1>Biblio</h1>
 
 ${csvToTable('./biblio.csv', import.meta)}
