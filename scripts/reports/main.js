@@ -5,7 +5,7 @@ import fields from './fields/fields.js'
 import { page } from 'sp-templates';
 import css from './page.js';
 
-import index from './index.js';
+import index from './index/main.js';
 
 const INDEX = 'index';
 
@@ -23,9 +23,9 @@ function dedupeCss(dict={}) {
 }
 
 const reports = [
+	{ title: 'Recently Edited Sites', id: 'recently-edited', view: recentlyEdited, options },
 	{ title: mappings().title, id: 'taxonworks-mappings', view: () => mappings().body },
 	{ title: 'Node Counts', id: 'node-count', view: nodeCounts },
-	{ title: 'Recently Edited Sites', id: 'recently-edited', view: recentlyEdited, options },
 	{ title: 'Fields', id: 'fields', view: fields }
 ]
 

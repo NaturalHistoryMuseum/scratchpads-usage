@@ -16,6 +16,7 @@ export default ({sort, urlFor, collectionDate}, data) => {
 	return html`
 <p>A list of all Scratchpads for which a node or taxonomy term has been edited in the three months up to ${date(collectionDate)}.</p>
 <p>This list contains ${data.length} sites.</p>
+<p>This is a <b>provisional</b> guide for which sites may be migrated to Taxonworks, and has not been finalised.</p>
 <table>
 	${thead([
 		'Site',
