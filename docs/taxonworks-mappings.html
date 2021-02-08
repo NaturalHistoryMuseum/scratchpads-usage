@@ -143,19 +143,20 @@ Describing the core data models of Scratchpads and how they map to Taxonworks da
 The core data types of Scratchpads are:
 
 <ul>
-	<li>Biblio</li>
+	<li><a href="#biblio">Biblio</a></li>
 	<li>Biblio_Contributor</li>
 	<li>Taxonomy Term</li>
-	<li>Location</li>
-	<li>Specimen/Observation</li>
-	<li>Taxon DescriptionTaxonomy Vocabulary</li>
+	<li><a href="#location">Location</a></li>
+	<li><a href="#specimen-observation">Specimen/Observation</a></li>
+	<li><a href="#spm">Taxon Description</a></li>
+	<li>Taxonomy Vocabulary</li>
 	<li>Person</li>
 	<li>Page</li>
 	<li>Media Gallery</li>
 </ul>
 </section>
 
-<section>
+<section id="biblio">
 <h1>Biblio</h1>
 
 <table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
@@ -205,7 +206,7 @@ journal article, conference paper, book chapter, miscelaneous)</td><td></td><td>
 </tbody></table>
 
 </section>
-<section>
+<section id="spm">
 <h1>SPM</h1>
 
 <p>The Species Profile Model was an experimental TDWG ontology that is no longer actively supported.</p>
@@ -260,7 +261,7 @@ sizeData = InternalAttribute.create!(
 			<tr><td>field_media</td><td>Media</td><td></td><td></td><td></td><td>undefined</td></tr><tr><td>field_phylogeny</td><td>Phylogeny</td><td></td><td></td><td></td><td>undefined</td></tr><tr><td>field_spm_map</td><td>SPM Map</td><td></td><td></td><td></td><td>undefined</td></tr><tr><td>field_taxonomic_name</td><td>Taxonomic Name</td><td></td><td></td><td></td><td>undefined</td></tr>
 	</tbody></table>
 	</section>
-</section><section>
+</section><section id="#specimen-observation">
 <h1>Specimen/Observation</h1>
 
 <table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
@@ -268,7 +269,7 @@ sizeData = InternalAttribute.create!(
 	</tbody></table>
 
 </section>
-<section>
+<section id="location">
 <h1>Location</h1>
 	Location must be split into three records:
 
