@@ -5,8 +5,9 @@ function th(cell, depth) {
 
 	const colspan = cell.group && cell.group.length;
 	const rowspan = cell.group ? null : depth;
+	const attrs = cell.attrs ?? {};
 
-	return element('th', { colspan, rowspan }, title);
+	return element('th', { ...attrs, colspan, rowspan }, title);
 }
 
 function trh(cols, depth) {
@@ -74,14 +75,18 @@ export function column(options, value) {
 	}
 
 	if(typeof options === 'string') {
-		const key = options.toLowerCase().replace(/ /g, '_');
 		options = {
 			title: options,
-			value: value || ((row, ix) => {
+			value
+		}
+	}
+
+	if(!options.value) {
+		const key = options.title.toLowerCase().replace(/ /g, '_');
+		options.value = ((row, ix) => {
 				const v = Array.isArray(row) ? row[ix] : row[key];
 				return v;
 			})
-		}
 	}
 
 	if(options.group) {
@@ -96,14 +101,14 @@ function getColumnConfigs(cols) {
 	const body = [];
 
 	for(const col of cols) {
-		const { title, group, ...bodyCfg } = column(col);
+		const { title, group, attrs, ...bodyCfg } = column(col);
 
 		if(group) {
 			const cfgs = getColumnConfigs(group);
-			head.push({ title, group: cfgs.head });
+			head.push({ title, attrs, group: cfgs.head });
 			body.push(...cfgs.body);
 		} else {
-			head.push({title});
+			head.push({title, attrs});
 			body.push(bodyCfg);
 		}
 	}

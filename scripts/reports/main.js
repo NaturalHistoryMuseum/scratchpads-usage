@@ -2,6 +2,7 @@ import nodeCounts from './node-counts/main.js';
 import recentlyEdited, {options} from './recently-edited/main.js';
 import mappings from './mappings/main.js'
 import fields from './fields/fields.js'
+import nodeBreakdown from './node-breakdown/main.js';
 import { page } from 'sp-templates';
 import css from './page.js';
 
@@ -24,8 +25,9 @@ function dedupeCss(dict={}) {
 
 const reports = [
 	{ title: 'Recently Edited Sites', id: 'recently-edited', view: recentlyEdited, options },
-	{ title: mappings().title, id: 'taxonworks-mappings', view: () => mappings().body },
 	{ title: 'Node Counts', id: 'node-count', view: nodeCounts },
+	{ title: 'Per-site Node Breakdown', id: 'node-breakdown', view: nodeBreakdown },
+	{ title: mappings().title, id: 'taxonworks-mappings', view: () => mappings().body },
 	{ title: 'Fields', id: 'fields', view: fields }
 ]
 

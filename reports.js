@@ -2,7 +2,10 @@ import start from 'simple-wsgi';
 import sqliteDb from 'sqlite-execute-tag';
 import GetReport from './scripts/reports/main.js';
 
-const sql = sqliteDb('./db.sqlite');
+const sql = sqliteDb('./db.sqlite', {logError:(e, ...args)=>{
+	console.log(...args);
+	throw e;
+}});
 const getReport = GetReport(sql, (id, options) => '/' + id + (options ? ('?' + options.toString()) : ''));
 
 // Serve pages dynamically
