@@ -26,4 +26,10 @@ tbody tr:nth-child(odd) {
 th, td {
 	padding: 2px 7px;
 }
+
+section > h1 {
+	margin-top: 40px;
+}
+
+.numeric{text-align:right;}
 </style>`;

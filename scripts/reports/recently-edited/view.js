@@ -14,11 +14,6 @@ export default ({sort, urlFor, collectionDate}, data) => {
 	const sortable = sortCol(sort, urlFor);
 
 	return html`
-<style>
-.numeric {
-	text-align:right;
-}
-</style>
 <p>A list of all Scratchpads for which a node or taxonomy term has been edited in the three months up to ${date(collectionDate)}.</p>
 <p>This list contains ${data.length} sites.</p>
 <table>

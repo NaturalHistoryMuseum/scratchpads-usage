@@ -9,11 +9,6 @@ import html from 'encode-html-template-tag';
 const title = 'Scratchpads → Taxonworks Mappings';
 
 const body = html`
-<style>
-section > h1 {
-	margin-top: 40px;
-}
-</style>
 <h1>${title}</h1>
 
 Describing the core data models of Scratchpads and how they map to Taxonworks data models.

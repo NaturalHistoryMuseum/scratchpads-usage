@@ -9,6 +9,19 @@ import index from './index.js';
 
 const INDEX = 'index';
 
+function dedupeCss(dict={}) {
+	return function(value) {
+		if(value && value.css){
+			if(!dict[value.css]) {
+				return dict[value.css] = value;
+			} else {
+				return [];
+			}
+		}
+		return value;
+	}
+}
+
 const reports = [
 	{ title: mappings().title, id: 'taxonworks-mappings', view: () => mappings().body },
 	{ title: 'Node Counts', id: 'node-count', view: nodeCounts },
@@ -54,7 +67,7 @@ export default function Reports(sql, urlFor) {
 			},
 			[css,
 			view]
-		).render()
+		).render(dedupeCss())
 	}
 
 	getPage[Symbol.iterator] = function*(){
