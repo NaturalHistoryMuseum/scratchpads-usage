@@ -17,6 +17,13 @@ export default (types, data) => html`
 table {
 	overflow: auto;
 	display: block;
+	height: 80vh;
+}
+
+thead {
+	position:sticky;
+	top: 0;
+	z-index: 1;
 }
 
 .rotate{
@@ -25,9 +32,15 @@ table {
 	transform-origin: top;
 	vertical-align: top;
 }
+
+.site_name {
+	position: sticky;
+	left: 0;
+	background: #EEE;
+}
 </style>
 	${table(
-		['Site', { title: 'Number of nodes by type', group: types.map(rotatedTitle) }],
+		[{ title: 'Site', class: 'site_name' }, { title: 'Number of nodes by type', group: types.map(rotatedTitle) }],
 		data
 	)}
 `;
