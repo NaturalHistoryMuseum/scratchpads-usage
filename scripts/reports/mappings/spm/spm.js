@@ -1,9 +1,17 @@
 import html from 'encode-html-template-tag';
 import csvToTable from '../csv-to-table.js';
 import {ruby} from '../../code.js';
+import asset from '../../asset.js';
+
+const dataAttribute = asset('./data-attribute.png', import.meta);
 
 export default html`<section id="spm">
 <h1>SPM</h1>
+
+<figure style="float:right;margin-top:0;text-align:center;">
+	<img src="${dataAttribute}" alt="Screenshot of the added attribute as a small note in the Annotations section."/>
+	<figcaption>How the extra data appears in Taxonworks</figcaption>
+</figure>
 
 <p>The Species Profile Model was an experimental TDWG ontology that is no longer actively supported.</p>
 
@@ -26,11 +34,12 @@ sizePredicate = Predicate.create!(
 sizeData = InternalAttribute.create!(
 	attribute_subject_type: TaxonName,
 	attribute_subject_id: 1312,
-	controlled_vocabulary_term: sizePredicate,
+	controlled_vocabulary_term_id: sizePredicate.id,
 	value: 'Either very small or very far away'
 )
 `}
 </p>
+
 
 <section>
 	<h1>Predicate definitions</h1>
@@ -53,3 +62,5 @@ sizeData = InternalAttribute.create!(
 		${csvToTable('./spm.csv', import.meta)}
 	</section>
 </section>`;
+
+export const assets = [dataAttribute];

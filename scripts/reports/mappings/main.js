@@ -43,9 +43,12 @@ ${[
 `;
 
 
-export default () => {
+export default options => {
 	return {
 		title,
 		body,
 	}
 };
+
+
+export { assets } from './spm/spm.js';

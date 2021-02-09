@@ -10,6 +10,7 @@ const styles = html`
 			border: 2px solid #C99;
 			display: block;
 			padding: 10px;
+			clear: both;
 		}
 	</style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">

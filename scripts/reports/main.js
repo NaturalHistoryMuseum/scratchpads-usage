@@ -1,12 +1,14 @@
 import nodeCounts from './node-counts/main.js';
 import recentlyEdited, {options} from './recently-edited/main.js';
-import mappings from './mappings/main.js'
+import mappings, {assets} from './mappings/main.js'
 import fields from './fields/fields.js'
 import nodeBreakdown from './node-breakdown/main.js';
 import { page } from 'sp-templates';
 import css from './page.js';
 
 import index from './index/main.js';
+
+export { assets};
 
 const INDEX = 'index';
 
@@ -42,6 +44,8 @@ function router(menu, id){
 			return reports.find(m=>m.id===id)
 	}
 }
+
+
 
 export default function Reports(sql, urlFor) {
 	const menu = reports.map(r => ({
