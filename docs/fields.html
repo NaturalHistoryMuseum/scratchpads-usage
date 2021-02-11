@@ -1,0 +1,3321 @@
+<!doctype HTML><html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Fields and field usage</title></head><body style="--theme-colour: rebeccapurple">
+	
+<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: Arial, sans-serif;
+}
+
+main.content {
+	flex-grow: 1;
+	margin-top: 30px;
+}
+main h1, main h2 {
+	color: var(--theme-colour);
+}
+header {
+	background: var(--theme-colour);
+	color: white;
+	min-height: 170px;
+	display: flex;
+}
+header a:link,
+header a:visited {
+	color: white;
+}
+.content {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 10px;
+}
+.siteInfo{
+	display: flex;
+	justify-content: space-between;
+}
+.login{
+	display: inline-block;
+	background: #262626;
+	padding: 3px 10.5px 4px;
+	border-radius: 8px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	margin-top: -10px;
+	font-size: 11px;
+	letter-spacing: 0.5px;
+}
+footer {
+	background: #F1F1F1;
+	color: var(--theme-color);
+}
+header h1 {
+	font-weight: normal;
+	margin: 32px 0 0 0;
+}
+main h1 {
+	font-weight: normal;
+	letter-spacing: -0.05em;
+	margin-top: 0;
+}
+header .content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+nav {
+	margin-bottom: -10px;
+}
+nav a {
+	display: inline-block;
+	background: rgba(0,0,0,0.3);
+	border-radius: 8px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	padding: 5px 10.5px 5px;
+	letter-spacing: 0.5px;
+}
+</style>
+
+	<header>
+		<div class="content">
+			<div class="siteInfo">
+		  		<h1>Fields and field usage</h1>
+				<div></div>
+			</div>
+			<nav>
+				<a href="&#x2F;scratchpads-usage&#x2F;index.html">Home</a>
+			</nav>
+		</div>
+	</header>
+	<main class="content">
+		
+<style>
+table {
+	width: 100%;
+	border-width: 1px;
+	border-color: #D9DADD;
+	border-style: solid solid none solid;
+	border-collapse: collapse;
+}
+
+thead {
+	background: #EBEDED;
+	border: 0;
+}
+
+thead, tbody tr {
+	border-bottom: 1px solid #ccc;
+}
+
+tbody tr:nth-child(odd) {
+	background: #F1F4FB;
+}
+
+th, td {
+	padding: 2px 7px;
+}
+
+section > h1 {
+	margin-top: 40px;
+}
+
+.numeric{text-align:right;}
+</style>
+	<p>
+		So we can prioritise which fields are mapped to the Scratchpads successor platform,
+		we want to know which are the most widely used fields.
+	</p>
+	<p>
+		NB:
+		<ul>
+			<li>The "In Use" column is currently only correct for fields that do not appear on multiple different data types.</li>
+			<li>The biblio seciton doesn't take into account the full list of fields, since some of this data is stored in a separate table.</li>
+		</ul>
+	</p>
+	<section>
+		<h1>Node Types</h1>
+		<ul>
+			<li><a href="#biblio">biblio</a></li><li><a href="#spm">spm</a></li><li><a href="#specimen-observation">specimen_observation</a></li><li><a href="#location">location</a></li><li><a href="#ecological-interactions">ecological_interactions</a></li>
+		</ul>
+	</section>
+	
+		<section>
+		<h1 id="biblio">biblio</h1>
+		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody>
+			<tr><td>body</td>
+<td>biblio</td>
+<td class="numeric">1170</td>
+<td class="numeric">626</td>
+</tr><tr><td>field_taxonomic_name</td>
+<td>biblio</td>
+<td class="numeric">1170</td>
+<td class="numeric">598</td>
+</tr><tr><td>field_media</td>
+<td>biblio</td>
+<td class="numeric">4</td>
+<td class="numeric">362</td>
+</tr><tr><td>field_file</td>
+<td>biblio</td>
+<td class="numeric">1170</td>
+<td class="numeric">186</td>
+</tr><tr><td>group_content_access</td>
+<td>biblio</td>
+<td class="numeric">178</td>
+<td class="numeric">177</td>
+</tr><tr><td>group_audience</td>
+<td>biblio</td>
+<td class="numeric">186</td>
+<td class="numeric">69</td>
+</tr><tr><td>field_licence_for_content_derive</td>
+<td>biblio</td>
+<td class="numeric">44</td>
+<td class="numeric">25</td>
+</tr><tr><td>field_emonocot_acknowledgement</td>
+<td>biblio</td>
+<td class="numeric">37</td>
+<td class="numeric">20</td>
+</tr><tr><td>field_type</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">7</td>
+</tr><tr><td>title_field</td>
+<td>biblio</td>
+<td class="numeric">2</td>
+<td class="numeric">6</td>
+</tr><tr><td>field_taxonomy</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_classification</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_glossary</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_site_management</td>
+<td>biblio</td>
+<td class="numeric">3</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_jemu_ref_id</td>
+<td>biblio</td>
+<td class="numeric">2</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_nomenclature</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_regions</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_african_countries___pays_d</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_authors_tag</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_backnr_taxonbiblio</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_backref_bibliolocations</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_basin___bassin</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_bcg_publications</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_biocode</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_biological_classification</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_british_bryozoologists</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_bzn_file</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_case</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_citationkey</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_cited_recordings</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_cited_specimens</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_containing_work</td>
+<td>biblio</td>
+<td class="numeric">44</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_contents</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_countries_and_regions</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_cover</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_ethnobotany</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_events</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_faceted_search_keyword</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_faqs</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_habitat0</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_impact_factor</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_insecta</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_invertebrate_rearing</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_knowledge_base</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_label</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_node_nid</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_non_biological</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_open_access_pdf</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_organizations</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_other_reference</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_people</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_processed_for_bioacoustica</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_psg_publications</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_review_files</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimens_imported</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sti_taxonomic_comments</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_subjects</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_tag</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_taxonomic_group_s_</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_taxonomy_checked</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_tdwg___regions</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_tdwg_distribution</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_themes</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_timeline</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_type_of_case</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_volume_issue</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_drosanthemum</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_front_cover</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_ib_copy</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_import_test</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_information</td>
+<td>biblio</td>
+<td class="numeric">2</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_institutional_codes</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_library</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_megaloptera</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_publication_ack</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_tags</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_taxon_name</td>
+<td>biblio</td>
+<td class="numeric">2</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_taxon_name_sensu_oberprie</td>
+<td>biblio</td>
+<td class="numeric">2</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_translations</td>
+<td>biblio</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_webid</td>
+<td>biblio</td>
+<td class="numeric">2</td>
+<td class="numeric">null</td>
+</tr>
+	</tbody></table>
+		</section>
+		<section>
+		<h1 id="spm">spm</h1>
+		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody>
+			<tr><td>field_taxonomic_name</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">598</td>
+</tr><tr><td>field_media</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">362</td>
+</tr><tr><td>field_general_description</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">359</td>
+</tr><tr><td>field_distribution</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">262</td>
+</tr><tr><td>field_diagnostic_description</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">235</td>
+</tr><tr><td>field_spm_map</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">221</td>
+</tr><tr><td>field_file</td>
+<td>spm</td>
+<td class="numeric">3</td>
+<td class="numeric">186</td>
+</tr><tr><td>field_habitat</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">182</td>
+</tr><tr><td>group_content_access</td>
+<td>spm</td>
+<td class="numeric">178</td>
+<td class="numeric">177</td>
+</tr><tr><td>field_ecology</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">132</td>
+</tr><tr><td>field_biology</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">126</td>
+</tr><tr><td>field_conservation_status</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">120</td>
+</tr><tr><td>field_morphology</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">114</td>
+</tr><tr><td>field_look_alikes</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">112</td>
+</tr><tr><td>field_notes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">88</td>
+</tr><tr><td>field_associations</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">78</td>
+</tr><tr><td>field_uses</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">74</td>
+</tr><tr><td>field_size</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">73</td>
+</tr><tr><td>field_remarks</td>
+<td>spm</td>
+<td class="numeric">4</td>
+<td class="numeric">70</td>
+</tr><tr><td>group_audience</td>
+<td>spm</td>
+<td class="numeric">187</td>
+<td class="numeric">69</td>
+</tr><tr><td>field_behavious</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">61</td>
+</tr><tr><td>field_dispersal</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">61</td>
+</tr><tr><td>field_phylogeny</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">61</td>
+</tr><tr><td>field_reproduction</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">59</td>
+</tr><tr><td>field_evolution</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">56</td>
+</tr><tr><td>field_life_cycle</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">54</td>
+</tr><tr><td>field_cytology</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">47</td>
+</tr><tr><td>field_genetics</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">46</td>
+</tr><tr><td>field_trophic_strategy</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">45</td>
+</tr><tr><td>field_taxon_biology</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">41</td>
+</tr><tr><td>field_threats</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">40</td>
+</tr><tr><td>field_risk_statement</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">36</td>
+</tr><tr><td>field_synonyms</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">36</td>
+</tr><tr><td>field_physiology</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">34</td>
+</tr><tr><td>field_management</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">33</td>
+</tr><tr><td>field_spm_em_distribution_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">33</td>
+</tr><tr><td>field_spm_em_gd_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">33</td>
+</tr><tr><td>field_population_biology</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">31</td>
+</tr><tr><td>field_spm_em_taxonomic_notes</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">31</td>
+</tr><tr><td>field_spm_em_tn_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">31</td>
+</tr><tr><td>field_spm_em_habitat_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">30</td>
+</tr><tr><td>field_diseases</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">29</td>
+</tr><tr><td>field_molecular_biology</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">29</td>
+</tr><tr><td>field_growth</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">28</td>
+</tr><tr><td>field_cyclicity</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">26</td>
+</tr><tr><td>field_spm_em_dd_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">26</td>
+</tr><tr><td>field_spm_em_phen_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">26</td>
+</tr><tr><td>field_spm_em_phenology</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">26</td>
+</tr><tr><td>field_life_expectancy</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">25</td>
+</tr><tr><td>field_legislation</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">23</td>
+</tr><tr><td>field_trends</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">21</td>
+</tr><tr><td>field_migration</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">20</td>
+</tr><tr><td>field_spm_em_ecology_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">19</td>
+</tr><tr><td>field_spm_em_uses_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">19</td>
+</tr><tr><td>field_synonym</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">19</td>
+</tr><tr><td>field_spm_em_cs_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">17</td>
+</tr><tr><td>field_procedures</td>
+<td>spm</td>
+<td class="numeric">1170</td>
+<td class="numeric">15</td>
+</tr><tr><td>field_spm_em_cytol_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">13</td>
+</tr><tr><td>field_spm_em_la_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">12</td>
+</tr><tr><td>field_char_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">10</td>
+</tr><tr><td>field_etymology</td>
+<td>spm</td>
+<td class="numeric">5</td>
+<td class="numeric">10</td>
+</tr><tr><td>field_spm_em_anatomy</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">9</td>
+</tr><tr><td>field_diagnosis</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">8</td>
+</tr><tr><td>field_spm_em_anatomy_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">8</td>
+</tr><tr><td>field_spm_em_pollination</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">8</td>
+</tr><tr><td>field_taxonomic_notes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">8</td>
+</tr><tr><td>field_spm_em_poll_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">7</td>
+</tr><tr><td>field_type</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">7</td>
+</tr><tr><td>field_type_locality</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">7</td>
+</tr><tr><td>field_publication_references</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">6</td>
+</tr><tr><td>field_references</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">6</td>
+</tr><tr><td>field_spm_em_cultivation</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">6</td>
+</tr><tr><td>field_synonymy</td>
+<td>spm</td>
+<td class="numeric">3</td>
+<td class="numeric">6</td>
+</tr><tr><td>title_field</td>
+<td>spm</td>
+<td class="numeric">5</td>
+<td class="numeric">6</td>
+</tr><tr><td>field_author</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_citation</td>
+<td>spm</td>
+<td class="numeric">4</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_species</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_spm_em_bio_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_spm_em_cult_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_spm_em_dispersal_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_spm_em_genetics_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_spm_em_morph_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_spm_em_phylo_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_taxonomy</td>
+<td>spm</td>
+<td class="numeric">3</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_type_data</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_systematics</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">4</td>
+</tr><tr><td>field_age</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_family</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_genus</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_glossary</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_occurrence</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_original_published_descrip</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_phenology</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_spm_em_assoc</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_spm_em_cyclicity_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_spm_em_repro_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_spm_em_threats_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_color</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_common_names</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_countries</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_departamentos</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_depth_range</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_etymology_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_introduction</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_key_to_species</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_nomenclature</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_original_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_regions</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_series</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_spm_em_tb_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_summary</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_taxon_remarks</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_type_material</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_type_species</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_type_specimen</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_type_specimens</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_10_bibl</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_1_aggli</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_1_b_sin</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_1_g_ellen</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_1a_epistim</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_2_oikoy</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_2a_taxi</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_3_exap</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_3_i_</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_3a_kat</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_3b_krit</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_3ii_</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_4_aitio</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_9_</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_9_taxinom</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_9_z_use</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_9b_geo</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_9g_plith</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_9st_kath</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__accepted_valid_name</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__author_valid_name</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__cites</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__comments</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__date_valid_name</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__morphotaxon</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__morphotaxon_author</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__morphotaxon_author_countr</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__morphotaxon_country</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__morphotaxon_date_upload_o</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_a_hab_grade</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_abbreviations</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_acknowledge_descripion</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_add_resources_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_additional_species_genera</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_additional_specimens</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_adult_behavior</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_adult_chaetotaxy</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_african_countries___pays_d</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_altitudinal_range</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_annual_rainfall_and_temper</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_ap_bam</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_asexual_reproduction</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_assessment_date</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_assessors</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_authors_content</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_basin___bassin</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_bau</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_bi_</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_bi_dras_iparh</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_bii_</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_bird_pres</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_body_length</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_btp</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_changes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_chemistry</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_clave</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_collector_nmp</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_color_flor</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_common_and_local_names</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_common_names_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_comparisons</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_concepts_and_synonymy</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_conservation</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_countries_and_regions</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_country_nmp</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_curator</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_data_sources</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_deposit_locality</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_descripnotes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_descripteur_de_l_appareil_</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_descripteur_taxinomique</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_description_1</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_description_de_la_feuille</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_distribution_after</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_distribution_and_habitat</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_distribution_communes_</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_distribution_in_the_plot</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_district</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_dry_weight_biomass_</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_egg_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_electric_organ_discharge</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_elytral_image</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_epoca_floracion</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_era</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_ethnobotany</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_ethymology</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_etymologie</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_extant_or_extinct</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_external_links</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_female</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_field_char_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_file_pdf</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_files</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_fishery_information</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_fleur</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_foodplant_associations</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_fruit</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_further_notes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_gaps_in_our_knowledge</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_genbank_link</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_general_comments</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_genitalia_left_image</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_genus_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_geographic_range</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_geological_setting</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_global_distribution</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_group</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_guid</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_habitat0</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_habitat_and_host_associati</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_habitat_image</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_habitats</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_habitus_image</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_herbario</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_herbivores</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_host_species</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_identification</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_identification_d_une_part_</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_image_url_nmp</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_immature</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_inaturalist_observations_i</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_include_in_these_publicati</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_indexing</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_inflorescence</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_insecta</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_jottings</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_kei_file</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_lamina</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_larval_morphology_and_beha</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_latin_diagnosis</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_leaf</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_life_habit</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_local_distribution</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_locality_nmp</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_male</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_map_ref</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_name_bearing_type</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_natural_history</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_nest_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_nesting_behavior</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_nesting_habitat</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_nestling_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_new_record</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_nmp_id</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_nom_vernaculaire</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_nomenclatural_notes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_notes_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_number_of_specimens</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_order</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_organizations</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_origen</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_original</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_original_description_pdf</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_original_description_s_</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_original_description_text</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_original_illustration</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_overview</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_palynology</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_parasitoid_associations</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_people</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_phenology_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_phylogenetics</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_pilosit_</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_pinnae</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_pinnule</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_plates_figures</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_pollination_and_dispersal</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_pollination_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_predation_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_predator_associations</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_prey</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_pronotum_image</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_protolog</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_protologue</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_protologue_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_rachis</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_records_general_informatio</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_red_data_book_category</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_references_and_links</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_regeneration</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_related_literature</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_remark</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_remarks2</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_remarks_discussion</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_representative_images</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_reproduction_and_life_hist</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_requerimientos_agua</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_requerimientos_luz</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_requerimientos_sustrato</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_reviewers</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_rhizome</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_rhizome_scales</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_similar_species</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_chromosome_number</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_cit_author</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_citation</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_commentary</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_flowers</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_fruits</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_habit</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_inflorescences</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_last_edited</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_leaves</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_other_info</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_phenology</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_references</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_seeds</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_symp_struc</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_type_summary</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sol_desc_written_by</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sori</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_source_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_species_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimen_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimen_information</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimen_preservation</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimens</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimens_examined</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimens_other_sites</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_beha_ref</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_achenes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_addl_chars</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_anthers</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_auth_sources</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_beha_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_blw_gnd</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_culms</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_cytogenetics</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_diseases_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_elev</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_fls</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_infl</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_lc_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_leaves</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_manage_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_perigynia</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_pist_scales</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_plant</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_reg_var</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_rs_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_size_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_spikes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_stam_scales</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_stigmas</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_trends_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_em_veg_shoots</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_spm_notes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_stage</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_stipe</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_subspecies</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_synonomies</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_synonymie</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_synonymised_taxa</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_systematics_and_identifica</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_tag</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_taxonbiblio</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_taxonomic_remarks</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_taxonomic_status_remarks</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_the_information_shown_here</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_themes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_threats_text</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_timeline</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_trend</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_type_citation</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_type_material_location</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_type_species_type_genus</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_type_specimen_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_typecollection</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_typification_details</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_uk_distribution</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_variations_morphologiques</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_venation</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_vernacular_names</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field__accepted_atdn_morphotaxon</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field__atdn_morphotaxon_name_aut</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field__author_atdn_morphotaxon_n</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_brief_summary</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_date_atdn_morphotaxon_name</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_departamentos_mapa</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_differential_diagnosis</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_distribution2</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_drosanthemum</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_functional_morphology</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_holotype_code</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_holotype_material</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_image_table</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_import_test</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_information</td>
+<td>spm</td>
+<td class="numeric">2</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_institutional_codes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_length_maximum</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_length_minimum</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_library</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_lithographic_subunit</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_lithographic_unit</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_locality_and_age</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_megaloptera</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_morphological_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_nomenclature_and_synonymy</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_other_genitalic_image</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_other_morphology_image</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_page_editor</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_paises_limitrofes</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_palaeoecology</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_paratypus_material</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_rock_type</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_sm_em_phys_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_cytog_ref</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_evo_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_fl_scales</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_fossil_record</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_fossil_ref</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_growth_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_le_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_leg_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_mb_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_migration_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_perianth</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_popbio_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_proc_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_stamens</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_spm_em_ts_ref</td>
+<td>spm</td>
+<td class="numeric">35</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_stored_at</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_substage</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_tags</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_taphonomy</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_technical_description</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_zone</td>
+<td>spm</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr>
+	</tbody></table>
+		</section>
+		<section>
+		<h1 id="specimen-observation">specimen_observation</h1>
+		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody>
+			<tr><td>body</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">626</td>
+</tr><tr><td>field_taxonomic_name</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">598</td>
+</tr><tr><td>field_media</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">362</td>
+</tr><tr><td>field_basis_of_record</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">264</td>
+</tr><tr><td>field_catalogue_number</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">263</td>
+</tr><tr><td>field_collection_code</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">263</td>
+</tr><tr><td>field_institution_code</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">263</td>
+</tr><tr><td>field_location</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">234</td>
+</tr><tr><td>group_content_access</td>
+<td>specimen_observation</td>
+<td class="numeric">164</td>
+<td class="numeric">177</td>
+</tr><tr><td>field_date_collected</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">147</td>
+</tr><tr><td>field_reference</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">141</td>
+</tr><tr><td>field_collector</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">118</td>
+</tr><tr><td>field_collector_number</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">114</td>
+</tr><tr><td>field_notes</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">88</td>
+</tr><tr><td>field_type_status</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">86</td>
+</tr><tr><td>field_date_identified</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">85</td>
+</tr><tr><td>field_identified_by</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">82</td>
+</tr><tr><td>field_sex</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">74</td>
+</tr><tr><td>field_remarks</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">70</td>
+</tr><tr><td>group_audience</td>
+<td>specimen_observation</td>
+<td class="numeric">172</td>
+<td class="numeric">69</td>
+</tr><tr><td>field_lifestage</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">68</td>
+</tr><tr><td>field_count</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">53</td>
+</tr><tr><td>field_number</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">46</td>
+</tr><tr><td>field_other_catalogue_numbers</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">32</td>
+</tr><tr><td>field_collector_copy</td>
+<td>specimen_observation</td>
+<td class="numeric">147</td>
+<td class="numeric">30</td>
+</tr><tr><td>field_identified_by_copy</td>
+<td>specimen_observation</td>
+<td class="numeric">145</td>
+<td class="numeric">30</td>
+</tr><tr><td>field_identification_qualifier</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">23</td>
+</tr><tr><td>field_genbank_number</td>
+<td>specimen_observation</td>
+<td class="numeric">617</td>
+<td class="numeric">20</td>
+</tr><tr><td>field_notes_comments</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">8</td>
+</tr><tr><td>title_field</td>
+<td>specimen_observation</td>
+<td class="numeric">4</td>
+<td class="numeric">6</td>
+</tr><tr><td>field_city</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_taxonomy</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_url</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">5</td>
+</tr><tr><td>field_collection_date</td>
+<td>specimen_observation</td>
+<td class="numeric">2</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_determined_by</td>
+<td>specimen_observation</td>
+<td class="numeric">3</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_project</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_collectioncode</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_condition</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_date_of_determination</td>
+<td>specimen_observation</td>
+<td class="numeric">2</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_dissection</td>
+<td>specimen_observation</td>
+<td class="numeric">2</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_extraction_code</td>
+<td>specimen_observation</td>
+<td class="numeric">2</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_repository</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_source</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_28s</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_altitude_above_sea_level_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_angio_reproductive_state</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_branch_height</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_cited_in_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_collector_s_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_collector_verbatim</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_containing_work</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_coordinates</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_country_collected</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_country_name</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_crown_diameter_x</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_crown_diameter_y</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_date_added_to_database</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_date_collected_verbatim</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_day_collected</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_det</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_determinedby</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_diameter</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_distance_100</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_distance_50</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_distance_50_100</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_distance_fly</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_dna_extracted</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_dnanotes</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_drawer_no_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_external_link</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_grass_coverage</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_grass_frequency</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_historical_herbarium</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_host_taxonomic_name</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_identification_date</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_image_filename</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_imaged_automontage_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_institution_held</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_kin_group</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_label</td>
+<td>specimen_observation</td>
+<td class="numeric">2</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_label_1_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_label_2_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_label_3_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_label_locality</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_lectotypification</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_lectotypification_publishe</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_lifestagesex_text</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_locality_collected</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_locatedat</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_location_name</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_medium</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_monilo_lypo_repro_state</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_month_collected</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_nearest_named_place</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_original_label_name</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_paper</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_plot_loc</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_preparation</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_preparations</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_recordings_of_specimen</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_related_specimens_individu</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sample</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_sample_code</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_season_no</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimen_condition</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimen_label_name</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimen_localitycode</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimen_preparation</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimen_url</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimenbiblio</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimendatefree</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimendatefull</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimendepthfree</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimenextraction</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimenfixationbuffer</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimenlocationlink</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimenmaxdepth</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimenmethod</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimennotes</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimenorganisms</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimenstaining</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimensubstrate</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimentemperature</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimentide</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimentmindepth</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimenyear</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_strat</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_subquadrate_x</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_subquadrate_y</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_survey_methods</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_t_comber_number</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_the_country_collected</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_treatmentlocality</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_tree_diameter</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_tree_height</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_type_of</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_uri</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_url_to_specimen</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_verbatim_species</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_vice_county</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_wg</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_year_collected</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_yearinteger</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_argk</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_collecting_event</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_collector1</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_field_temperature</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_id_verified_by</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_identifier</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_label_4_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_label_5_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_label_6_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_length_mm_</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_morphbank_specimen_id</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_published_under_name</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_remainingspecimens</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_starving</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_the_date_identified</td>
+<td>specimen_observation</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr>
+	</tbody></table>
+		</section>
+		<section>
+		<h1 id="location">location</h1>
+		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody>
+			<tr><td>body</td>
+<td>location</td>
+<td class="numeric">18</td>
+<td class="numeric">626</td>
+</tr><tr><td>field_taxonomic_name</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">598</td>
+</tr><tr><td>field_media</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">362</td>
+</tr><tr><td>field_map</td>
+<td>location</td>
+<td class="numeric">617</td>
+<td class="numeric">262</td>
+</tr><tr><td>field_country</td>
+<td>location</td>
+<td class="numeric">616</td>
+<td class="numeric">228</td>
+</tr><tr><td>field_continent_or_ocean</td>
+<td>location</td>
+<td class="numeric">616</td>
+<td class="numeric">193</td>
+</tr><tr><td>field_file</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">186</td>
+</tr><tr><td>group_content_access</td>
+<td>location</td>
+<td class="numeric">164</td>
+<td class="numeric">177</td>
+</tr><tr><td>field_locality</td>
+<td>location</td>
+<td class="numeric">617</td>
+<td class="numeric">153</td>
+</tr><tr><td>field_state_province</td>
+<td>location</td>
+<td class="numeric">617</td>
+<td class="numeric">137</td>
+</tr><tr><td>field_county</td>
+<td>location</td>
+<td class="numeric">616</td>
+<td class="numeric">114</td>
+</tr><tr><td>group_audience</td>
+<td>location</td>
+<td class="numeric">172</td>
+<td class="numeric">69</td>
+</tr><tr><td>field_max_elevation</td>
+<td>location</td>
+<td class="numeric">617</td>
+<td class="numeric">57</td>
+</tr><tr><td>field_coordinate_system</td>
+<td>location</td>
+<td class="numeric">616</td>
+<td class="numeric">53</td>
+</tr><tr><td>field_coordinate_uncertainty</td>
+<td>location</td>
+<td class="numeric">616</td>
+<td class="numeric">45</td>
+</tr><tr><td>field_geodetic_datum</td>
+<td>location</td>
+<td class="numeric">616</td>
+<td class="numeric">45</td>
+</tr><tr><td>field_min_elevation</td>
+<td>location</td>
+<td class="numeric">617</td>
+<td class="numeric">45</td>
+</tr><tr><td>field_island</td>
+<td>location</td>
+<td class="numeric">617</td>
+<td class="numeric">44</td>
+</tr><tr><td>field_georeference_remarks</td>
+<td>location</td>
+<td class="numeric">617</td>
+<td class="numeric">30</td>
+</tr><tr><td>field_island_group</td>
+<td>location</td>
+<td class="numeric">617</td>
+<td class="numeric">30</td>
+</tr><tr><td>field_max_depth</td>
+<td>location</td>
+<td class="numeric">617</td>
+<td class="numeric">21</td>
+</tr><tr><td>field_min_depth</td>
+<td>location</td>
+<td class="numeric">617</td>
+<td class="numeric">16</td>
+</tr><tr><td>field_date</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">13</td>
+</tr><tr><td>field_georeference_protocol</td>
+<td>location</td>
+<td class="numeric">617</td>
+<td class="numeric">12</td>
+</tr><tr><td>field_references</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">6</td>
+</tr><tr><td>title_field</td>
+<td>location</td>
+<td class="numeric">4</td>
+<td class="numeric">6</td>
+</tr><tr><td>field_collectors</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_collectioncode</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_elevation</td>
+<td>location</td>
+<td class="numeric">3</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_file_attachments</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_illustration</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_regions</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">2</td>
+</tr><tr><td>field_bibliolocations</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_communes</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_date_end_loc</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_date_start_loc</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_drainage_basin_1</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_drainage_basin_2</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_drainage_basin_3</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_elevation_ft</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_elevationmaxerror</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_end_date</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_ethnobotany</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_group</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_images</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_latitude</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_latlongmaxerror</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_locality_id</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_locality_text</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_localitynotes</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_location_habitat</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_location_map</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_longitude</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_other_reference</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_plot_desc</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_recordings_from_here</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_specimens_from_here</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_stage</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_timeline</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_bed</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_bentity2</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_earliest_age_or_lowest_sta</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_earliest_epoch_or_lowest_s</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_ecological_interactions</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_exists_in_antweb</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_forest_type</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_formation</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_gabi_source</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_geological_substrate</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_highest_biostratigraphic_z</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_latest_age_or_highest_stag</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_latest_epoch_or_highest_se</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_lithostratigraphic_terms</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_location_accuracy</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_location_images</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_lowest_biostratigraphic_zo</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_marine_isotope_stage</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_maximum_absolute_age</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_member</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_minimum_absolute_age</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_precision</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_regional_stage</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_technique</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_verbatim_locality</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_xxxformation_name</td>
+<td>location</td>
+<td class="numeric">1</td>
+<td class="numeric">null</td>
+</tr>
+	</tbody></table>
+		</section>
+		<section>
+		<h1 id="ecological-interactions">ecological_interactions</h1>
+		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody>
+			<tr><td>body</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">626</td>
+</tr><tr><td>field_taxonomic_name</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">598</td>
+</tr><tr><td>group_content_access</td>
+<td>ecological_interactions</td>
+<td class="numeric">4</td>
+<td class="numeric">177</td>
+</tr><tr><td>field_reference</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">141</td>
+</tr><tr><td>group_audience</td>
+<td>ecological_interactions</td>
+<td class="numeric">4</td>
+<td class="numeric">69</td>
+</tr><tr><td>field_int_collection</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">14</td>
+</tr><tr><td>field_interaction_type</td>
+<td>ecological_interactions</td>
+<td class="numeric">51</td>
+<td class="numeric">14</td>
+</tr><tr><td>field_date</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">13</td>
+</tr><tr><td>field_life_cycle_stage</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">8</td>
+</tr><tr><td>field_location_ref</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">8</td>
+</tr><tr><td>field_interaction_record_type</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">6</td>
+</tr><tr><td>field_reference_page</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_species_status</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">3</td>
+</tr><tr><td>field_importance</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">1</td>
+</tr><tr><td>field_organism_part</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">null</td>
+</tr><tr><td>field_specimen_1</td>
+<td>ecological_interactions</td>
+<td class="numeric">52</td>
+<td class="numeric">null</td>
+</tr>
+	</tbody></table>
+		</section>
+	Are those fields actually used?
+
+	</main>
+	<footer>
+		<div class="content"></body>
