@@ -3,7 +3,7 @@ import recentlyEdited, {options} from './recently-edited/main.js';
 import mappings, {assets} from './mappings/main.js'
 import fields from './fields/fields.js'
 import nodeBreakdown from './node-breakdown/main.js';
-import { page } from 'sp-templates';
+import { page, replaceAsset, dedupeCss } from 'sp-templates';
 import css from './page.js';
 
 import index from './index/main.js';
@@ -12,19 +12,6 @@ import biblio from './biblio-types/main.js';
 export { assets};
 
 const INDEX = 'index';
-
-function dedupeCss(dict={}) {
-	return function(value) {
-		if(value && value.css){
-			if(!dict[value.css]) {
-				return dict[value.css] = value;
-			} else {
-				return [];
-			}
-		}
-		return value;
-	}
-}
 
 const reports = [
 	{ title: 'Recently Edited Sites', id: 'recently-edited', view: recentlyEdited, options },
@@ -47,12 +34,10 @@ function router(menu, id){
 	}
 }
 
-
-
-export default function Reports(sql, urlFor) {
+export default function Reports({sql, getUrl, getAssetUrl}) {
 	const menu = reports.map(r => ({
 		title: r.title,
-		path: urlFor(r.id)
+		path: getUrl(r.id)
 	}))
 
 	async function getPage(id, options) {
@@ -61,7 +46,7 @@ export default function Reports(sql, urlFor) {
 			sql,
 			{
 				sql,
-				getUrl: options => urlFor(id, options)
+				getUrl: options => getUrl(id, options)
 			}
 		)
 		const view = route ? (await route.view(sql, options)) : 'Page not found';
@@ -70,12 +55,12 @@ export default function Reports(sql, urlFor) {
 		return page(
 			{
 				title,
-				menu:[{name:'Home', href:urlFor(INDEX)}]
+				menu:[{name:'Home', href:getUrl(INDEX)}]
 				//menu:[{name:'Home', href:'/'}, ...menu.map(m=>({ name:m.title, href:m.path }))]
 			},
 			[css,
 			view]
-		).render(dedupeCss())
+		).render([dedupeCss(), replaceAsset(getAssetUrl)].reduce((r1,r2)=>v=>r2(r1(v))))
 	}
 
 	getPage[Symbol.iterator] = function*(){

@@ -1,10 +1,10 @@
 import html from 'encode-html-template-tag';
-import table from '../table.js';
+import {table} from 'sp-templates';
 
 function rotatedTitle(title){
 	return {
 		title,
-		attrs: {
+		th: {
 			class: 'rotate'
 		}
 	}

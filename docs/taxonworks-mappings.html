@@ -2,7 +2,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<title>Scratchpads → Taxonworks Mappings</title></head><body style="--theme-colour: rebeccapurple">
+<title>Scratchpads → Taxonworks Mappings</title>
+
+</head><body style="--theme-colour: rebeccapurple">
 	
 <style>
 html, body {
@@ -26,26 +28,29 @@ main.content {
 main h1, main h2 {
 	color: var(--theme-colour);
 }
-header {
+body > header {
 	background: var(--theme-colour);
 	color: white;
 	min-height: 170px;
 	display: flex;
 }
-header a:link,
-header a:visited {
+body > header a:link,
+body > header a:visited {
 	color: white;
 }
+
 .content {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 10px;
 }
+
 .siteInfo{
 	display: flex;
 	justify-content: space-between;
 }
+
 .login{
 	display: inline-block;
 	background: #262626;
@@ -57,28 +62,28 @@ header a:visited {
 	font-size: 11px;
 	letter-spacing: 0.5px;
 }
-footer {
+body > footer {
 	background: #F1F1F1;
 	color: var(--theme-color);
 }
-header h1 {
+body>header h1 {
 	font-weight: normal;
 	margin: 32px 0 0 0;
 }
-main h1 {
+body>main h1 {
 	font-weight: normal;
 	letter-spacing: -0.05em;
-	margin-top: 0;
+	/*margin-top: 0;*/
 }
-header .content {
+body>header .content {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
-nav {
+body>header nav {
 	margin-bottom: -10px;
 }
-nav a {
+body>header nav a {
 	display: inline-block;
 	background: rgba(0,0,0,0.3);
 	border-radius: 8px;
@@ -164,8 +169,7 @@ The core data types of Scratchpads are:
 there are a large number of extra fields that are excluded from the
 exported file, since they are not all supported by the .bib file format.</p>
 
-<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
-			<tr><td>title</td>
+<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>title</td>
 <td>string</td>
 <td>Source::Bibtex</td>
 <td>title</td>
@@ -515,8 +519,7 @@ journal article, conference paper, book chapter, miscelaneous)</td>
 <td></td>
 <td></td>
 <td></td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 
 <h3 id="biblio_contributor">Biblio_contributor</h3>
 
@@ -563,7 +566,7 @@ journal article, conference paper, book chapter, miscelaneous)</td>
 <h1>SPM</h1>
 
 <figure style="float:right;margin-top:0;text-align:center;">
-	<img src="data:;base64,iVBORw0KGgoAAAANSUhEUgAAAM4AAAC2CAYAAACRbrJoAAAABHNCSVQICAgIfAhkiAAAABl0RVh0U29mdHdhcmUAZ25vbWUtc2NyZWVuc2hvdO8Dvz4AABbuSURBVHic7d0xjOr4nQfw78tGsZMt7Jwi2UqDr4Kr4CpIBZFOgqvgroGt4KphixNcNaSbDlLBVjgVpIJUsBVcBanwVjgV3mq8TfBTsouftCc8Kz39rjDDMDMw781&#x2F;Z97bt&#x2F;l9JKQZ+Nv&#x2F;v8FfbP+x9Hvxt6+&#x2F;ITDG7vnoo4&#x2F;ws5&#x2F;9DB999NG9115sr77j4DD2SD953wNg7EPEwWFMAAeHMQEcHMYEcHAYE8DBYUwAB4cxARwcxgRwcBgTwMFhTMBPX79+ffRenNevX+Pjn8vvYUiMvXv&#x2F;tw2O5uCUn3z33XdHXzj1PGM&#x2F;Ro&#x2F;d339CdPwez9evXz&#x2F;FeBj7IJzKwSl8jcOYAA4OYwI4OIwJ4OAwJoCDw5gADg5jAjg4jAng4DAmgIPDmAAODmMCODiMCeDgMCaAg8OYAA4OYwI4OIwJ4OAwJoCDw5gADg5jAjg4jAng4DAmgIPDmAAODmMCODiMCeDgMCaAg8OYAA4OYwI4OIwJ4OAwJoCDw5gADs6z8jHMyXghFzAM3vdY2FN6&#x2F;uAEc1T0F3jx4gViDfvZuxMXwB620Ld84TX4Vh+toYObjMjQMzlkcykYTzBC9sPx4uuNT7&#x2F;4xS&#x2F;uvfDtt9&#x2F;iV&#x2F;&#x2F;0y+&#x2F;dgT8uwfiPP+EVAETOsHBMpH6Qhd4s1I0MrLoDq24ILB9gWtJR8E140xLUpx4ee1bf+K9wLAenPPMRx8PYHOOVlEa5GAG+GsOc&#x2F;0DPWTwb1ldX32MFDub2qycbDvuB+3rj0&#x2F;bqu3uPv339DX1vl11KSiAp3aXL5TlFAVLyA9rcazijsgaS8gNarwZUy0ZJk0CQFIqky9RbbgXbEhFtaNE9o2xcI2XXTotnqTZY7sdx2U4SgIOHRNnB9vjykEiLpqnYntH6uotljSK3lgcp5RkRbWiQlQhSngaHw9osqVfLUzyikAQQJI2i6TPqLm6&#x2F;M+tukoAonS&#x2F;XNGsXKblrL2lxyjcnN&#x2F;0TEW1XNDrP79tcb+dZb3nk&#x2F;WZ3ncrBqcezBmfVjIY7YW9NRCtqRkGQstRb3225oDMNhGia0vE01QYLWq1WtBidU1IBIVKjxVak7YZmZ1GSIFEkW6N2b0CDXpvO0hoBEiWbS9oS0fZyQaNmmhSAouUujUYTWu7GuDyPkwSQlj6jZrdHvW6bavlwndHzBW2JiDYrmo1qlAQI8TMajCY0WW7oaHC2S2rGJQI0Sp+1qTcYUK9bo2xEIkhRqs1uErbppQnQKJlOUrzYpslyRavljLrFyMH7Gm7nqKiFbc+a1O31qNdtUjmtEaBQunv5vT&#x2F;LH7sfUHAWVIuAoORpsPvKu2zHCQAl25fH20Kj8uT29+OiFiEgQrWFQNtVMzzKpXt0u8clncd3Ib5exaxM2r2xrahXTFI8fX4QxvD5ZhwEpUyTfSAGlJdAUvbwiHo&#x2F;OOtumiRIFG+ubr8Fl11KSyAk2&#x2F;uxbnpZAkDSwXO7FygrgaRsL+xrOwr7vnc0X1G3mKbs+YSPOm&#x2F;w2OA82zVOMDUx&#x2F;ApQchUUdlfKRqmKtAR8YQ7hHFtIK6CSu31ZbcQMAB68u5Ndb9HWGQ&#x2F;xJSRk6qU7s1oJVCtx4GqO8YPXXDFUhhbseevWhEYQ6DAMCXjlwnvUJZuP6dDCFVKoVmK3XzJKqGQk4Isxpt7tl1KVO+NXDRgqcOV5CJvKkGXgyrHg3BpPDNXhHNNWjicrntgzBcfH1BzjJTQUqjns9zm9EO4cX5owrSOL6Qb0O0&#x2F;Jcrh0cHcHfYu2ru0CMBAz7k&#x2F;j6UYMEq7gOu4bNsVGv15AytChyuG0+s9&#x2F;&#x2F;kt88vnV8XE9yIHtXgFaDLG7g4eKmKEDcHF7SBJ0&#x2F;d6WQj7cJDmDejUO6cvP8Bs9gVylAXM4hys+s87e4HmC443Rmb4CtAxyugfXdXePAIlcChK+wtCc43nn1wIEQQBAhn7k61ZWZcgAAv+hUdho5VL4r8&#x2F;mQK4BczzDYrHAYrFAMy0JjgmALOPYjLysygACPDiko2SkWhbsURPlVABr+Ht8+slv8c+&#x2F;1JGqmLA5QE&#x2F;up8+xUndo4s9XAF7+CZ&#x2F;8y5+Otnk5NjENMig822868n5HvHeahzAwAQD5WKqu20w7aH1xBa08xdzMHOzsAVyhcavhkSLwj35pBL4PQIYqtG4ZsUID&#x2F;UIDCDzY8zH6nRbMP36KjK&#x2F;CGZfuHaGZuGcIjg3T&#x2F;AJAFOVea399c8jpV&#x2F;G7z8cwxz4Kpec7+44lDOCPDhw3ABK390bXcXAFZXd6dJzvuXgFCalc6vYRIrAwtUV+8zGQiEnA&#x2F;7pwPCBzq2sfjuMDSCERO7H425J1JHJVdHIFxDIGPp0OYQWlZ&#x2F;yS+sfz5KdqgWVi+CUgZRtoVQooFO4&#x2F;GhcVRHGFuTmE9+ZVCjNyJcSP9RNYMPt&#x2F;AZQMSpnrven6+ujmWKCqKiRcwXMPlw5gXTQw9cO&#x2F;b5qHy18FwQOnoCpypQwkWDD7d6ZHnD5M6wpSuoTcI79LgnkdCd1AZXr&#x2F;0CoDJ08NmbgnPuIEmHeG+AoKivUHTg0SVdSTHXz6ZxN9p4rG9&#x2F;2GPSVWh1nrI&#x2F;NZFamcg0YlATVwMTVb+OOXCrLdzs0RcTfZ8BezgYacQSxRQiVTQk75HJ+3SqiqdeRUH9awg75XQace4JPf2xi2+ohVC8gldBg6AKuFestHykihUrq&#x2F;YXqphZaZwf&#x2F;8LoOM20AlowPeHP3WH&#x2F;AFkmh2Ko8+pZJTBaTkz&#x2F;CHQgpepYJCSocc+LCnJvp&#x2F;BqK1OjKcnKf1pL&#x2F;jbAaUv&#x2F;4R8o1N8+EPjudL2v82E2&#x2F;S6m67XpYAifKj62ce05Zo&#x2F;8t&#x2F;9ObOgUiySM3JJd2+x2BNk1pydxeCRul2uPbNrEn5uBb+Yq9EKV3u0mJDROsBlaMKQVIo3lwSEdHloExxZXd3QX5A61N3DmxXNDi4c0BSIhTP12iwuj2i6+0p3tqeE+&#x2F;Bekbtcpqi2s2dA5F4ls66C&#x2F;4N5y089necZ7&#x2F;Jk7EPwQ&#x2F;sJk&#x2F;Gfpw4OIwJ4OAwJuDJf8f561&#x2F;&#x2F;+tSrZOxRfv3rXz97H08enHcxaMbeNz5VY0wAB4cxARwcxgRwcBgTwMFhTAAHhzEBHBzGBHBwGBPAwWFMAAeHMQEcHMYEcHAYE8DBYUwAB4cxARwcxgRwcBgTwMFhTAAHhzEBHBzGBHBwGBPAwWFMAAeHMQEcHMYEcHCE+ehnZKiVOQDA7SQgxxqw3++g2DvyDMEZo7ArMnv9kFUDiUwJjb6FR5ej9OYwh&#x2F;az1wt1hiam7qn&#x2F;j1GRM+eYXiSecBwupp3x8Yrc7Afl2Y44yeYS6&#x2F;Ua6&#x2F;Ul7HkfjRwwrf8GsZx5p6T4w7zpBeqmQOAexUancYGxe+r&#x2F;4&#x2F;RYCinjCUsxOkM0Gn0OzofgSQtLERHRiPISKN1d33tlu2xSUpIo3rwpCbWenFM+flP0KZo+2xdYWjXjYZEkgCQpSrUFEdGGFu0iJQ+KMiXLXVpu73V32DH1ymmKKlK4Li1O+eYsLLi0HVFRCfuAJJHyb&#x2F;9N&#x2F;3n4f7ZHG5pQUVKo2A2LSUnJNl3ShnppiZTyjIiILttxkqI1GvTKu7FJpMWL1L0e2HZAeelu0asZnWkSpXtrotkZRaTrbVUouStstV0N6CwbJU2SSNq9P72Djd0su1RORvbvnxbPU3N2&#x2F;71nD3tsYal3GhyiLU2KCiF6TksionWP0pJEyfMFrbdEtFlRN6+RdFBpbHamkZTu0vXaNqMiKVKUznYV1baXIypHQJHa6Rpwi7MIIVKkwWpDRFtaz2oUlxQqjnY74LpLaUmjsxkd&#x2F;58mVFZAWrRI7cUlbTZboiPBgaRQvNyj5XpL2&#x2F;WS2lnlpjrdm4JDRNtRniQpT&#x2F;smmxEVNYWS5xO63BLRdk2z8yQpWp5GGyKiJdUiEkVrs&#x2F;D9265p0c6SphR3r7O39djgvOPJARmxVAxwHbgBAL2Cqedh3kpBlwGoMVRKKcCxYJ84nVMLfbiehU7OgAxANgqoZDR4ln2yEG+qY2Nt91GKqQBk6JkKckYA23rbk6KwgKacq6OeMqCerKeeQr1TQUKXIesJ1C9KiHw1xVhwxsAbdjBGCa1WDoYMQNaRubhAAVOYYx+AD98HVF0NS7zLOlL1KTx&#x2F;eLTaN3s6735WLQgAyLt90YczbKCQMKCrKlRVhV6d4uqhqYDAxfSigkxM3y9TGL7EFR6o9uxZ6FQziBk6VFWFqmbQ+fLBXo6QYCSMh1voMcQOd1gjAR0uXMHS2o7t4OrlH&#x2F;Dbg4mWFz&#x2F;&#x2F;d&#x2F;zx5RVcxwWQwYVZgH&#x2F;xr1CNFHKVBsyx&#x2F;czXgwx458HxYVkOEEsgBsAfVpCpz2FczOH6Pnzfh9fPQTq5fIB5PYNPxjKqQwfebplxRXtgGRuNXAGmX0LfcuH7PnzfQj16eolTxIqei5d7lgEg3sSKCHTn4bTC2TyjNITjrzE3q8jIDsxKCkaqBet5pyH&#x2F;4b3T4PjWBS4+B9LVCmIA7LmFV7EqGgVjv3s5cwdXJ9fgwpq&#x2F;RKRQRyWh7p+z7Zenl&#x2F;EsWF&#x2F;KyNXrSOm7Xnwbtnu6F1FXngP38OveteFhV8Z9t4VBcLBH+x5c&#x2F;&#x2F;Q4jEQMkmPBvnUICeAddBL4PgJZRypXQcMcw3Y6SNgtmNZTbBE75dmCE&#x2F;gePC98uI6FYauEVOYz+Pk++lUdAGDEdMCdYu4GCE&#x2F;bqriwZChXHlw3XI8MGVeeA8cPEAQqdEOCZ83Da6DAxbhexzjQAM+Fd+xbVjWgK69gT8Mp7cCbo1Xtw9cB3&#x2F;XC0zVZBuDDdVz4QXD&#x2F;&#x2F;7fZ3gAALHQupuE4AgfmxRhfRQsoJQDIBmLGFZzpfHcq5cNqdXB7&#x2F;5aBKw+O4yMIAL1UR0H9HI3qcDeF78M2S0jEcjBdAE4LKT2B6tDZr9OZW3BhIKa&#x2F;3efEBD3XrBpw8JAUiiTzVOst6NZkz2ZB7XyUFCmcVk6fDehyM6NaXCEoSWouibaLJiUVECSNypMtbVc9KsY1kiSJFC1J5d6SNss2JRWJpEiNZkdGdDk6o6Qm7adr24sNXfbypEkSacURbWhNg2IknN5Otml17&#x2F;8ZlRWJsr3D0d+eVVs1oyTFz2nU3U1HSxJpyTL1VgdTx7MmZaMKKVqUovEsnfUGVItKlLyegdxMwm2HtJ8l3K56dJa+mY6OJIvU3k83b+lyVKNsVAun7SWFtHiWaqNwxpG9vcfOqr34euPTsfru3377LX71T7981zlm7L34xn+FYzk4he9VY0wAB4cxARwcxgRwcBgTwMFhTAAHhzEBHBzGBHBwGBPAwWFMAAeHMQEcHMYEcHAYE8DBYUwAB4cxARwcxgRwcBgTwMFhTAAHhzEBHBzGBHBwGBPAwWFMAAeHMQEcHMYEcHAYE8DBYUwAB4cxAT8hovc9hnfOm3dQSsX29XVUI4VSa74vTDWtqIg13k&#x2F;96HlVh1H&#x2F;MEoNBPYQw1MVwB7gD3OQU+bJQmAi7EYM+q4CuIjH5uAf74jj9VEpdCA3pvuaPO64gqBTQKUffpQ504X1pNWkf5ysTh19geCohSG8aQUfckGFH01w5vM5bPstjhKeDQcJFHI3NXnURBV920a&#x2F;FH6U06qB1IUNOB1kdB369UOV8ULOYegDQADbrCAVM2AYBoxECR3rum6Ng1ZCRsY89p1qoW4YKLUaKOQyyCRiiGXqmB40lQMbnUIChq5CNTJozK&#x2F;X+1CfgDeuh5XqdB26nkDJvC5zH4TlQYxwOd1IHbzmY94qIGHslosV0Lpep9tBSi2g1a+ikMsgFTMQK4RVse1OBqXhS8wbCSTq8yPbebpPf1yCnuvDg4V64uD91VXIL1RUpuEafKuDQiIWbmsshUrf2VfR860WcjEdupFAqtDA9GiNl2f09282T1zm493abDaUSCT2JUUqlcrDC2wXdB4PS3C0BzNaru8XxJiUFYqeL+88e0m9rEbx2iIs2jspk6Zkqbsr47GZlCmilWmyJSLa0uVsRIvLY8U2FlSLgJR8b1cQeEOTskZacUJb2hULjhSpF1bLDStvJ9t0+aY+NyPKKxEqTza7zaxRVEpTd01Emx5lpSS1L3dDWA&#x2F;oLH9Os7BD0pQshfV7t7RqJknaFzfuUhIKpbu7BbczOosoVJ5siWhN3eTd0icHHuhzM8iSlLwpiLxbOS2bSdKSbVptw&#x2F;Z5RaPiaNfqskd57bry+JJq0YNxrQeU17AvuSLiVA5OVp3+0IPTbrdv1+IBaLm8u9PfsV3RpF2jYjpKmgSSIkkqNneVnelYcLa0OI+Tlu3S5e6ZWVkj7dYHtaRaVKPy5E0jXlAtIlF+cBOq7ShPUqRGSwqDc2u9kzIpu8rVb+pzu90e1MWZUFmJhDvadkJlTaP0+YAWl&#x2F;d39O32IODLGkWUIk2IdtW3d+EjIqJLau&#x2F;D8obgPNDnseBsJmWKRIp0nZPNIH8T4HCFNClrFK0tiS7blJTSu7Bfv03KOw3Oj+ZU7VHkGHL1DoZzB16wgdOvQu4XkKnPjxbU9cYVlIYJ9IdVGACAAJ7v4+W4dHCakcPQC+D7b1O6VoWq39QGlWUVchDsi97Kh1Wt5X0RxDf06cEyqyikEkgkEkgk6hhfb4ycg2n1UfD6qKZ0qEYGlf7uVM23MawXkErslisN71y0y2GBuuu&#x2F;j25PgGnlujCxilTHebjPu1wTpYqN0rCPwu7CJ&#x2F;A9XLkmcvttNVAZB&#x2F;B9D&#x2F;A9+FChHhQqVlX1e1RbfbyfvsO+nkWlUsHFxQVevXoFAEin00gkTl&#x2F;Y+84UUy+GUsbYPaPCyFTQqvdhmDY8ZG61D5wOClUX1ekcuf0HJUNXVUQqY7idlMCoffjervo2dnU81RhU4IGK0Q&#x2F;3GYxLKLQA07ZQ0mUgmKKkV2+WNnKo93OoI4BndVDKlXCRcFAwC6i7DVhWFTEZgFWHkXvsfJeMXMeB0wq3Sd7t0af6bNwauIV64QJoWWilbnZ9VdWhxAqY2w3E7nbnOpBhwfOBcIYhgO&#x2F;5CN5hcj74I46qqnBdF71eD6PRCPP5&#x2F;OEFbBP1QgWNqbv&#x2F;9gvcKVp9G3omdXumx5+jXuhA74zRSNz+VFKlHIJxB2Pveh1D1EstzHcTB641heWevmCd9&#x2F;twAQAexkMLaipzfwe546E+fd9DoBqI6WH9Uts0YQUB&#x2F;ACA3UIm09iNTYYeiyE84IVHMdmIwZABBA765hT+9XJvIuPmCKuq+wt8VX6oz0MehqUSpqk+hhXj9qozJWS8PjrXEyOBA7NagmkHgJFCRrcxHLv798Gc8+TAM9vSalCjbFwjRZJIURRSIknKn4&#x2F;uXeOsu0kCJNI07eYRie8uUDe07BYpGYlQJKKRFk1SubfaXWOsqBmXKN1dH+l&#x2F;QbWIRvlmk&#x2F;LJOEU1jSLpGk12TWdn2r7+Z&#x2F;hEmbTdNc6DfW5mdJ6OkKZFKR7P0tlgSaNyhBQtTd3VmibnWYoebEO+HdZj3S7blI1qpEWiFE+XqbeY0HlcISV+Tot1l9JSlm4uY25f16y66bCOan5A97f0dJ&#x2F;7a5zlOUUBUg7fXy1C6fYq3NpZk&#x2F;LxCGmRCGmRKKVro&#x2F;015mZ2TumIQooWoXj2nLpncdLefIF50mOvcV78&#x2F;ZsNffzxx&#x2F;cCxTVAn4uFulGA3&#x2F;fQz7zvsbBrX298HMvBKR&#x2F;8qRpj7wMHhzEBH&#x2F;ys2ocnhY77lHdpsfeBjziMCeDgMCaAg8OYAA4OYwI4OIwJ4OAwJoCDw5gADg5jAjg4jAng4DAmgIPDmAAODmMCODiMCeDgMCaAg8OYAA4OYwI4OIwJ4OAwJoCDw5gADg5jAjg4jAng4DAmgIPDmAAODmMCODiMCeDgMCaAg8OYAA4OYwI4OIwJ4OAwJoCDw5gADg5jAjg4jAng4DAmgIPDmAAODmMCODiMCeDgMCaAg8OYAA4OYwI4OIwJ4OAwJoCDw5iA&#x2F;wfyllkGp++U9AAAAABJRU5ErkJggg&#x3D;&#x3D;" alt="Screenshot of the added attribute as a small note in the Annotations section."/>
+	<img src="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;data-attribute.png" alt="Screenshot of the added attribute as a small note in the Annotations section."/>
 	<figcaption>How the extra data appears in Taxonworks</figcaption>
 </figure>
 
@@ -608,8 +611,7 @@ sizeData = InternalAttribute.create!(
 <section>
 	<h1>Predicate definitions</h1>
 	<p>Most SPM fields can be represented as Predicates by using the following values.</p>
-	<table><thead><tr><th rowspan="2">SPM field name</th><th colspan="4">Taxonworks Predicate properties</th></tr><tr><th rowspan="1">name</th><th rowspan="1">definition</th><th rowspan="1">uri</th><th rowspan="1">uri_relation</th></tr></thead><tbody>
-			<tr><td>field_associations</td>
+	<table><thead><tr><th rowspan="2">SPM field name</th><th colspan="4">Taxonworks Predicate properties</th></tr><tr><th rowspan="1">name</th><th rowspan="1">definition</th><th rowspan="1">uri</th><th rowspan="1">uri_relation</th></tr></thead><tbody><tr><td>field_associations</td>
 <td>Associations</td>
 <td>Predator-prey; host-parasite, pollinators, symbiosis, mutualism, commensalism; hybridisation, ...</td>
 <td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Associations</td>
@@ -784,16 +786,14 @@ sizeData = InternalAttribute.create!(
 <td>Use, as per TDWG SPM ontology</td>
 <td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Use</td>
 <td>skos:exactMatch</td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 	</section>
 
 	<section>
 		<h1>Other fields</h1>
 		<p>The remaining fields require an individual mapping.</p>
 
-		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
-			<tr><td>field_media</td>
+		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_media</td>
 <td>Media</td>
 <td></td>
 <td></td>
@@ -817,8 +817,7 @@ sizeData = InternalAttribute.create!(
 <td></td>
 <td></td>
 <td>undefined</td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 	</section>
 </section><section id="#specimen-observation">
 <h1>Specimen/Observation</h1>
@@ -838,8 +837,7 @@ FossilSpecimen</td><td>CollectionObject</td></tr>
 <tr><td>MachineObservation</td><td>AssertedDistribution with source=Source::??[Human/Verbatim/Bibtex]</td></tr>
 </table>
 
-<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
-			<tr><td>field_basis_of_record</td>
+<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_basis_of_record</td>
 <td>One of:
 Fossil Specimen
 Human observation
@@ -978,8 +976,7 @@ Material Sample</td>
 <td></td>
 <td></td>
 <td></td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 
 </section>
 <section id="location">
@@ -992,8 +989,7 @@ Material Sample</td>
 		<li>Georeference (information about a specific collection at a geographic item)</li>
 	</ul>
 
-	<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
-			<tr><td>field_georeference_protocol</td>
+	<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_georeference_protocol</td>
 <td>undefined</td>
 <td>undefined</td>
 <td>undefined</td>
@@ -1101,13 +1097,11 @@ Material Sample</td>
 <td>undefined</td>
 <td>undefined</td>
 <td>undefined</td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 </section><section>
 <h1>Ecological Interactions</h1>
 
-<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody>
-			<tr><td>body</td>
+<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>body</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1191,8 +1185,7 @@ Material Sample</td>
 <td></td>
 <td></td>
 <td></td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 
 </section>
 <h2 id="taxonomy-term">Taxonomy Term</h2>

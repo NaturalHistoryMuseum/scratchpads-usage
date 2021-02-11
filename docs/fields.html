@@ -2,7 +2,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<title>Fields and field usage</title></head><body style="--theme-colour: rebeccapurple">
+<title>Fields and field usage</title>
+
+</head><body style="--theme-colour: rebeccapurple">
 	
 <style>
 html, body {
@@ -26,26 +28,29 @@ main.content {
 main h1, main h2 {
 	color: var(--theme-colour);
 }
-header {
+body > header {
 	background: var(--theme-colour);
 	color: white;
 	min-height: 170px;
 	display: flex;
 }
-header a:link,
-header a:visited {
+body > header a:link,
+body > header a:visited {
 	color: white;
 }
+
 .content {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 10px;
 }
+
 .siteInfo{
 	display: flex;
 	justify-content: space-between;
 }
+
 .login{
 	display: inline-block;
 	background: #262626;
@@ -57,28 +62,28 @@ header a:visited {
 	font-size: 11px;
 	letter-spacing: 0.5px;
 }
-footer {
+body > footer {
 	background: #F1F1F1;
 	color: var(--theme-color);
 }
-header h1 {
+body>header h1 {
 	font-weight: normal;
 	margin: 32px 0 0 0;
 }
-main h1 {
+body>main h1 {
 	font-weight: normal;
 	letter-spacing: -0.05em;
-	margin-top: 0;
+	/*margin-top: 0;*/
 }
-header .content {
+body>header .content {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
-nav {
+body>header nav {
 	margin-bottom: -10px;
 }
-nav a {
+body>header nav a {
 	display: inline-block;
 	background: rgba(0,0,0,0.3);
 	border-radius: 8px;
@@ -153,8 +158,7 @@ section > h1 {
 	
 		<section>
 		<h1 id="biblio">biblio</h1>
-		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody>
-			<tr><td>body</td>
+		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody><tr><td>body</td>
 <td>biblio</td>
 <td class="numeric">1170</td>
 <td class="numeric">626</td>
@@ -474,13 +478,11 @@ section > h1 {
 <td>biblio</td>
 <td class="numeric">2</td>
 <td class="numeric">null</td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 		</section>
 		<section>
 		<h1 id="spm">spm</h1>
-		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody>
-			<tr><td>field_taxonomic_name</td>
+		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody><tr><td>field_taxonomic_name</td>
 <td>spm</td>
 <td class="numeric">1170</td>
 <td class="numeric">598</td>
@@ -2256,13 +2258,11 @@ section > h1 {
 <td>spm</td>
 <td class="numeric">1</td>
 <td class="numeric">null</td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 		</section>
 		<section>
 		<h1 id="specimen-observation">specimen_observation</h1>
-		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody>
-			<tr><td>body</td>
+		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody><tr><td>body</td>
 <td>specimen_observation</td>
 <td class="numeric">1</td>
 <td class="numeric">626</td>
@@ -2894,13 +2894,11 @@ section > h1 {
 <td>specimen_observation</td>
 <td class="numeric">1</td>
 <td class="numeric">null</td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 		</section>
 		<section>
 		<h1 id="location">location</h1>
-		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody>
-			<tr><td>body</td>
+		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody><tr><td>body</td>
 <td>location</td>
 <td class="numeric">18</td>
 <td class="numeric">626</td>
@@ -3240,13 +3238,11 @@ section > h1 {
 <td>location</td>
 <td class="numeric">1</td>
 <td class="numeric">null</td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 		</section>
 		<section>
 		<h1 id="ecological-interactions">ecological_interactions</h1>
-		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody>
-			<tr><td>body</td>
+		<table><thead><tr><th rowspan="2">Field name</th><th rowspan="2">Bundle</th><th colspan="2">Number of sites with field</th></tr><tr><th rowspan="1">Present</th><th rowspan="1">In use</th></tr></thead><tbody><tr><td>body</td>
 <td>ecological_interactions</td>
 <td class="numeric">52</td>
 <td class="numeric">626</td>
@@ -3310,15 +3306,13 @@ section > h1 {
 <td>ecological_interactions</td>
 <td class="numeric">52</td>
 <td class="numeric">null</td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 		</section>
 
 <section id="more-biblio">
 	<h1>Core biblio fields</h1>
 	<p>The following fields are recorded separately in the database in a special bilio table.</p>
-<table><thead><tr><th rowspan="1">name</th><th rowspan="1">Number of sites with field in use</th><th rowspan="1">Total number of field instances in use over all scratchpads</th></tr></thead><tbody>
-			<tr><td>biblio_citekey</td>
+<table><thead><tr><th rowspan="1">name</th><th rowspan="1">Number of sites with field in use</th><th rowspan="1">Total number of field instances in use over all scratchpads</th></tr></thead><tbody><tr><td>biblio_citekey</td>
 <td>551</td>
 <td>1573114</td>
 </tr><tr><td>biblio_coins</td>
@@ -3465,8 +3459,7 @@ section > h1 {
 </tr><tr><td>biblio_custom5</td>
 <td>2</td>
 <td>2</td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 </section>
 
 	</main>

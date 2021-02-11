@@ -1,5 +1,5 @@
 import html from 'encode-html-template-tag';
-import {thead, tbody, numeric} from '../table.js';
+import {thead, tbody, numeric} from 'sp-templates';
 
 const sortCol = (sort, getUrl) => function sortCol(name, id=name.toLowerCase()) {
 	return id===sort ? html`<i>${name}</i>` : html`<a href="${getUrl(id)}">${name}</a>`;
@@ -18,7 +18,7 @@ export default ({sort, urlFor, collectionDate}, data) => {
 <p>This list contains ${data.length} sites.</p>
 <p>This is a <b>provisional</b> guide for which sites may be migrated to Taxonworks, and has not been finalised.</p>
 <table>
-	${thead([
+	${thead({}, [
 		'Site',
 		sortable('Changed'),
 		{
@@ -30,6 +30,6 @@ export default ({sort, urlFor, collectionDate}, data) => {
 			]
 		}
 	])}
-	${tbody(['site', row=>date(row.changed), numeric('nodes'), numeric('taxa'), numeric('total')], data)}
+	${tbody({}, ['site', row=>date(row.changed), numeric('nodes'), numeric('taxa'), numeric('total')], data)}
 </table>
 `};

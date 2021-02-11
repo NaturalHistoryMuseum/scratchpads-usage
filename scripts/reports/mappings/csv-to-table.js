@@ -1,7 +1,7 @@
 import csv from 'papaparse';
 import fs from 'fs';
 import path from 'path';
-import table from '../table.js';
+import {table} from 'sp-templates';
 
 function loadCsv(file, meta=import.meta) {
 	const filepath = path.resolve(new URL(meta.url).pathname, '..', file);

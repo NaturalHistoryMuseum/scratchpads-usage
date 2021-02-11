@@ -1,7 +1,7 @@
 import html from 'encode-html-template-tag';
 import csvToTable from '../csv-to-table.js';
 import {ruby} from '../../code.js';
-import asset from '../../asset.js';
+import {asset} from 'sp-templates';
 
 const dataAttribute = asset('./data-attribute.png', import.meta);
 

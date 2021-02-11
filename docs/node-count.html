@@ -2,7 +2,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<title>Node Counts</title></head><body style="--theme-colour: rebeccapurple">
+<title>Node Counts</title>
+
+</head><body style="--theme-colour: rebeccapurple">
 	
 <style>
 html, body {
@@ -26,26 +28,29 @@ main.content {
 main h1, main h2 {
 	color: var(--theme-colour);
 }
-header {
+body > header {
 	background: var(--theme-colour);
 	color: white;
 	min-height: 170px;
 	display: flex;
 }
-header a:link,
-header a:visited {
+body > header a:link,
+body > header a:visited {
 	color: white;
 }
+
 .content {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 10px;
 }
+
 .siteInfo{
 	display: flex;
 	justify-content: space-between;
 }
+
 .login{
 	display: inline-block;
 	background: #262626;
@@ -57,28 +62,28 @@ header a:visited {
 	font-size: 11px;
 	letter-spacing: 0.5px;
 }
-footer {
+body > footer {
 	background: #F1F1F1;
 	color: var(--theme-color);
 }
-header h1 {
+body>header h1 {
 	font-weight: normal;
 	margin: 32px 0 0 0;
 }
-main h1 {
+body>main h1 {
 	font-weight: normal;
 	letter-spacing: -0.05em;
-	margin-top: 0;
+	/*margin-top: 0;*/
 }
-header .content {
+body>header .content {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
-nav {
+body>header nav {
 	margin-bottom: -10px;
 }
-nav a {
+body>header nav a {
 	display: inline-block;
 	background: rgba(0,0,0,0.3);
 	border-radius: 8px;
@@ -147,8 +152,7 @@ section > h1 {
 	<thead>
 		<tr><th>Node type</th><th>Total count</th><th>Number of individual sites</th></tr>
 	</thead>
-	<tbody>
-			<tr><td>page</td>
+	<tbody><tr><td>page</td>
 <td>22543</td>
 <td>577</td>
 </tr><tr><td>biblio</td>
@@ -898,8 +902,7 @@ section > h1 {
 </tr><tr><td>workers</td>
 <td>1</td>
 <td>1</td>
-</tr>
-	</tbody>
+</tr></tbody>
 </table>
 
 	</main>

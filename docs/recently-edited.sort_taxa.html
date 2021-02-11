@@ -2,7 +2,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<title>Recently Edited Sites</title></head><body style="--theme-colour: rebeccapurple">
+<title>Recently Edited Sites</title>
+
+</head><body style="--theme-colour: rebeccapurple">
 	
 <style>
 html, body {
@@ -26,26 +28,29 @@ main.content {
 main h1, main h2 {
 	color: var(--theme-colour);
 }
-header {
+body > header {
 	background: var(--theme-colour);
 	color: white;
 	min-height: 170px;
 	display: flex;
 }
-header a:link,
-header a:visited {
+body > header a:link,
+body > header a:visited {
 	color: white;
 }
+
 .content {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 10px;
 }
+
 .siteInfo{
 	display: flex;
 	justify-content: space-between;
 }
+
 .login{
 	display: inline-block;
 	background: #262626;
@@ -57,28 +62,28 @@ header a:visited {
 	font-size: 11px;
 	letter-spacing: 0.5px;
 }
-footer {
+body > footer {
 	background: #F1F1F1;
 	color: var(--theme-color);
 }
-header h1 {
+body>header h1 {
 	font-weight: normal;
 	margin: 32px 0 0 0;
 }
-main h1 {
+body>main h1 {
 	font-weight: normal;
 	letter-spacing: -0.05em;
-	margin-top: 0;
+	/*margin-top: 0;*/
 }
-header .content {
+body>header .content {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
-nav {
+body>header nav {
 	margin-bottom: -10px;
 }
-nav a {
+body>header nav a {
 	display: inline-block;
 	background: rgba(0,0,0,0.3);
 	border-radius: 8px;
@@ -139,8 +144,7 @@ section > h1 {
 <p>This is a <b>provisional</b> guide for which sites may be migrated to Taxonworks, and has not been finalised.</p>
 <table>
 	<thead><tr><th rowspan="2">Site</th><th rowspan="2"><a href="&#x2F;scratchpads-usage&#x2F;recently-edited.html">Changed</a></th><th colspan="3">Number of changed items</th></tr><tr><th rowspan="1"><a href="&#x2F;scratchpads-usage&#x2F;recently-edited.sort_nodes.html">Nodes</a></th><th rowspan="1"><i>Taxa</i></th><th rowspan="1">Total</th></tr></thead>
-	<tbody>
-			<tr><td>icgf.myspecies.info</td>
+	<tbody><tr><td>icgf.myspecies.info</td>
 <td><time datetime="2021-02-07T08:55:39.000Z">07&#x2F;02&#x2F;2021</time></td>
 <td title="nodes" class="numeric">755</td>
 <td title="taxa" class="numeric">3010</td>
@@ -530,8 +534,7 @@ section > h1 {
 <td title="nodes" class="numeric">18</td>
 <td title="taxa" class="numeric">0</td>
 <td title="total" class="numeric">18</td>
-</tr>
-	</tbody>
+</tr></tbody>
 </table>
 
 	</main>

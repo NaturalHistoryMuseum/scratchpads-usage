@@ -1,5 +1,5 @@
 import html from 'encode-html-template-tag';
-import table, {numeric} from '../table.js'
+import {table, numeric} from 'sp-templates'
 
 const id = name=>name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 

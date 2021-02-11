@@ -1,4 +1,4 @@
-import table, { numeric } from '../table.js';
+import { table, numeric } from 'sp-templates';
 import html from 'encode-html-template-tag';
 
 export default data => html`

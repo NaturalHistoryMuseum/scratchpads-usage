@@ -2,7 +2,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<title>Per-site Node Breakdown</title></head><body style="--theme-colour: rebeccapurple">
+<title>Per-site Node Breakdown</title>
+
+</head><body style="--theme-colour: rebeccapurple">
 	
 <style>
 html, body {
@@ -26,26 +28,29 @@ main.content {
 main h1, main h2 {
 	color: var(--theme-colour);
 }
-header {
+body > header {
 	background: var(--theme-colour);
 	color: white;
 	min-height: 170px;
 	display: flex;
 }
-header a:link,
-header a:visited {
+body > header a:link,
+body > header a:visited {
 	color: white;
 }
+
 .content {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 10px;
 }
+
 .siteInfo{
 	display: flex;
 	justify-content: space-between;
 }
+
 .login{
 	display: inline-block;
 	background: #262626;
@@ -57,28 +62,28 @@ header a:visited {
 	font-size: 11px;
 	letter-spacing: 0.5px;
 }
-footer {
+body > footer {
 	background: #F1F1F1;
 	color: var(--theme-color);
 }
-header h1 {
+body>header h1 {
 	font-weight: normal;
 	margin: 32px 0 0 0;
 }
-main h1 {
+body>main h1 {
 	font-weight: normal;
 	letter-spacing: -0.05em;
-	margin-top: 0;
+	/*margin-top: 0;*/
 }
-header .content {
+body>header .content {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
-nav {
+body>header nav {
 	margin-bottom: -10px;
 }
-nav a {
+body>header nav a {
 	display: inline-block;
 	background: rgba(0,0,0,0.3);
 	border-radius: 8px;
@@ -162,8 +167,7 @@ thead {
 	background: #EEE;
 }
 </style>
-	<table><thead><tr><th rowspan="2">Site</th><th colspan="72">Number of nodes by type</th></tr><tr><th class="rotate" rowspan="1">biblio</th><th class="rotate" rowspan="1">page</th><th class="rotate" rowspan="1">media_gallery</th><th class="rotate" rowspan="1">spm</th><th class="rotate" rowspan="1">specimen_observation</th><th class="rotate" rowspan="1">location</th><th class="rotate" rowspan="1">blog</th><th class="rotate" rowspan="1">forum</th><th class="rotate" rowspan="1">group</th><th class="rotate" rowspan="1">ecological_interactions</th><th class="rotate" rowspan="1">event</th><th class="rotate" rowspan="1">webform</th><th class="rotate" rowspan="1">collection</th><th class="rotate" rowspan="1">key</th><th class="rotate" rowspan="1">simplenews</th><th class="rotate" rowspan="1">host_lice</th><th class="rotate" rowspan="1">recording</th><th class="rotate" rowspan="1">roots</th><th class="rotate" rowspan="1">checklist</th><th class="rotate" rowspan="1">bioacoustic_traits</th><th class="rotate" rowspan="1">citation</th><th class="rotate" rowspan="1">term</th><th class="rotate" rowspan="1">barcover_public</th><th class="rotate" rowspan="1">primer_db</th><th class="rotate" rowspan="1">mosquito</th><th class="rotate" rowspan="1">ann_biblio</th><th class="rotate" rowspan="1">news_views</th><th class="rotate" rowspan="1">pcr</th><th class="rotate" rowspan="1">distribucion_departamentos</th><th class="rotate" rowspan="1">barcover</th><th class="rotate" rowspan="1">holdings</th><th class="rotate" rowspan="1">species_description</th><th class="rotate" rowspan="1">fossilmosquito</th><th class="rotate" rowspan="1">host_plants</th><th class="rotate" rowspan="1">crossarchus</th><th class="rotate" rowspan="1">glossary</th><th class="rotate" rowspan="1">onomatopoeia_or_imitation</th><th class="rotate" rowspan="1">editable_key</th><th class="rotate" rowspan="1">oligos</th><th class="rotate" rowspan="1">links</th><th class="rotate" rowspan="1">project_description</th><th class="rotate" rowspan="1">extraction</th><th class="rotate" rowspan="1">seminar</th><th class="rotate" rowspan="1">wallace_map</th><th class="rotate" rowspan="1">taxon_info</th><th class="rotate" rowspan="1">solanaceae_news_and_events</th><th class="rotate" rowspan="1">solanaceae_field_work</th><th class="rotate" rowspan="1">species_page</th><th class="rotate" rowspan="1">buffers</th><th class="rotate" rowspan="1">jn_blog</th><th class="rotate" rowspan="1">specimen_relation</th><th class="rotate" rowspan="1">video</th><th class="rotate" rowspan="1">proposed_classification_changes</th><th class="rotate" rowspan="1">media</th><th class="rotate" rowspan="1">fe_blog</th><th class="rotate" rowspan="1">genes</th><th class="rotate" rowspan="1">bio</th><th class="rotate" rowspan="1">institution</th><th class="rotate" rowspan="1">news</th><th class="rotate" rowspan="1">places</th><th class="rotate" rowspan="1">places2</th><th class="rotate" rowspan="1">test</th><th class="rotate" rowspan="1">tree</th><th class="rotate" rowspan="1">african_annonaceae_key</th><th class="rotate" rowspan="1">biblio_data</th><th class="rotate" rowspan="1">frontpage</th><th class="rotate" rowspan="1">key_genera</th><th class="rotate" rowspan="1">microbiome_information</th><th class="rotate" rowspan="1">places3</th><th class="rotate" rowspan="1">proposed_classification_change</th><th class="rotate" rowspan="1">resources</th><th class="rotate" rowspan="1">review</th></tr></thead><tbody>
-			<tr><td class="site_name">agromyzidae.myspecies.info</td>
+	<table><thead><tr><th rowspan="2">Site</th><th colspan="72">Number of nodes by type</th></tr><tr><th class="rotate" rowspan="1">biblio</th><th class="rotate" rowspan="1">page</th><th class="rotate" rowspan="1">media_gallery</th><th class="rotate" rowspan="1">spm</th><th class="rotate" rowspan="1">specimen_observation</th><th class="rotate" rowspan="1">location</th><th class="rotate" rowspan="1">blog</th><th class="rotate" rowspan="1">forum</th><th class="rotate" rowspan="1">group</th><th class="rotate" rowspan="1">ecological_interactions</th><th class="rotate" rowspan="1">event</th><th class="rotate" rowspan="1">webform</th><th class="rotate" rowspan="1">collection</th><th class="rotate" rowspan="1">key</th><th class="rotate" rowspan="1">simplenews</th><th class="rotate" rowspan="1">host_lice</th><th class="rotate" rowspan="1">recording</th><th class="rotate" rowspan="1">roots</th><th class="rotate" rowspan="1">checklist</th><th class="rotate" rowspan="1">bioacoustic_traits</th><th class="rotate" rowspan="1">citation</th><th class="rotate" rowspan="1">term</th><th class="rotate" rowspan="1">barcover_public</th><th class="rotate" rowspan="1">primer_db</th><th class="rotate" rowspan="1">mosquito</th><th class="rotate" rowspan="1">ann_biblio</th><th class="rotate" rowspan="1">news_views</th><th class="rotate" rowspan="1">pcr</th><th class="rotate" rowspan="1">distribucion_departamentos</th><th class="rotate" rowspan="1">barcover</th><th class="rotate" rowspan="1">holdings</th><th class="rotate" rowspan="1">species_description</th><th class="rotate" rowspan="1">fossilmosquito</th><th class="rotate" rowspan="1">host_plants</th><th class="rotate" rowspan="1">crossarchus</th><th class="rotate" rowspan="1">glossary</th><th class="rotate" rowspan="1">onomatopoeia_or_imitation</th><th class="rotate" rowspan="1">editable_key</th><th class="rotate" rowspan="1">oligos</th><th class="rotate" rowspan="1">links</th><th class="rotate" rowspan="1">project_description</th><th class="rotate" rowspan="1">extraction</th><th class="rotate" rowspan="1">seminar</th><th class="rotate" rowspan="1">wallace_map</th><th class="rotate" rowspan="1">taxon_info</th><th class="rotate" rowspan="1">solanaceae_news_and_events</th><th class="rotate" rowspan="1">solanaceae_field_work</th><th class="rotate" rowspan="1">species_page</th><th class="rotate" rowspan="1">buffers</th><th class="rotate" rowspan="1">jn_blog</th><th class="rotate" rowspan="1">specimen_relation</th><th class="rotate" rowspan="1">video</th><th class="rotate" rowspan="1">proposed_classification_changes</th><th class="rotate" rowspan="1">media</th><th class="rotate" rowspan="1">fe_blog</th><th class="rotate" rowspan="1">genes</th><th class="rotate" rowspan="1">bio</th><th class="rotate" rowspan="1">institution</th><th class="rotate" rowspan="1">news</th><th class="rotate" rowspan="1">places</th><th class="rotate" rowspan="1">places2</th><th class="rotate" rowspan="1">test</th><th class="rotate" rowspan="1">tree</th><th class="rotate" rowspan="1">african_annonaceae_key</th><th class="rotate" rowspan="1">biblio_data</th><th class="rotate" rowspan="1">frontpage</th><th class="rotate" rowspan="1">key_genera</th><th class="rotate" rowspan="1">microbiome_information</th><th class="rotate" rowspan="1">places3</th><th class="rotate" rowspan="1">proposed_classification_change</th><th class="rotate" rowspan="1">resources</th><th class="rotate" rowspan="1">review</th></tr></thead><tbody><tr><td class="site_name">agromyzidae.myspecies.info</td>
 <td></td>
 <td>1180</td>
 <td>2</td>
@@ -5857,8 +5861,7 @@ thead {
 <td></td>
 <td></td>
 <td></td>
-</tr>
-	</tbody></table>
+</tr></tbody></table>
 
 	</main>
 	<footer>
