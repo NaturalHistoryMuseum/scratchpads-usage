@@ -54,7 +54,8 @@ function accessor(key) {
 }
 
 function td(row, value, attrs={}, ix) {
-	return element('td', attrs, value(row, ix));
+	return html`${element('td', attrs, value(row, ix))}
+`;
 }
 
 function tr(row, keys) {

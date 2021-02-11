@@ -39,104 +39,104 @@ select n.nid, n.uid, n.created, n.changed, u.name, n.type from node as n left jo
 select "__table:biblio.types__" as ``;
 select distinct biblio_type, name from biblio left join biblio_types on (biblio.biblio_type=biblio_types.tid);
 
-select "__table:biblio.fields" as ``;
+select "__table:biblio.fields__" as ``;
 select * from (
-select "biblio_number" as name, count(*) from biblio where biblio_number is not null and biblio_number != ''
+select "biblio_number" as name, count(*) as count from biblio where biblio_number is not null and biblio_number != ''
 union
-select "biblio_other_number" as name, count(*) from biblio where biblio_other_number is not null and biblio_other_number != ''
+select "biblio_other_number" as name, count(*) as count from biblio where biblio_other_number is not null and biblio_other_number != ''
 union
-select "biblio_sort_title" as name, count(*) from biblio where biblio_sort_title is not null and biblio_sort_title != ''
+select "biblio_sort_title" as name, count(*) as count from biblio where biblio_sort_title is not null and biblio_sort_title != ''
 union
-select "biblio_secondary_title" as name, count(*) from biblio where biblio_secondary_title is not null and biblio_secondary_title != ''
+select "biblio_secondary_title" as name, count(*) as count from biblio where biblio_secondary_title is not null and biblio_secondary_title != ''
 union
-select "biblio_tertiary_title" as name, count(*) from biblio where biblio_tertiary_title is not null and biblio_tertiary_title != ''
+select "biblio_tertiary_title" as name, count(*) as count from biblio where biblio_tertiary_title is not null and biblio_tertiary_title != ''
 union
-select "biblio_edition" as name, count(*) from biblio where biblio_edition is not null and biblio_edition != ''
+select "biblio_edition" as name, count(*) as count from biblio where biblio_edition is not null and biblio_edition != ''
 union
-select "biblio_publisher" as name, count(*) from biblio where biblio_publisher is not null and biblio_publisher != ''
+select "biblio_publisher" as name, count(*) as count from biblio where biblio_publisher is not null and biblio_publisher != ''
 union
-select "biblio_place_published" as name, count(*) from biblio where biblio_place_published is not null and biblio_place_published != ''
+select "biblio_place_published" as name, count(*) as count from biblio where biblio_place_published is not null and biblio_place_published != ''
 union
-select "biblio_year" as name, count(*) from biblio where biblio_year is not null and biblio_year != ''
+select "biblio_year" as name, count(*) as count from biblio where biblio_year is not null and biblio_year != ''
 union
-select "biblio_volume" as name, count(*) from biblio where biblio_volume is not null and biblio_volume != ''
+select "biblio_volume" as name, count(*) as count from biblio where biblio_volume is not null and biblio_volume != ''
 union
-select "biblio_pages" as name, count(*) from biblio where biblio_pages is not null and biblio_pages != ''
+select "biblio_pages" as name, count(*) as count from biblio where biblio_pages is not null and biblio_pages != ''
 union
-select "biblio_date" as name, count(*) from biblio where biblio_date is not null and biblio_date != ''
+select "biblio_date" as name, count(*) as count from biblio where biblio_date is not null and biblio_date != ''
 union
-select "biblio_isbn" as name, count(*) from biblio where biblio_isbn is not null and biblio_isbn != ''
+select "biblio_isbn" as name, count(*) as count from biblio where biblio_isbn is not null and biblio_isbn != ''
 union
-select "biblio_lang" as name, count(*) from biblio where biblio_lang is not null and biblio_lang != ''
+select "biblio_lang" as name, count(*) as count from biblio where biblio_lang is not null and biblio_lang != ''
 union
-select "biblio_abst_e" as name, count(*) from biblio where biblio_abst_e is not null and biblio_abst_e != ''
+select "biblio_abst_e" as name, count(*) as count from biblio where biblio_abst_e is not null and biblio_abst_e != ''
 union
-select "biblio_abst_f" as name, count(*) from biblio where biblio_abst_f is not null and biblio_abst_f != ''
+select "biblio_abst_f" as name, count(*) as count from biblio where biblio_abst_f is not null and biblio_abst_f != ''
 union
-select "biblio_full_text" as name, count(*) from biblio where biblio_full_text is not null and biblio_full_text != ''
+select "biblio_full_text" as name, count(*) as count from biblio where biblio_full_text is not null and biblio_full_text != ''
 union
-select "biblio_url" as name, count(*) from biblio where biblio_url is not null and biblio_url != ''
+select "biblio_url" as name, count(*) as count from biblio where biblio_url is not null and biblio_url != ''
 union
-select "biblio_issue" as name, count(*) from biblio where biblio_issue is not null and biblio_issue != ''
+select "biblio_issue" as name, count(*) as count from biblio where biblio_issue is not null and biblio_issue != ''
 union
-select "biblio_type_of_work" as name, count(*) from biblio where biblio_type_of_work is not null and biblio_type_of_work != ''
+select "biblio_type_of_work" as name, count(*) as count from biblio where biblio_type_of_work is not null and biblio_type_of_work != ''
 union
-select "biblio_accession_number" as name, count(*) from biblio where biblio_accession_number is not null and biblio_accession_number != ''
+select "biblio_accession_number" as name, count(*) as count from biblio where biblio_accession_number is not null and biblio_accession_number != ''
 union
-select "biblio_call_number" as name, count(*) from biblio where biblio_call_number is not null and biblio_call_number != ''
+select "biblio_call_number" as name, count(*) as count from biblio where biblio_call_number is not null and biblio_call_number != ''
 union
-select "biblio_notes" as name, count(*) from biblio where biblio_notes is not null and biblio_notes != ''
+select "biblio_notes" as name, count(*) as count from biblio where biblio_notes is not null and biblio_notes != ''
 union
-select "biblio_custom1" as name, count(*) from biblio where biblio_custom1 is not null and biblio_custom1 != ''
+select "biblio_custom1" as name, count(*) as count from biblio where biblio_custom1 is not null and biblio_custom1 != ''
 union
-select "biblio_custom2" as name, count(*) from biblio where biblio_custom2 is not null and biblio_custom2 != ''
+select "biblio_custom2" as name, count(*) as count from biblio where biblio_custom2 is not null and biblio_custom2 != ''
 union
-select "biblio_custom3" as name, count(*) from biblio where biblio_custom3 is not null and biblio_custom3 != ''
+select "biblio_custom3" as name, count(*) as count from biblio where biblio_custom3 is not null and biblio_custom3 != ''
 union
-select "biblio_custom4" as name, count(*) from biblio where biblio_custom4 is not null and biblio_custom4 != ''
+select "biblio_custom4" as name, count(*) as count from biblio where biblio_custom4 is not null and biblio_custom4 != ''
 union
-select "biblio_custom5" as name, count(*) from biblio where biblio_custom5 is not null and biblio_custom5 != ''
+select "biblio_custom5" as name, count(*) as count from biblio where biblio_custom5 is not null and biblio_custom5 != ''
 union
-select "biblio_custom6" as name, count(*) from biblio where biblio_custom6 is not null and biblio_custom6 != ''
+select "biblio_custom6" as name, count(*) as count from biblio where biblio_custom6 is not null and biblio_custom6 != ''
 union
-select "biblio_custom7" as name, count(*) from biblio where biblio_custom7 is not null and biblio_custom7 != ''
+select "biblio_custom7" as name, count(*) as count from biblio where biblio_custom7 is not null and biblio_custom7 != ''
 union
-select "biblio_research_notes" as name, count(*) from biblio where biblio_research_notes is not null and biblio_research_notes != ''
+select "biblio_research_notes" as name, count(*) as count from biblio where biblio_research_notes is not null and biblio_research_notes != ''
 union
-select "biblio_number_of_volumes" as name, count(*) from biblio where biblio_number_of_volumes is not null and biblio_number_of_volumes != ''
+select "biblio_number_of_volumes" as name, count(*) as count from biblio where biblio_number_of_volumes is not null and biblio_number_of_volumes != ''
 union
-select "biblio_short_title" as name, count(*) from biblio where biblio_short_title is not null and biblio_short_title != ''
+select "biblio_short_title" as name, count(*) as count from biblio where biblio_short_title is not null and biblio_short_title != ''
 union
-select "biblio_alternate_title" as name, count(*) from biblio where biblio_alternate_title is not null and biblio_alternate_title != ''
+select "biblio_alternate_title" as name, count(*) as count from biblio where biblio_alternate_title is not null and biblio_alternate_title != ''
 union
-select "biblio_original_publication" as name, count(*) from biblio where biblio_original_publication is not null and biblio_original_publication != ''
+select "biblio_original_publication" as name, count(*) as count from biblio where biblio_original_publication is not null and biblio_original_publication != ''
 union
-select "biblio_reprint_edition" as name, count(*) from biblio where biblio_reprint_edition is not null and biblio_reprint_edition != ''
+select "biblio_reprint_edition" as name, count(*) as count from biblio where biblio_reprint_edition is not null and biblio_reprint_edition != ''
 union
-select "biblio_translated_title" as name, count(*) from biblio where biblio_translated_title is not null and biblio_translated_title != ''
+select "biblio_translated_title" as name, count(*) as count from biblio where biblio_translated_title is not null and biblio_translated_title != ''
 union
-select "biblio_section" as name, count(*) from biblio where biblio_section is not null and biblio_section != ''
+select "biblio_section" as name, count(*) as count from biblio where biblio_section is not null and biblio_section != ''
 union
-select "biblio_citekey" as name, count(*) from biblio where biblio_citekey is not null and biblio_citekey != ''
+select "biblio_citekey" as name, count(*) as count from biblio where biblio_citekey is not null and biblio_citekey != ''
 union
-select "biblio_coins" as name, count(*) from biblio where biblio_coins is not null and biblio_coins != ''
+select "biblio_coins" as name, count(*) as count from biblio where biblio_coins is not null and biblio_coins != ''
 union
-select "biblio_doi" as name, count(*) from biblio where biblio_doi is not null and biblio_doi != ''
+select "biblio_doi" as name, count(*) as count from biblio where biblio_doi is not null and biblio_doi != ''
 union
-select "biblio_issn" as name, count(*) from biblio where biblio_issn is not null and biblio_issn != ''
+select "biblio_issn" as name, count(*) as count from biblio where biblio_issn is not null and biblio_issn != ''
 union
-select "biblio_auth_address" as name, count(*) from biblio where biblio_auth_address is not null and biblio_auth_address != ''
+select "biblio_auth_address" as name, count(*) as count from biblio where biblio_auth_address is not null and biblio_auth_address != ''
 union
-select "biblio_remote_db_name" as name, count(*) from biblio where biblio_remote_db_name is not null and biblio_remote_db_name != ''
+select "biblio_remote_db_name" as name, count(*) as count from biblio where biblio_remote_db_name is not null and biblio_remote_db_name != ''
 union
-select "biblio_remote_db_provider" as name, count(*) from biblio where biblio_remote_db_provider is not null and biblio_remote_db_provider != ''
+select "biblio_remote_db_provider" as name, count(*) as count from biblio where biblio_remote_db_provider is not null and biblio_remote_db_provider != ''
 union
-select "biblio_label" as name, count(*) from biblio where biblio_label is not null and biblio_label != ''
+select "biblio_label" as name, count(*) as count from biblio where biblio_label is not null and biblio_label != ''
 union
-select "biblio_access_date" as name, count(*) from biblio where biblio_access_date is not null and biblio_access_date != ''
+select "biblio_access_date" as name, count(*) as count from biblio where biblio_access_date is not null and biblio_access_date != ''
 union
-select "biblio_refereed" as name, count(*) from biblio where biblio_refereed is not null and biblio_refereed != ''
+select "biblio_refereed" as name, count(*) as count from biblio where biblio_refereed is not null and biblio_refereed != ''
 union
-select "biblio_md5" as name, count(*) from biblio where biblio_md5 is not null and biblio_md5 != ''
+select "biblio_md5" as name, count(*) as count from biblio where biblio_md5 is not null and biblio_md5 != ''
 union
-select "biblio_formats" as name, count(*) from biblio where biblio_formats is not null and biblio_formats != '') as t1
+select "biblio_formats" as name, count(*) as count from biblio where biblio_formats is not null and biblio_formats != '') as t1

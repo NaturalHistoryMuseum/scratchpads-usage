@@ -7,6 +7,7 @@ import { page } from 'sp-templates';
 import css from './page.js';
 
 import index from './index/main.js';
+import biblio from './biblio-types/main.js';
 
 export { assets};
 
@@ -29,8 +30,9 @@ const reports = [
 	{ title: 'Recently Edited Sites', id: 'recently-edited', view: recentlyEdited, options },
 	{ title: 'Node Counts', id: 'node-count', view: nodeCounts },
 	{ title: 'Per-site Node Breakdown', id: 'node-breakdown', view: nodeBreakdown },
-	{ title: mappings().title, id: 'taxonworks-mappings', view: () => mappings().body },
-	{ title: 'Fields', id: 'fields', view: fields }
+	{ title: 'Fields and field usage', id: 'fields', view: fields },
+	{ title: 'Biblio Type Data', id: 'biblio-types', view:biblio },
+	{ title: mappings().title, id: 'taxonworks-mappings', view: () => mappings().body }
 ]
 
 function router(menu, id){

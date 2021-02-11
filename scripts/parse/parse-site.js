@@ -12,13 +12,11 @@ async function* getLines(stream) {
 	yield lastPart;
 }
 
-import fs from 'fs';
-
 async function* getSections(lines) {
 	let section;
 
 	for await(const line of lines) {
-		const m = line.match(/^__([^:]+):(.+)__$/);
+		const m = line.match(/^__([^:]+):(.+)(?<!__)(?:__)?$/);
 		if(m) {
 			if(section && section.lines.length) {
 				yield section;
@@ -33,7 +31,7 @@ async function* getSections(lines) {
 		}
 
 		if(section && line) {
-			section.lines.push(line.split('\t'));
+			section.lines.push(line.split(/\t|\\t/));
 		}
 	}
 
@@ -63,7 +61,7 @@ async function parseSection(site, sections, sql) {
 					break;
 				}
 
-				const columns = sql(header.join(','))
+				const columns = sql(header.map(h=>h.replace('(*)', '')).join(','))
 
 				const rows = lines.map(line => [site, ...line]);
 

@@ -1,12 +1,19 @@
-// Filter out duplication - remove this after running the collection scripts again
-const fields = sql => sql`(SELECT * FROM fields GROUP BY field_name, bundle, entity_type, site)`;
+// Dedupe field query
+const field_usage = sql => sql`select * from field_usage where count!='0' group by name, site`;
+const fieldUsageCount = sql => sql`select name, count(*) as count from (${field_usage}) as t1 group by name`;
 
-const query = (sql, entity, bundle) => sql`SELECT field_name, entity_type, bundle, count(*) as count FROM ${fields}
+const query = (sql, entity, bundle) =>sql`
+SELECT field_name, entity_type, bundle, count(*) as count, usage.count as usage
+FROM
+	fields
+	LEFT JOIN
+		(${fieldUsageCount}) AS usage
+		ON (fields.field_name = usage.name)
 WHERE entity_type=${entity}${
 	sql=>bundle?sql` AND bundle=${bundle}`:sql``
 }
 GROUP BY field_name, bundle, entity_type
-ORDER BY count DESC`
+ORDER BY usage DESC`
 
 export default async function*(sql, bundles) {
 	for(const bundle of bundles) {

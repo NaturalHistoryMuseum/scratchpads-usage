@@ -4,6 +4,10 @@ import csvToTable from '../csv-to-table.js';
 export default html`<section id="biblio">
 <h1>Biblio</h1>
 
+<p>While there is a .bib format exporter already in Scratchpads,
+there are a large number of extra fields that are excluded from the
+exported file, since they are not all supported by the .bib file format.</p>
+
 ${csvToTable('./biblio.csv', import.meta)}
 
 <h3 id="biblio_contributor">Biblio_contributor</h3>

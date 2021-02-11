@@ -20,6 +20,9 @@ GET_SITE_LIST=$(base64 -w0 $DIR/site-list.sql)
 
 OUT_DIR="/tmp/output"
 
+# Upload the field-usage script
+rsync scripts/field-usage.sh sp-control-01:.
+
 # Get the list of sites and for each one pipe the sql script to the database via drush
 # Send informational messages to stderr so we don't pollute stdout
 echo Generate usage file... >&2
@@ -29,7 +32,9 @@ ssh -t sp-control-01 "
 	echo $GET_SITE_LIST | base64 -d | sudo -u aegir drush @hm sqlc --extra=-N | while read line
 	do
 		echo \$line
-		echo $SQL_SCRIPT | base64 -d | sudo -u aegir drush @\$line sqlc --extra=-f > $OUT_DIR/\$line
+		./field-usage.sh \"sudo -u aegir drush @\$line\" > /tmp/field-usage.sql
+		cat /tmp/field-usage.sql | sudo -u aegir drush @\$line sqlc --extra=-fsN > $OUT_DIR/\$line
+		echo $SQL_SCRIPT | base64 -d | sudo -u aegir drush @\$line sqlc --extra=-f >> $OUT_DIR/\$line
 	done
 	tar -czf $OUT_DIR.tar.gz -C $OUT_DIR ./
 	rm -rf $OUT_DIR" >&2
