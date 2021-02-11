@@ -21,3 +21,7 @@ export default async function*(sql, bundles) {
 	}
 	//yield { name: 'taxonomy_term', data: await query(sql, 'taxonomy_term') };
 };
+
+export function biblio(sql) {
+	return sql`SELECT name, count(*) as sites, sum(biblio_fields.count) as total FROM biblio_fields where count!='0' group by name order by sites desc, total desc;`;
+}

@@ -139,16 +139,15 @@ section > h1 {
 		we want to know which are the most widely used fields.
 	</p>
 	<p>
-		NB:
 		<ul>
-			<li>The "In Use" column is currently only correct for fields that do not appear on multiple different data types.</li>
-			<li>The biblio seciton doesn't take into account the full list of fields, since some of this data is stored in a separate table.</li>
+			<li>NB: The "In Use" column is currently only correct for fields that do not appear on multiple different data types.</li>
 		</ul>
 	</p>
 	<section>
 		<h1>Node Types</h1>
 		<ul>
 			<li><a href="#biblio">biblio</a></li><li><a href="#spm">spm</a></li><li><a href="#specimen-observation">specimen_observation</a></li><li><a href="#location">location</a></li><li><a href="#ecological-interactions">ecological_interactions</a></li>
+			<li><a href="#more-biblio">Core biblio</a></li>
 		</ul>
 	</section>
 	
@@ -3314,7 +3313,161 @@ section > h1 {
 </tr>
 	</tbody></table>
 		</section>
-	Are those fields actually used?
+
+<section id="more-biblio">
+	<h1>Core biblio fields</h1>
+	<p>The following fields are recorded separately in the database in a special bilio table.</p>
+<table><thead><tr><th rowspan="1">name</th><th rowspan="1">Number of sites with field in use</th><th rowspan="1">Total number of field instances in use over all scratchpads</th></tr></thead><tbody>
+			<tr><td>biblio_citekey</td>
+<td>551</td>
+<td>1573114</td>
+</tr><tr><td>biblio_coins</td>
+<td>551</td>
+<td>1573114</td>
+</tr><tr><td>biblio_lang</td>
+<td>551</td>
+<td>1573114</td>
+</tr><tr><td>biblio_sort_title</td>
+<td>551</td>
+<td>1571672</td>
+</tr><tr><td>biblio_year</td>
+<td>551</td>
+<td>1567394</td>
+</tr><tr><td>biblio_formats</td>
+<td>550</td>
+<td>1544010</td>
+</tr><tr><td>biblio_md5</td>
+<td>529</td>
+<td>710214</td>
+</tr><tr><td>biblio_secondary_title</td>
+<td>518</td>
+<td>242910</td>
+</tr><tr><td>biblio_volume</td>
+<td>508</td>
+<td>1216153</td>
+</tr><tr><td>biblio_pages</td>
+<td>498</td>
+<td>243597</td>
+</tr><tr><td>biblio_publisher</td>
+<td>363</td>
+<td>29042</td>
+</tr><tr><td>biblio_date</td>
+<td>349</td>
+<td>120175</td>
+</tr><tr><td>biblio_abst_e</td>
+<td>340</td>
+<td>40954</td>
+</tr><tr><td>biblio_url</td>
+<td>327</td>
+<td>1008079</td>
+</tr><tr><td>biblio_place_published</td>
+<td>294</td>
+<td>27445</td>
+</tr><tr><td>biblio_issue</td>
+<td>285</td>
+<td>23829</td>
+</tr><tr><td>biblio_doi</td>
+<td>280</td>
+<td>8157</td>
+</tr><tr><td>biblio_section</td>
+<td>271</td>
+<td>1173489</td>
+</tr><tr><td>biblio_number</td>
+<td>271</td>
+<td>65875</td>
+</tr><tr><td>biblio_issn</td>
+<td>256</td>
+<td>6530</td>
+</tr><tr><td>biblio_isbn</td>
+<td>193</td>
+<td>21773</td>
+</tr><tr><td>biblio_type_of_work</td>
+<td>169</td>
+<td>10806</td>
+</tr><tr><td>biblio_notes</td>
+<td>149</td>
+<td>49662</td>
+</tr><tr><td>biblio_short_title</td>
+<td>143</td>
+<td>1239856</td>
+</tr><tr><td>biblio_edition</td>
+<td>133</td>
+<td>854</td>
+</tr><tr><td>biblio_alternate_title</td>
+<td>115</td>
+<td>7006</td>
+</tr><tr><td>biblio_tertiary_title</td>
+<td>98</td>
+<td>1487</td>
+</tr><tr><td>biblio_number_of_volumes</td>
+<td>71</td>
+<td>480</td>
+</tr><tr><td>biblio_accession_number</td>
+<td>67</td>
+<td>35979</td>
+</tr><tr><td>biblio_refereed</td>
+<td>65</td>
+<td>1096</td>
+</tr><tr><td>biblio_auth_address</td>
+<td>42</td>
+<td>3197</td>
+</tr><tr><td>biblio_custom1</td>
+<td>40</td>
+<td>8523</td>
+</tr><tr><td>biblio_label</td>
+<td>30</td>
+<td>4916</td>
+</tr><tr><td>biblio_call_number</td>
+<td>27</td>
+<td>372</td>
+</tr><tr><td>biblio_original_publication</td>
+<td>25</td>
+<td>23249</td>
+</tr><tr><td>biblio_other_number</td>
+<td>25</td>
+<td>1811</td>
+</tr><tr><td>biblio_reprint_edition</td>
+<td>20</td>
+<td>121</td>
+</tr><tr><td>biblio_remote_db_name</td>
+<td>19</td>
+<td>470</td>
+</tr><tr><td>biblio_custom2</td>
+<td>18</td>
+<td>3064</td>
+</tr><tr><td>biblio_access_date</td>
+<td>18</td>
+<td>74</td>
+</tr><tr><td>biblio_research_notes</td>
+<td>17</td>
+<td>4025</td>
+</tr><tr><td>biblio_custom3</td>
+<td>16</td>
+<td>877</td>
+</tr><tr><td>biblio_translated_title</td>
+<td>14</td>
+<td>1063</td>
+</tr><tr><td>biblio_remote_db_provider</td>
+<td>11</td>
+<td>435</td>
+</tr><tr><td>biblio_abst_f</td>
+<td>8</td>
+<td>34</td>
+</tr><tr><td>biblio_custom4</td>
+<td>7</td>
+<td>961</td>
+</tr><tr><td>biblio_custom7</td>
+<td>4</td>
+<td>5</td>
+</tr><tr><td>biblio_custom6</td>
+<td>3</td>
+<td>50</td>
+</tr><tr><td>biblio_custom5</td>
+<td>2</td>
+<td>2</td>
+</tr>
+	</tbody></table>
+</section>
 
 	</main>
 	<footer>
