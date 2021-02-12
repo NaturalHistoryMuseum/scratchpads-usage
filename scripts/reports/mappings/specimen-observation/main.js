@@ -1,7 +1,7 @@
 import html from 'encode-html-template-tag';
 import csvToTable from '../csv-to-table.js';
 
-export default html`<section id="#specimen-observation">
+export default html`<section id="specimen-observation">
 <h1>Specimen/Observation</h1>
 
 While there is a DWC_Occurrence class, it is used for auto-generating DWC records from other models.

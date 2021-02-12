@@ -141,16 +141,21 @@ section > h1 {
 </style>
 <h1>Scratchpads → Taxonworks Mappings</h1>
 
-Describing the core data models of Scratchpads and how they map to Taxonworks data models.
+<p>Describing the core data models of Scratchpads and how they map to Taxonworks data models.</p>
+<p>Where there is no one-to-one mapping for a Scratchpad field, Taxonworks provides us with two options for importing data:</p>
 
-<section>
+<ol>
+	<li>InternalAttributes, whereby we can define a Predicate based on an RDF URL, and use it to define extra data about a data model. While Taxonworks doesn't apply any special treatment to these data, consuming applications that have knowledge of the RDF term will be able to represent the data in a useful way.</li>
+	<li>ImportAttributes, whereby we can attach extra text data to a model, but without providing any context for what this data means. This allows us to keep data available, but precludes applications from using the data with any kind of special processing or behaviour, since its only context is the association with a data model.</li>
+</ol>
+
+<nav>
 <h1>Data Types</h1>
 
 The core data types of Scratchpads are:
 
 <ul>
 	<li><a href="#biblio">Biblio</a></li>
-	<li>Biblio_Contributor</li>
 	<li>Taxonomy Term</li>
 	<li><a href="#location">Location</a></li>
 	<li><a href="#specimen-observation">Specimen/Observation</a></li>
@@ -160,68 +165,129 @@ The core data types of Scratchpads are:
 	<li>Page</li>
 	<li>Media Gallery</li>
 </ul>
-</section>
+</nav>
 
-<section id="biblio">
-<h1>Biblio</h1>
+<section id="biblio"><h1>Biblio</h1>
+<b>Todo: figure out how to link biblio to a taxon - possibly using Citation model</b>
+
+<p>Taxonworks can import sources as Bibtex files, creating ImportAttributes
+for any unrecognised fields. Import attributes are text attributes
+with no special meaning or behaviour.</p>
 
 <p>While there is a .bib format exporter already in Scratchpads,
 there are a large number of extra fields that are excluded from the
 exported file, since they are not all supported by the .bib file format.</p>
 
-<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>title</td>
-<td>string</td>
-<td>Source::Bibtex</td>
-<td>title</td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_type</td>
-<td>integer representing item from biblio_types table (one of: 
+<p>However, bibtex is a simple format, so writing a new exporter for biblio records
+is a straightforward task, making sure to follow these naming conventions:</p>
+
+<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>biblio_type</td>
+<td>integer representing item from biblio_types table (one of:
 journal article, conference paper, book chapter, miscelaneous)</td>
 <td>Source::Bibtex</td>
 <td>bibtex_type</td>
 <td>Value needs to be mapped to bibtex type string (https:&#x2F;&#x2F;www.bibtex.com&#x2F;e&#x2F;entry-types&#x2F;); “journal article”&#x3D;&gt;article, “conference paper”&#x3D;&gt;conference, “book chapter”&#x3D;&gt;inbook, “miscelaneous”&#x3D;&gt;misc</td>
 <td>Bibtex</td>
-</tr><tr><td>biblio_number</td>
+</tr><tr><td>title</td>
 <td>string</td>
 <td>Source::Bibtex</td>
-<td>number</td>
+<td>title</td>
+<td></td>
+<td></td>
+</tr><tr><td>body</td>
+<td>Full publication body as html</td>
+<td>Source::Bibtex</td>
+<td>body</td>
+<td>Stored as ImportAttribute</td>
+<td></td>
+</tr><tr><td>field_taxonomic_name</td>
+<td>tid of associated taxon</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr><tr><td>biblio_citekey</td>
+<td>The citekey&#x2F;ID for the bibtex record</td>
+<td>Source::Bibtex</td>
+<td>key</td>
 <td></td>
 <td>Bibtex</td>
-</tr><tr><td>biblio_other_number</td>
+</tr><tr><td>biblio_coins</td>
 <td></td>
+<td>Source::Bibtex</td>
+<td>coins</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+</tr><tr><td>biblio_lang</td>
+<td>3 letter ISO 639-2 language code</td>
+<td>Source::Bibtex</td>
+<td>language</td>
+<td>This value is translated into the TW language_id</td>
+<td>Bibtex</td>
 </tr><tr><td>biblio_sort_title</td>
 <td></td>
 <td>n&#x2F;a</td>
 <td>n&#x2F;a</td>
-<td>Derrived from title</td>
+<td>Cached value derrived from title</td>
 <td></td>
-</tr><tr><td>biblio_secondary_title</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_tertiary_title</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_edition</td>
-<td>string</td>
+</tr><tr><td>biblio_year</td>
+<td>Integer &gt; 0</td>
 <td>Source::Bibtex</td>
-<td>edition</td>
+<td>year</td>
 <td></td>
 <td>Bibtex</td>
+</tr><tr><td>biblio_formats</td>
+<td></td>
+<td>Source::Bibtex</td>
+<td>formats</td>
+<td>Stored as ImportAttribute</td>
+<td></td>
+</tr><tr><td>biblio_md5</td>
+<td>md5 hash</td>
+<td>n&#x2F;a</td>
+<td>n&#x2F;a</td>
+<td>Derrived value not needed for migration</td>
+<td></td>
+</tr><tr><td>biblio_secondary_title</td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>secondary_url</td>
+<td>Stored as ImportAttribute</td>
+<td></td>
+</tr><tr><td>biblio_volume</td>
+<td>String</td>
+<td>Source::Bibtex</td>
+<td>volume</td>
+<td></td>
+<td>Bibtex</td>
+</tr><tr><td>biblio_pages</td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>pages</td>
+<td></td>
+<td></td>
 </tr><tr><td>biblio_publisher</td>
 <td>Publisher name as string</td>
 <td>Source::Bibtex</td>
 <td>publisher</td>
+<td></td>
+<td></td>
+</tr><tr><td>biblio_date</td>
+<td>Date published in mm&#x2F;yyyy format</td>
+<td>Source::Bibtex</td>
+<td>month</td>
+<td>Only the month should be extracted, and formatted as lowercase three-letter month name abbreviation. The year part of the date should be the same as year field, and can be discarted.</td>
+<td>Bibtex</td>
+</tr><tr><td>biblio_abst_e</td>
+<td>abstract as html</td>
+<td>Source::Bibtex</td>
+<td>abstract</td>
+<td></td>
+<td>Bibtex</td>
+</tr><tr><td>biblio_url</td>
+<td>url</td>
+<td>Source::Bibtex</td>
+<td>url</td>
 <td></td>
 <td></td>
 </tr><tr><td>biblio_place_published</td>
@@ -230,48 +296,84 @@ journal article, conference paper, book chapter, miscelaneous)</td>
 <td>address</td>
 <td></td>
 <td>Bibtex</td>
-</tr><tr><td>biblio_year</td>
-<td>Integer &gt; 0 (other TAXONWORKS RESTRICTIONS?)</td>
+</tr><tr><td>biblio_issue</td>
+<td>string</td>
 <td>Source::Bibtex</td>
-<td>year</td>
+<td>issue</td>
+<td>Stored as ImportAttribute</td>
+<td></td>
+</tr><tr><td>biblio_doi</td>
+<td>doi</td>
+<td>Source::Bibtex</td>
+<td>doi</td>
+<td>Stored as Identifier::Global::Doi</td>
+<td>Bibtex</td>
+</tr><tr><td>biblio_section</td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>section</td>
+<td>Stored as ImportAttribute</td>
+<td></td>
+</tr><tr><td>biblio_number</td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>number</td>
 <td></td>
 <td>Bibtex</td>
-</tr><tr><td>biblio_volume</td>
-<td>String</td>
+</tr><tr><td>biblio_issn</td>
+<td>issn</td>
 <td>Source::Bibtex</td>
-<td>volume</td>
-<td></td>
-<td>Bibtex</td>
-</tr><tr><td>biblio_pages</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_date</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>issn</td>
+<td>Stored as Identifier::Global::Issn</td>
 <td></td>
 </tr><tr><td>biblio_isbn</td>
 <td>ISBN number</td>
 <td>Source::Bibtex</td>
 <td>isbn</td>
+<td>Stored as Identifier::Global::Isbn</td>
 <td></td>
-<td></td>
-</tr><tr><td>biblio_lang</td>
-<td>3 letter ISO 639-2 language code</td>
+</tr><tr><td>biblio_type_of_work</td>
+<td>string</td>
 <td>Source::Bibtex</td>
-<td>language</td>
+<td>type_of_work</td>
+<td>Stored as ImportAttribute</td>
+<td></td>
+</tr><tr><td>biblio_notes</td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>note</td>
+<td>Stored as Note object</td>
+<td></td>
+</tr><tr><td>biblio_short_title</td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>short_title</td>
+<td>Stored as ImportAttribute</td>
+<td></td>
+</tr><tr><td>biblio_edition</td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>edition</td>
 <td></td>
 <td>Bibtex</td>
-</tr><tr><td>biblio_abst_e</td>
-<td>abstract as html</td>
+</tr><tr><td>biblio_alternate_title</td>
+<td>string</td>
 <td>Source::Bibtex</td>
-<td>abstract</td>
+<td>alternate_title</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
-<td>Bibtex</td>
+</tr><tr><td>biblio_other_number</td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>other_number</td>
+<td>Stored as ImportAttribute</td>
+<td></td>
+</tr><tr><td>biblio_tertiary_title</td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>tertiary_title</td>
+<td>Stored as ImportAttribute</td>
+<td></td>
 </tr><tr><td>biblio_abst_f</td>
 <td></td>
 <td></td>
@@ -279,234 +381,150 @@ journal article, conference paper, book chapter, miscelaneous)</td>
 <td></td>
 <td></td>
 </tr><tr><td>biblio_full_text</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_url</td>
-<td>url</td>
+<td>string</td>
 <td>Source::Bibtex</td>
-<td>url</td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_issue</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_type_of_work</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>full_text</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_accession_number</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>accession_number</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_call_number</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_notes</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>call_number</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_custom1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>[see matrix below]</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_custom2</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>[see matrix below]</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_custom3</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>[see matrix below]</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_custom4</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>[see matrix below]</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_custom5</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>[see matrix below]</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_custom6</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>[see matrix below]</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_custom7</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>[see matrix below]</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_research_notes</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>research_notes</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_number_of_volumes</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_short_title</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_alternate_title</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>number_of_volumes</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_original_publication</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>original_publication</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_reprint_edition</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>reprint_edition</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_translated_title</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_section</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_citekey</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_coins</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_doi</td>
-<td>doi</td>
+<td>string</td>
 <td>Source::Bibtex</td>
-<td>doi</td>
-<td></td>
-<td>Bibtex</td>
-</tr><tr><td>biblio_issn</td>
-<td>issn</td>
-<td>Source::Bibtex</td>
-<td>issn</td>
-<td></td>
+<td>translated_title</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_auth_address</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>auth_address</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_remote_db_name</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>remote_db_name</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_remote_db_provider</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>remote_db_provider</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_label</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>label</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_access_date</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Source::Bibtex</td>
+<td>access_date</td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_refereed</td>
 <td>String enum (None|Refereed|Non-Refereed|Does Not Apply|Unknown)</td>
+<td>Source::Bibtex</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>biblio_md5</td>
-<td>md5 hash</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Stored as ImportAttribute</td>
 <td></td>
 </tr><tr><td>biblio_type_name</td>
-<td>string representing type name from biblio_types table  (one of: 
+<td>string representing type name from biblio_types table  (one of:
 journal article, conference paper, book chapter, miscelaneous)</td>
+<td>n&#x2F;a</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>See biblio_type field</td>
+<td>Bibtex</td>
 </tr><tr><td>biblio_contributors</td>
 <td>array of biblio_contributor objects</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Source::Bibtex</td>
+<td>authors</td>
+<td>Map each contributor to a string of the form “[prefix] [last_name] [suffix], [first_name]” and join them all with the string “ and “</td>
+<td>Bibtex</td>
 </tr><tr><td>biblio_keywords</td>
 <td>array of strings</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>body</td>
-<td>Full publication body as html</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_taxonomic_name</td>
-<td>tid of associated taxon</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Source::Bibtex</td>
+<td>keywords</td>
+<td>Stored in verbatim_keywords property</td>
+<td>Bibtex</td>
 </tr><tr><td>field_file</td>
 <td>array of associated file objects</td>
 <td></td>
@@ -521,48 +539,1460 @@ journal article, conference paper, book chapter, miscelaneous)</td>
 <td></td>
 </tr></tbody></table>
 
-<h3 id="biblio_contributor">Biblio_contributor</h3>
+<section>
+<h1>Field Name Matrix</h1>
+<p>
+Some field types vary their meaning depending on the value of biblio_type.
+For properties that are stored as ImportAttributes, particularly the "custom" fields, it may be more useful to use the values in the following matrix as the field names:
+</p>
 
-<p>Fields:</p>
-
-<ul>
-<li><p>  Firstname</p>
-</li>
-<li><p>  Initials</p>
-</li>
-<li><p>  Lastname</p>
-</li>
-<li><p>  Suffix</p>
-</li>
-</ul>
-
-<p>Taxonworks Mapping:</p>
-
-<p>Create a new Person object with the following properties</p>
-
-<table>
-<thead>
-<tr>
-<th><strong>Taxonworks Person Field</strong></th>
-<th><strong>Scratchpads source</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Firstname</td>
-<td>Firstname concatenated with Initials, if not empty</td>
-</tr>
-<tr>
-<td>Lastname</td>
-<td>lastname</td>
-</tr>
-<tr>
-<td>Suffix</td>
-<td>suffix</td>
-</tr>
-</tbody></table>
-
+<table><thead><tr><th rowspan="1"></th><th rowspan="1">tid</th><th rowspan="1">biblio_year</th><th rowspan="1">title</th><th rowspan="1">biblio_secondary_title</th><th rowspan="1">biblio_tertiary_title</th><th rowspan="1">biblio_short_title</th><th rowspan="1">biblio_secondary_authors</th><th rowspan="1">biblio_tertiary_authors</th><th rowspan="1">biblio_subsidiary_authors</th><th rowspan="1">biblio_corp_authors</th><th rowspan="1">biblio_alternate_title</th><th rowspan="1">biblio_place_published</th><th rowspan="1">biblio_publisher</th><th rowspan="1">biblio_volume</th><th rowspan="1">biblio_number_of_volumes</th><th rowspan="1">biblio_number</th><th rowspan="1">biblio_issue</th><th rowspan="1">biblio_pages</th><th rowspan="1">biblio_section</th><th rowspan="1">biblio_edition</th><th rowspan="1">biblio_date</th><th rowspan="1">biblio_type_of_work</th><th rowspan="1">biblio_issn</th><th rowspan="1"></th><th rowspan="1">biblio_original_publication</th><th rowspan="1">biblio_reprint_edition</th><th rowspan="1"></th><th rowspan="1">biblio_custom1</th><th rowspan="1">biblio_custom2</th><th rowspan="1">biblio_custom3</th><th rowspan="1">biblio_custom4</th><th rowspan="1">biblio_custom5</th><th rowspan="1">biblio_custom6</th><th rowspan="1">biblio_custom7</th><th rowspan="1">biblio_abst_e</th><th rowspan="1">biblio_refereed</th></tr></thead><tbody><tr><td>Generic </td>
+<td></td>
+<td>Year </td>
+<td>Title </td>
+<td>Secondary Title </td>
+<td>Tertiary Title </td>
+<td>Short Title </td>
+<td>Editor </td>
+<td>Tertiary Author </td>
+<td>Subsidiary Author </td>
+<td>Corporate Author</td>
+<td>Alternate Title </td>
+<td>Place Published </td>
+<td>Publisher </td>
+<td>Volume </td>
+<td>Number of Volumes </td>
+<td>Number </td>
+<td>Issue</td>
+<td>Pages </td>
+<td>Section </td>
+<td>Edition </td>
+<td>Date </td>
+<td>Type of Work </td>
+<td>ISBN&#x2F;ISSN </td>
+<td>Electronic Resource Number </td>
+<td>Original Publication </td>
+<td>Reprint Edition </td>
+<td>Reviewed Item </td>
+<td>Custom 1 </td>
+<td>Custom 2 </td>
+<td>Custom 3 </td>
+<td>Custom 4 </td>
+<td>Custom 5 </td>
+<td>Custom 6 </td>
+<td>Custom 7 </td>
+<td>Abstract </td>
+<td>Refereed Designation</td>
+</tr><tr><td>Ancient Text </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Publication Title </td>
+<td>Volume Title </td>
+<td></td>
+<td>Editor </td>
+<td>~</td>
+<td>Translator </td>
+<td></td>
+<td>Abbreviated Publication </td>
+<td>City </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td></td>
+<td></td>
+<td></td>
+<td>ISBN </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Reviewed Item </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Artwork </td>
+<td>112</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>City </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Description </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Audiovisual Material </td>
+<td>114</td>
+<td></td>
+<td></td>
+<td>Series Title </td>
+<td>~</td>
+<td></td>
+<td>Series Editor </td>
+<td>~</td>
+<td>Performers </td>
+<td></td>
+<td></td>
+<td>City </td>
+<td></td>
+<td>~</td>
+<td>Extent of Work </td>
+<td>Number </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>Type </td>
+<td>ISBN </td>
+<td></td>
+<td>Contents </td>
+<td>~</td>
+<td></td>
+<td>Cast </td>
+<td>Credits </td>
+<td>~</td>
+<td>~</td>
+<td>Format </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Bill </td>
+<td>117</td>
+<td></td>
+<td></td>
+<td>Code </td>
+<td>Legislative Body </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>Sponsor </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Code Volume </td>
+<td>~</td>
+<td>Bill Number </td>
+<td>~</td>
+<td>Code Pages </td>
+<td>Code Section </td>
+<td>Session </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>History </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Book </td>
+<td>100</td>
+<td></td>
+<td></td>
+<td>Series Title </td>
+<td>~</td>
+<td></td>
+<td>Series Editor </td>
+<td>~</td>
+<td>Translator </td>
+<td></td>
+<td>Abbreviation </td>
+<td>City </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Series Volume </td>
+<td>~</td>
+<td>Number of Pages </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>ISBN </td>
+<td></td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Book Section </td>
+<td>101</td>
+<td></td>
+<td></td>
+<td>Book Title </td>
+<td>Series Title </td>
+<td></td>
+<td>Editor </td>
+<td>Series Editor </td>
+<td>Translator </td>
+<td></td>
+<td>Abbreviation </td>
+<td>City </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Series Volume </td>
+<td>~</td>
+<td></td>
+<td>Chapter </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>ISBN </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Case </td>
+<td>116</td>
+<td></td>
+<td>Case Name </td>
+<td>Reporter </td>
+<td>~</td>
+<td>Abbreviated Case Name </td>
+<td>~</td>
+<td>~</td>
+<td>Counsel </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>Court </td>
+<td>Reporter Volume </td>
+<td>Reporter Abbreviation </td>
+<td>~</td>
+<td>~</td>
+<td>First Page </td>
+<td>Page Cited </td>
+<td>~</td>
+<td>Date Decided </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>History </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Classical Work </td>
+<td>127</td>
+<td></td>
+<td></td>
+<td>Series Title </td>
+<td>~</td>
+<td></td>
+<td>Series Editor </td>
+<td>~</td>
+<td>Translator </td>
+<td></td>
+<td></td>
+<td>City </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Series Volume </td>
+<td>~</td>
+<td>Number of Pages </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>Type </td>
+<td>ISSN&#x2F;ISBN </td>
+<td></td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Computer Program </td>
+<td>113</td>
+<td></td>
+<td></td>
+<td>Series Title </td>
+<td>~</td>
+<td></td>
+<td>Series Editor </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>City </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Description </td>
+<td>~</td>
+<td>Version </td>
+<td>~</td>
+<td>Type </td>
+<td>ISBN </td>
+<td></td>
+<td>Contents </td>
+<td>~</td>
+<td>~</td>
+<td>Computer </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Conference Paper </td>
+<td>103</td>
+<td></td>
+<td></td>
+<td>Conference Name </td>
+<td>~</td>
+<td>~</td>
+<td>Editor </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>Conference Location </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Conference Proceeding </td>
+<td>104</td>
+<td>Year of Conference </td>
+<td></td>
+<td>Conference Name </td>
+<td>Series Title </td>
+<td></td>
+<td>Editor </td>
+<td>Series Editor </td>
+<td>Sponsor </td>
+<td></td>
+<td>~</td>
+<td>Conference Location </td>
+<td></td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>ISBN </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Chart or Table </td>
+<td>123</td>
+<td></td>
+<td></td>
+<td>Image Source Program </td>
+<td>Name of File </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>City </td>
+<td></td>
+<td>Image Size </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>Description </td>
+<td>~</td>
+<td>Version </td>
+<td></td>
+<td>Type of Image </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Dictionary </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Dictionary Title </td>
+<td>~</td>
+<td></td>
+<td>Editor </td>
+<td>~</td>
+<td>Translator </td>
+<td></td>
+<td>Abbreviation </td>
+<td>City </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>ISBN </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Edited Book </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Series Title </td>
+<td>~</td>
+<td></td>
+<td>Series Editor </td>
+<td>~</td>
+<td>Translator </td>
+<td></td>
+<td></td>
+<td>City </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Series Volume </td>
+<td>~</td>
+<td>Number of Pages </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>ISBN </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Electronic Article </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Periodical Title </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>Date Accessed </td>
+<td>~</td>
+<td>ISSN </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Electronic Book </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Secondary Title </td>
+<td>~</td>
+<td>~</td>
+<td>Editor </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Date Accessed </td>
+<td>Type of Medium </td>
+<td>ISBN </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Equation </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Image Source Program </td>
+<td>Name of File </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>City </td>
+<td></td>
+<td>Image Size </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>Description </td>
+<td>~</td>
+<td>Version </td>
+<td></td>
+<td>Type of Image </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Encyclopedia </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Encyclopedia Title </td>
+<td>~</td>
+<td></td>
+<td>Editor </td>
+<td>~</td>
+<td>Translator </td>
+<td></td>
+<td>Abbreviation </td>
+<td>City </td>
+<td></td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>ISBN </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Figure </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Image Source Program </td>
+<td>Name of File </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>City </td>
+<td></td>
+<td>Image Size </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>Description </td>
+<td>~</td>
+<td>Version </td>
+<td></td>
+<td>Type of Image </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Film or Broadcast </td>
+<td>110</td>
+<td>Year Released </td>
+<td></td>
+<td>Series Title </td>
+<td>~</td>
+<td></td>
+<td>Series Director </td>
+<td>Producer </td>
+<td>Performers </td>
+<td></td>
+<td></td>
+<td>Country </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Running Time </td>
+<td>~</td>
+<td></td>
+<td>Date Released </td>
+<td>Medium </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Cast </td>
+<td>Credits </td>
+<td>~</td>
+<td>Genre </td>
+<td>Format </td>
+<td>~</td>
+<td>~</td>
+<td>Synopsis </td>
+<td></td>
+</tr><tr><td>Government Document </td>
+<td>126</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>Series Title </td>
+<td>~</td>
+<td>Department </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>Section </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>Report Number </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Government Body </td>
+<td>Congress Number </td>
+<td>Congress Session </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Grant </td>
+<td></td>
+<td></td>
+<td>Title of Grant </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>Translator </td>
+<td></td>
+<td>Abbreviation </td>
+<td>Activity Location </td>
+<td>Sponsoring Agency </td>
+<td>Amount Requested </td>
+<td>Amount Received </td>
+<td>Status </td>
+<td>~</td>
+<td></td>
+<td>Duration of Grant </td>
+<td>Requirements </td>
+<td>Deadline </td>
+<td>Funding Type </td>
+<td>~</td>
+<td></td>
+<td>Original Grant Number </td>
+<td>Review Date </td>
+<td></td>
+<td>Contact Name </td>
+<td>Contact Address </td>
+<td>Contact Phone </td>
+<td>Contact Fax </td>
+<td>Funding Number </td>
+<td>CFDA Number </td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Hearing </td>
+<td>115</td>
+<td></td>
+<td></td>
+<td>Committee </td>
+<td>Legislative Body </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>City </td>
+<td></td>
+<td>~</td>
+<td></td>
+<td>Document Number </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>Session </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>History </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Journal Article </td>
+<td>102</td>
+<td></td>
+<td></td>
+<td>Journal </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>Alternate Journal </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>Start Page </td>
+<td>~</td>
+<td></td>
+<td>Type of Article </td>
+<td>ISSN </td>
+<td></td>
+<td></td>
+<td>Reprint Edition </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Legal Rule or Regulation </td>
+<td>128</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Issuing Organization </td>
+<td>Abbreviation </td>
+<td>~</td>
+<td></td>
+<td>Rule Number </td>
+<td>Session Number </td>
+<td>Start Page </td>
+<td>~</td>
+<td></td>
+<td>Section Number </td>
+<td></td>
+<td>Date of Code Edition </td>
+<td></td>
+<td>Document Number </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Magazine Article </td>
+<td>106</td>
+<td></td>
+<td></td>
+<td>Magazine </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>Alternate Magazine </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>Frequency </td>
+<td>Issue Number </td>
+<td>Issue Number </td>
+<td></td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>Type of Article </td>
+<td>ISSN </td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Manuscript </td>
+<td>121</td>
+<td></td>
+<td></td>
+<td>Collection Title </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>Abbreviation </td>
+<td>City </td>
+<td>Library&#x2F;Archive </td>
+<td>Volume&#x2F;Storage Container </td>
+<td>Manuscript Number </td>
+<td>Folio Number </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Map </td>
+<td>122</td>
+<td></td>
+<td></td>
+<td>Series Title </td>
+<td>~</td>
+<td></td>
+<td>Series Editor </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>City </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Description </td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>Type </td>
+<td>ISBN </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Scale </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Newspaper Article </td>
+<td>105</td>
+<td></td>
+<td></td>
+<td>Newspaper </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>City </td>
+<td>~</td>
+<td></td>
+<td>Frequency </td>
+<td>Start Page </td>
+<td>~</td>
+<td></td>
+<td>Section </td>
+<td></td>
+<td>Issue Date </td>
+<td>Type of Article </td>
+<td>ISSN </td>
+<td></td>
+<td>Original Publication </td>
+<td></td>
+<td>Reviewed Item </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+</tr><tr><td>Online Database </td>
+<td>125</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>Publisher </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Date Accessed </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+</tr><tr><td>Online Multimedia </td>
+<td></td>
+<td></td>
+<td></td>
+<td>Series Title </td>
+<td>~</td>
+<td>~</td>
+<td>Series Editor </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>Distributor </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Date Accessed </td>
+<td>Type of Work </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Format&#x2F;Length </td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+</tr><tr><td>Patent </td>
+<td>119</td>
+<td></td>
+<td></td>
+<td>Published Source </td>
+<td>International Title </td>
+<td></td>
+<td>~</td>
+<td>International Author </td>
+<td>~</td>
+<td>Issuing Organization </td>
+<td>~</td>
+<td>Country </td>
+<td>Assignee </td>
+<td>Patent Version Number </td>
+<td>~</td>
+<td>Application Number </td>
+<td>~</td>
+<td></td>
+<td>International Patent Number </td>
+<td>International Patent Classification </td>
+<td></td>
+<td>Patent Type </td>
+<td>Patent Number </td>
+<td></td>
+<td>Priority Numbers </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Issue Date </td>
+<td>Designated States </td>
+<td>Attorney&#x2F;Agent </td>
+<td>References </td>
+<td>Legal Status </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+</tr><tr><td>Personal Communication </td>
+<td>120</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>Recipient </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>Abbreviation </td>
+<td>City </td>
+<td></td>
+<td>~</td>
+<td>Communication Number </td>
+<td>Folio Number </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>Description </td>
+<td></td>
+<td>Type </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Report </td>
+<td>109</td>
+<td></td>
+<td></td>
+<td>Series Title </td>
+<td>~</td>
+<td></td>
+<td>Series Editor </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>City </td>
+<td>Institution </td>
+<td>~</td>
+<td>~</td>
+<td>Document Number </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>Type </td>
+<td>Report Number </td>
+<td></td>
+<td>Contents </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Statute </td>
+<td>118</td>
+<td></td>
+<td>Name of Act </td>
+<td>Code </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>Abbreviation </td>
+<td>Country </td>
+<td>~</td>
+<td>Code Number </td>
+<td>Statute Number </td>
+<td>Public Law Number </td>
+<td>~</td>
+<td></td>
+<td>Sections </td>
+<td>Session </td>
+<td>Date Enacted </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>History </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+</tr><tr><td>Thesis </td>
+<td>108</td>
+<td></td>
+<td></td>
+<td>Academic Department </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>Advisor </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>City </td>
+<td>University </td>
+<td>Degree </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>Number of Pages </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>Thesis Type </td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr><tr><td>Unpublished Work </td>
+<td>124</td>
+<td></td>
+<td>Title of Work </td>
+<td>Series Title </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>Abbreviation </td>
+<td>City </td>
+<td>Institution </td>
+<td>~</td>
+<td>~</td>
+<td>Number </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td>Type of Work </td>
+<td>~</td>
+<td></td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+</tr><tr><td>Web Page </td>
+<td>107</td>
+<td></td>
+<td></td>
+<td>Series Title </td>
+<td>~</td>
+<td></td>
+<td>Series Editor </td>
+<td>~</td>
+<td>~</td>
+<td></td>
+<td></td>
+<td>City </td>
+<td>Publisher </td>
+<td>Access Year </td>
+<td>~</td>
+<td>Access Date </td>
+<td>~</td>
+<td>Description </td>
+<td>~</td>
+<td></td>
+<td>Last Update Date </td>
+<td>Type of Medium </td>
+<td>ISBN </td>
+<td></td>
+<td>Contents </td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td></td>
+</tr></tbody></table>
 </section>
-<section id="spm">
+
+</section><section id="spm">
 <h1>SPM</h1>
 
 <figure style="float:right;margin-top:0;text-align:center;">
@@ -819,7 +2249,7 @@ sizeData = InternalAttribute.create!(
 <td>undefined</td>
 </tr></tbody></table>
 	</section>
-</section><section id="#specimen-observation">
+</section><section id="specimen-observation">
 <h1>Specimen/Observation</h1>
 
 While there is a DWC_Occurrence class, it is used for auto-generating DWC records from other models.
@@ -990,113 +2420,113 @@ Material Sample</td>
 	</ul>
 
 	<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_georeference_protocol</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_georeference_remarks</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_island</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_island_group</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_locality</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_map</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_max_depth</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_max_elevation</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_min_depth</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_min_elevation</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_state_province</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_continent_or_ocean</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_coordinate_system</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_coordinate_uncertainty</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_country</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_county</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>field_geodetic_datum</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr><tr><td>title</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
-<td>undefined</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr></tbody></table>
 </section><section>
 <h1>Ecological Interactions</h1>

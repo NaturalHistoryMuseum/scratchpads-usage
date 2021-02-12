@@ -1,54 +1,31 @@
+import { section } from 'sp-templates';
 import html from 'encode-html-template-tag';
 import csvToTable from '../csv-to-table.js';
 
-export default html`<section id="biblio">
-<h1>Biblio</h1>
+export default section('Biblio', html`
+<b>Todo: figure out how to link biblio to a taxon - possibly using Citation model</b>
+
+<p>Taxonworks can import sources as Bibtex files, creating ImportAttributes
+for any unrecognised fields. Import attributes are text attributes
+with no special meaning or behaviour.</p>
 
 <p>While there is a .bib format exporter already in Scratchpads,
 there are a large number of extra fields that are excluded from the
 exported file, since they are not all supported by the .bib file format.</p>
 
+<p>However, bibtex is a simple format, so writing a new exporter for biblio records
+is a straightforward task, making sure to follow these naming conventions:</p>
+
 ${csvToTable('./biblio.csv', import.meta)}
 
-<h3 id="biblio_contributor">Biblio_contributor</h3>
+<section>
+<h1>Field Name Matrix</h1>
+<p>
+Some field types vary their meaning depending on the value of biblio_type.
+For properties that are stored as ImportAttributes, particularly the "custom" fields, it may be more useful to use the values in the following matrix as the field names:
+</p>
 
-<p>Fields:</p>
-
-<ul>
-<li><p>  Firstname</p>
-</li>
-<li><p>  Initials</p>
-</li>
-<li><p>  Lastname</p>
-</li>
-<li><p>  Suffix</p>
-</li>
-</ul>
-
-<p>Taxonworks Mapping:</p>
-
-<p>Create a new Person object with the following properties</p>
-
-<table>
-<thead>
-<tr>
-<th><strong>Taxonworks Person Field</strong></th>
-<th><strong>Scratchpads source</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Firstname</td>
-<td>Firstname concatenated with Initials, if not empty</td>
-</tr>
-<tr>
-<td>Lastname</td>
-<td>lastname</td>
-</tr>
-<tr>
-<td>Suffix</td>
-<td>suffix</td>
-</tr>
-</tbody></table>
-
+${csvToTable('./biblio-field-names.csv', import.meta)}
 </section>
-`;
+
+`);

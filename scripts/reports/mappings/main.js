@@ -11,16 +11,21 @@ const title = 'Scratchpads → Taxonworks Mappings';
 const body = html`
 <h1>${title}</h1>
 
-Describing the core data models of Scratchpads and how they map to Taxonworks data models.
+<p>Describing the core data models of Scratchpads and how they map to Taxonworks data models.</p>
+<p>Where there is no one-to-one mapping for a Scratchpad field, Taxonworks provides us with two options for importing data:</p>
 
-<section>
+<ol>
+	<li>InternalAttributes, whereby we can define a Predicate based on an RDF URL, and use it to define extra data about a data model. While Taxonworks doesn't apply any special treatment to these data, consuming applications that have knowledge of the RDF term will be able to represent the data in a useful way.</li>
+	<li>ImportAttributes, whereby we can attach extra text data to a model, but without providing any context for what this data means. This allows us to keep data available, but precludes applications from using the data with any kind of special processing or behaviour, since its only context is the association with a data model.</li>
+</ol>
+
+<nav>
 <h1>Data Types</h1>
 
 The core data types of Scratchpads are:
 
 <ul>
-	<li><a href="#biblio">Biblio</a></li>
-	<li>Biblio_Contributor</li>
+	<li><a href="#biblio">${biblio.title}</a></li>
 	<li>Taxonomy Term</li>
 	<li><a href="#location">Location</a></li>
 	<li><a href="#specimen-observation">Specimen/Observation</a></li>
@@ -30,10 +35,10 @@ The core data types of Scratchpads are:
 	<li>Page</li>
 	<li>Media Gallery</li>
 </ul>
-</section>
+</nav>
 
 ${[
-	biblio,
+	biblio({id:'biblio'}),
 	spm,
 	specObs,
 	locationBody,
