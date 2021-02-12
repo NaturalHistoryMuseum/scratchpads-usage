@@ -181,7 +181,9 @@ exported file, since they are not all supported by the .bib file format.</p>
 <p>However, bibtex is a simple format, so writing a new exporter for biblio records
 is a straightforward task, making sure to follow these naming conventions:</p>
 
-<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>biblio_type</td>
+
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;biblio.csv">Download CSV</a>
+		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>biblio_type</td>
 <td>integer representing item from biblio_types table (one of:
 journal article, conference paper, book chapter, miscelaneous)</td>
 <td>Source::Bibtex</td>
@@ -538,6 +540,7 @@ journal article, conference paper, book chapter, miscelaneous)</td>
 <td></td>
 <td></td>
 </tr></tbody></table>
+	
 
 <section>
 <h1>Field Name Matrix</h1>
@@ -546,7 +549,9 @@ Some field types vary their meaning depending on the value of biblio_type.
 For properties that are stored as ImportAttributes, particularly the "custom" fields, it may be more useful to use the values in the following matrix as the field names:
 </p>
 
-<table><thead><tr><th rowspan="1"></th><th rowspan="1">tid</th><th rowspan="1">biblio_year</th><th rowspan="1">title</th><th rowspan="1">biblio_secondary_title</th><th rowspan="1">biblio_tertiary_title</th><th rowspan="1">biblio_short_title</th><th rowspan="1">biblio_secondary_authors</th><th rowspan="1">biblio_tertiary_authors</th><th rowspan="1">biblio_subsidiary_authors</th><th rowspan="1">biblio_corp_authors</th><th rowspan="1">biblio_alternate_title</th><th rowspan="1">biblio_place_published</th><th rowspan="1">biblio_publisher</th><th rowspan="1">biblio_volume</th><th rowspan="1">biblio_number_of_volumes</th><th rowspan="1">biblio_number</th><th rowspan="1">biblio_issue</th><th rowspan="1">biblio_pages</th><th rowspan="1">biblio_section</th><th rowspan="1">biblio_edition</th><th rowspan="1">biblio_date</th><th rowspan="1">biblio_type_of_work</th><th rowspan="1">biblio_issn</th><th rowspan="1"></th><th rowspan="1">biblio_original_publication</th><th rowspan="1">biblio_reprint_edition</th><th rowspan="1"></th><th rowspan="1">biblio_custom1</th><th rowspan="1">biblio_custom2</th><th rowspan="1">biblio_custom3</th><th rowspan="1">biblio_custom4</th><th rowspan="1">biblio_custom5</th><th rowspan="1">biblio_custom6</th><th rowspan="1">biblio_custom7</th><th rowspan="1">biblio_abst_e</th><th rowspan="1">biblio_refereed</th></tr></thead><tbody><tr><td>Generic </td>
+
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;biblio-field-names.csv">Download CSV</a>
+		<table><thead><tr><th rowspan="1"></th><th rowspan="1">tid</th><th rowspan="1">biblio_year</th><th rowspan="1">title</th><th rowspan="1">biblio_secondary_title</th><th rowspan="1">biblio_tertiary_title</th><th rowspan="1">biblio_short_title</th><th rowspan="1">biblio_secondary_authors</th><th rowspan="1">biblio_tertiary_authors</th><th rowspan="1">biblio_subsidiary_authors</th><th rowspan="1">biblio_corp_authors</th><th rowspan="1">biblio_alternate_title</th><th rowspan="1">biblio_place_published</th><th rowspan="1">biblio_publisher</th><th rowspan="1">biblio_volume</th><th rowspan="1">biblio_number_of_volumes</th><th rowspan="1">biblio_number</th><th rowspan="1">biblio_issue</th><th rowspan="1">biblio_pages</th><th rowspan="1">biblio_section</th><th rowspan="1">biblio_edition</th><th rowspan="1">biblio_date</th><th rowspan="1">biblio_type_of_work</th><th rowspan="1">biblio_issn</th><th rowspan="1"></th><th rowspan="1">biblio_original_publication</th><th rowspan="1">biblio_reprint_edition</th><th rowspan="1"></th><th rowspan="1">biblio_custom1</th><th rowspan="1">biblio_custom2</th><th rowspan="1">biblio_custom3</th><th rowspan="1">biblio_custom4</th><th rowspan="1">biblio_custom5</th><th rowspan="1">biblio_custom6</th><th rowspan="1">biblio_custom7</th><th rowspan="1">biblio_abst_e</th><th rowspan="1">biblio_refereed</th></tr></thead><tbody><tr><td>Generic </td>
 <td></td>
 <td>Year </td>
 <td>Title </td>
@@ -1990,6 +1995,7 @@ For properties that are stored as ImportAttributes, particularly the "custom" fi
 <td>~</td>
 <td></td>
 </tr></tbody></table>
+	
 </section>
 
 </section><section id="spm">
@@ -2041,7 +2047,9 @@ sizeData = InternalAttribute.create!(
 <section>
 	<h1>Predicate definitions</h1>
 	<p>Most SPM fields can be represented as Predicates by using the following values.</p>
-	<table><thead><tr><th rowspan="2">SPM field name</th><th colspan="4">Taxonworks Predicate properties</th></tr><tr><th rowspan="1">name</th><th rowspan="1">definition</th><th rowspan="1">uri</th><th rowspan="1">uri_relation</th></tr></thead><tbody><tr><td>field_associations</td>
+	
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;spm-fields.csv">Download CSV</a>
+		<table><thead><tr><th rowspan="2">SPM field name</th><th colspan="4">Taxonworks Predicate properties</th></tr><tr><th rowspan="1">name</th><th rowspan="1">definition</th><th rowspan="1">uri</th><th rowspan="1">uri_relation</th></tr></thead><tbody><tr><td>field_associations</td>
 <td>Associations</td>
 <td>Predator-prey; host-parasite, pollinators, symbiosis, mutualism, commensalism; hybridisation, ...</td>
 <td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Associations</td>
@@ -2217,12 +2225,15 @@ sizeData = InternalAttribute.create!(
 <td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;ontology&#x2F;voc&#x2F;SPMInfoItems#Use</td>
 <td>skos:exactMatch</td>
 </tr></tbody></table>
+	
 	</section>
 
 	<section>
 		<h1>Other fields</h1>
 		<p>The remaining fields require an individual mapping.</p>
 
+		
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;spm.csv">Download CSV</a>
 		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_media</td>
 <td>Media</td>
 <td></td>
@@ -2248,6 +2259,7 @@ sizeData = InternalAttribute.create!(
 <td></td>
 <td>undefined</td>
 </tr></tbody></table>
+	
 	</section>
 </section><section id="specimen-observation">
 <h1>Specimen/Observation</h1>
@@ -2267,7 +2279,9 @@ FossilSpecimen</td><td>CollectionObject</td></tr>
 <tr><td>MachineObservation</td><td>AssertedDistribution with source=Source::??[Human/Verbatim/Bibtex]</td></tr>
 </table>
 
-<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_basis_of_record</td>
+
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;spo.csv">Download CSV</a>
+		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_basis_of_record</td>
 <td>One of:
 Fossil Specimen
 Human observation
@@ -2407,6 +2421,7 @@ Material Sample</td>
 <td></td>
 <td></td>
 </tr></tbody></table>
+	
 
 </section>
 <section id="location">
@@ -2419,7 +2434,9 @@ Material Sample</td>
 		<li>Georeference (information about a specific collection at a geographic item)</li>
 	</ul>
 
-	<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_georeference_protocol</td>
+	
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;location.csv">Download CSV</a>
+		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_georeference_protocol</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2528,10 +2545,13 @@ Material Sample</td>
 <td></td>
 <td></td>
 </tr></tbody></table>
+	
 </section><section>
 <h1>Ecological Interactions</h1>
 
-<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>body</td>
+
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;ecoint.csv">Download CSV</a>
+		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>body</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2616,6 +2636,7 @@ Material Sample</td>
 <td></td>
 <td></td>
 </tr></tbody></table>
+	
 
 </section>
 <h2 id="taxonomy-term">Taxonomy Term</h2>

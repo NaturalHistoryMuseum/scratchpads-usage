@@ -4,7 +4,9 @@ import fs from 'fs';
 const assetMap = {};
 
 function getAssetUrl(asset){
-	return '/assets/'+asset.location.split('/').pop();
+	const path = '/assets/'+asset.location.split('/').pop();
+	assetMap[path] = asset;
+	return path;
 }
 
 for(const asset of assets) {

@@ -1,0 +1,36 @@
+SPM Field,name,definition,uri,uri_relation
+field_associations,Associations,"Predator-prey; host-parasite, pollinators, symbiosis, mutualism, commensalism; hybridisation, ...",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Associations,skos:exactMatch
+field_behavious,Behaviour,Covers actions and reactions of organism in relation to its biotic and abiotic environment.,http://rs.tdwg.org/ontology/voc/SPMInfoItems#Behaviour,skos:exactMatch
+field_biology,Biology,"An account of the biology of the taxon. E.g. behavior, reproduction, dispersal",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Biology,skos:exactMatch
+field_conservation_status,Conservation Status,A description of the likelihood of the species becoming extinct in the present day or in the near future.,http://rs.tdwg.org/ontology/voc/SPMInfoItems#ConservationStatus,skos:exactMatch
+field_cyclicity,Cyclicity,A state or condition characterised by regular repetition in time.,http://rs.tdwg.org/ontology/voc/SPMInfoItems#Cyclicity,skos:exactMatch
+field_cytology,Cytology,"Cell biology: formation , structure and function of cells.",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Cytology,skos:exactMatch
+field_diagnostic_description,Diagnostic Description,Distinguishing feature of this taxon from its closest relatives.,http://rs.tdwg.org/ontology/voc/SPMInfoItems#DiagnosticDescription,skos:exactMatch
+field_diseases,Diseases,Diseases of organisms,http://rs.tdwg.org/ontology/voc/SPMInfoItems#Diseases,skos:exactMatch
+field_dispersal,Dispersal,Dispersal strategies and mechanisms,http://rs.tdwg.org/ontology/voc/SPMInfoItems#Dispersal,skos:exactMatch
+field_distribution,Distribution,"Distribution, as per TDWG SPM ontology",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Distribution,skos:exactMatch
+field_ecology,Ecology,"Ecology, as per TDWG SPM ontology",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Ecology,skos:exactMatch
+field_evolution,Evolution,Phylogenetic information relating to the taxon,http://rs.tdwg.org/ontology/voc/SPMInfoItems#Evolution,skos:exactMatch
+field_general_description,General Description,A comprehensive description of the characteristics of the taxon,http://rs.tdwg.org/ontology/voc/SPMInfoItems#GeneralDescription,skos:exactMatch
+field_genetics,Genetics,Including karyotypes;,http://rs.tdwg.org/ontology/voc/SPMInfoItems#Genetics,skos:exactMatch
+field_growth,Growth,Rate; parameters; allometries,http://rs.tdwg.org/ontology/voc/SPMInfoItems#Growth,skos:exactMatch
+field_habitat,Habitat,Includes realm (e.g. Terrestrial etc) and climatic information (e.g. Boreal); also includes requirements and tolerances; horizontal and vertical distribution;,http://rs.tdwg.org/ontology/voc/SPMInfoItems#Habitat,skos:exactMatch
+field_legislation,Legislation,Legal regulations or statutes relating to the taxon.,http://rs.tdwg.org/ontology/voc/SPMInfoItems#Legislation,skos:exactMatch
+field_life_cycle,Life Cycle,Obligatory developmental transformations,http://rs.tdwg.org/ontology/voc/SPMInfoItems#LifeCycle,skos:exactMatch
+field_life_expectancy,Life Expectancy,The average period an organism can be expected to survive.,http://rs.tdwg.org/ontology/voc/SPMInfoItems#LifeExpectancy,skos:exactMatch
+field_look_alikes,Look Alikes,Other taxa that this taxon may be confused with. Common in invasive species communities.,http://rs.tdwg.org/ontology/voc/SPMInfoItems#LookAlikes,skos:exactMatch
+field_management,Management,"A statement about the level of need to manage a taxon which can be related to a piece of legislation, e.g., a CITES list.",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Management,skos:exactMatch
+field_migration,Migration,"Periodic movement of organisms from one locality to another (e.g., for breeding)",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Migration,skos:exactMatch
+field_molecular_biology,Molecular Biology,"Molecular Biology, as per TDWG SPM ontology",http://rs.tdwg.org/ontology/voc/SPMInfoItems#MolecularBiology,skos:exactMatch
+field_morphology,Morphology,The appearance of the taxon (is it only external?); e.g. Habit; antomy (thee branch of morphology that deals with structure of animals),http://rs.tdwg.org/ontology/voc/SPMInfoItems#Morphology,skos:exactMatch
+field_physiology,Physiology,"Physiology, as per TDWG SPM ontology",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Physiology,skos:exactMatch
+field_population_biology,Population Biology,Includes abundance information.,http://rs.tdwg.org/ontology/voc/SPMInfoItems#PopulationBiology,skos:exactMatch
+field_procedures,Procedures,Deals with how you go about managing this taxon; what are the known threats to this taxon?,http://rs.tdwg.org/ontology/voc/SPMInfoItems#Procedures,skos:exactMatch
+field_reproduction,Reproduction,"Reproduction cues, strategies, restraints",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Reproduction,skos:exactMatch
+field_risk_statement,Risk Statement,"Includes invasiveness, impacts",http://rs.tdwg.org/ontology/voc/SPMInfoItems#RiskStatement,skos:exactMatch
+field_size,Size,"Average size, max, range; type of size (perimeter, length, volume, weight …)",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Size,skos:exactMatch
+field_taxon_biology,Taxon Biology,An account of the biology of the taxon.,http://rs.tdwg.org/ontology/voc/SPMInfoItems#TaxonBiology,skos:exactMatch
+field_threats,Threats,The threats to which this taxon is subject.,http://rs.tdwg.org/ontology/voc/SPMInfoItems#Threats,skos:exactMatch
+field_trends,Trends,"An indication of whether a population is stable, or increasing or decreasing.",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Trends,skos:exactMatch
+field_trophic_strategy,Trophic Strategy,"Include nutritional aspects, diet, position in food network.",http://rs.tdwg.org/ontology/voc/SPMInfoItems#TrophicStrategy,skos:exactMatch
+field_uses,Uses,"Use, as per TDWG SPM ontology",http://rs.tdwg.org/ontology/voc/SPMInfoItems#Use,skos:exactMatch

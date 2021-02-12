@@ -1,11 +1,15 @@
 import csv from 'papaparse';
 import fs from 'fs';
 import path from 'path';
-import {table} from 'sp-templates';
+import {table, asset} from 'sp-templates';
+import html from 'encode-html-template-tag';
 
-function loadCsv(file, meta=import.meta) {
+function resolveFile(file, meta=import.meta) {
 	const filepath = path.resolve(new URL(meta.url).pathname, '..', file);
+	return filepath;
+}
 
+function loadCsv(filepath) {
 	const csvData = fs.readFileSync(filepath, 'utf-8').trim();
 
 	const parsed = csv.parse(csvData);
@@ -20,6 +24,14 @@ export default async function csvToTable(headers, file, meta) {
 		[headers, file, meta] = [undefined, headers, file];
 	}
 
-	const [cols, ...rows] = await loadCsv(file, meta);
-	return table(headers??cols, rows);
+	const filepath = resolveFile(file, meta);
+	const assetFile = asset(filepath);
+
+	const [cols, ...rows] = await loadCsv(filepath);
+	const el = html`
+		<a href="${assetFile}">Download CSV</a>
+		${table(headers??cols, rows)}
+	`;
+	el.asset = assetFile;
+	return el;
 }

@@ -1,0 +1,62 @@
+Field,Data assumptions,Taxonworks content type,Taxonworks field name,Notes or processing instructions,Standard
+biblio_type,"integer representing item from biblio_types table (one of:
+journal article, conference paper, book chapter, miscelaneous)",Source::Bibtex,bibtex_type,"Value needs to be mapped to bibtex type string (https://www.bibtex.com/e/entry-types/); “journal article”=>article, “conference paper”=>conference, “book chapter”=>inbook, “miscelaneous”=>misc",Bibtex
+title,string,Source::Bibtex,title,,
+body,Full publication body as html,Source::Bibtex,body,Stored as ImportAttribute,
+field_taxonomic_name,tid of associated taxon,,,,
+biblio_citekey,The citekey/ID for the bibtex record,Source::Bibtex,key,,Bibtex
+biblio_coins,,Source::Bibtex,coins,Stored as ImportAttribute,
+biblio_lang,3 letter ISO 639-2 language code,Source::Bibtex,language,This value is translated into the TW language_id,Bibtex
+biblio_sort_title,,n/a,n/a,Cached value derrived from title,
+biblio_year,Integer > 0,Source::Bibtex,year,,Bibtex
+biblio_formats,,Source::Bibtex,formats,Stored as ImportAttribute,
+biblio_md5,md5 hash,n/a,n/a,Derrived value not needed for migration,
+biblio_secondary_title,string,Source::Bibtex,secondary_url,Stored as ImportAttribute,
+biblio_volume,String,Source::Bibtex,volume,,Bibtex
+biblio_pages,string,Source::Bibtex,pages,,
+biblio_publisher,Publisher name as string,Source::Bibtex,publisher,,
+biblio_date,Date published in mm/yyyy format,Source::Bibtex,month,"Only the month should be extracted, and formatted as lowercase three-letter month name abbreviation. The year part of the date should be the same as year field, and can be discarted.",Bibtex
+biblio_abst_e,abstract as html,Source::Bibtex,abstract,,Bibtex
+biblio_url,url,Source::Bibtex,url,,
+biblio_place_published,Publisher location as string,Source::Bibtex,address,,Bibtex
+biblio_issue,string,Source::Bibtex,issue,Stored as ImportAttribute,
+biblio_doi,doi,Source::Bibtex,doi,Stored as Identifier::Global::Doi,Bibtex
+biblio_section,string,Source::Bibtex,section,Stored as ImportAttribute,
+biblio_number,string,Source::Bibtex,number,,Bibtex
+biblio_issn,issn,Source::Bibtex,issn,Stored as Identifier::Global::Issn,
+biblio_isbn,ISBN number,Source::Bibtex,isbn,Stored as Identifier::Global::Isbn,
+biblio_type_of_work,string,Source::Bibtex,type_of_work,Stored as ImportAttribute,
+biblio_notes,string,Source::Bibtex,note,Stored as Note object,
+biblio_short_title,string,Source::Bibtex,short_title,Stored as ImportAttribute,
+biblio_edition,string,Source::Bibtex,edition,,Bibtex
+biblio_alternate_title,string,Source::Bibtex,alternate_title,Stored as ImportAttribute,
+biblio_other_number,string,Source::Bibtex,other_number,Stored as ImportAttribute,
+biblio_tertiary_title,string,Source::Bibtex,tertiary_title,Stored as ImportAttribute,
+biblio_abst_f,,,,,
+biblio_full_text,string,Source::Bibtex,full_text,Stored as ImportAttribute,
+biblio_accession_number,string,Source::Bibtex,accession_number,Stored as ImportAttribute,
+biblio_call_number,string,Source::Bibtex,call_number,Stored as ImportAttribute,
+biblio_custom1,string,Source::Bibtex,[see matrix below],Stored as ImportAttribute,
+biblio_custom2,string,Source::Bibtex,[see matrix below],Stored as ImportAttribute,
+biblio_custom3,string,Source::Bibtex,[see matrix below],Stored as ImportAttribute,
+biblio_custom4,string,Source::Bibtex,[see matrix below],Stored as ImportAttribute,
+biblio_custom5,string,Source::Bibtex,[see matrix below],Stored as ImportAttribute,
+biblio_custom6,string,Source::Bibtex,[see matrix below],Stored as ImportAttribute,
+biblio_custom7,string,Source::Bibtex,[see matrix below],Stored as ImportAttribute,
+biblio_research_notes,string,Source::Bibtex,research_notes,Stored as ImportAttribute,
+biblio_number_of_volumes,string,Source::Bibtex,number_of_volumes,Stored as ImportAttribute,
+biblio_original_publication,string,Source::Bibtex,original_publication,Stored as ImportAttribute,
+biblio_reprint_edition,string,Source::Bibtex,reprint_edition,Stored as ImportAttribute,
+biblio_translated_title,string,Source::Bibtex,translated_title,Stored as ImportAttribute,
+biblio_auth_address,string,Source::Bibtex,auth_address,Stored as ImportAttribute,
+biblio_remote_db_name,string,Source::Bibtex,remote_db_name,Stored as ImportAttribute,
+biblio_remote_db_provider,string,Source::Bibtex,remote_db_provider,Stored as ImportAttribute,
+biblio_label,string,Source::Bibtex,label,Stored as ImportAttribute,
+biblio_access_date,string,Source::Bibtex,access_date,Stored as ImportAttribute,
+biblio_refereed,String enum (None|Refereed|Non-Refereed|Does Not Apply|Unknown),Source::Bibtex,,Stored as ImportAttribute,
+biblio_type_name,"string representing type name from biblio_types table  (one of:
+journal article, conference paper, book chapter, miscelaneous)",n/a,,See biblio_type field,Bibtex
+biblio_contributors,array of biblio_contributor objects,Source::Bibtex,authors,"Map each contributor to a string of the form “[prefix] [last_name] [suffix], [first_name]” and join them all with the string “ and “",Bibtex
+biblio_keywords,array of strings,Source::Bibtex,keywords,Stored in verbatim_keywords property,Bibtex
+field_file,array of associated file objects,,,,
+field_front_cover,,,,,

@@ -19,7 +19,7 @@ FossilSpecimen</td><td>CollectionObject</td></tr>
 <tr><td>MachineObservation</td><td>AssertedDistribution with source=Source::??[Human/Verbatim/Bibtex]</td></tr>
 </table>
 
-${csvToTable('./data.csv', import.meta)}
+${csvToTable('./spo.csv', import.meta)}
 
 </section>
 `;
