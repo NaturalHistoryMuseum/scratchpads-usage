@@ -156,10 +156,10 @@ The core data types of Scratchpads are:
 
 <ul>
 	<li><a href="#biblio">Biblio</a></li>
-	<li>Taxonomy Term</li>
-	<li><a href="#location">Location</a></li>
-	<li><a href="#specimen-observation">Specimen/Observation</a></li>
 	<li><a href="#spm">Taxon Description</a></li>
+	<li><a href="#specimen-observation">Specimen/Observation</a></li>
+	<li><a href="#location">Location</a></li>
+	<li>Taxonomy Term</li>
 	<li>Taxonomy Vocabulary</li>
 	<li>Person</li>
 	<li>Page</li>
@@ -2424,128 +2424,302 @@ Material Sample</td>
 	
 
 </section>
-<section id="location">
-<h1>Location</h1>
-	Location must be split into three records:
+<section id="location"><h1>Location</h1>
+	<p>
+		In Scratchpads, the Location model is part of the Darwincore module.
+		It describes where an item was collected or observed with a combination of geographic data and verbatim descriptions.
+	</p>
 
-	<ul>
-		<li>Geographic item (spatial definition of area)</li>
-		<li>Geographic Area (nomenclatural details location name, political or cultural definition)</li>
-		<li>Georeference (information about a specific collection at a geographic item)</li>
-	</ul>
+	<p>
+		In Taxonworks, the collection location of specimens (aka collection objects) are represented as Collection Events,
+		whereas the location of an observation (aka Asserted Distribution) is represented as GeographicArea,
+		a data type which has no fields for verbatim location data as specified by DWC.
+	</p>
 
-	
-		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;location.csv">Download CSV</a>
-		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_georeference_protocol</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_georeference_remarks</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_island</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_island_group</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_locality</td>
-<td></td>
-<td></td>
+	<table><thead>
+	<tr><td></td>	<th>Specimen</th>	<th>Observation</th></tr></thead>
+	<tr><th>Location</th>	<td>CollectingEvent</td>	<td>GeographicArea</td></tr>
+	<tr><th>Specimen/Obsercation</th>	<td>CollectionObject</td>	<td>AssertedDistribution</td></tr>
+	</table>
+
+	<p>
+		So the method of migrating location objects differs depending on whether it is referenced by a
+		Specimen, an Observation, or both.
+	</p>
+
+	<section>
+		<h1>Specimen</h1>
+
+		<p>The CollectingEvent model supports a small subset of the DWC location fields.</p>
+		<p>It also accepts DataAttributes, so remaining fields can be added using the same method as for the SPM fields.</p>
+
+		
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;location-specimen.csv">Download CSV</a>
+		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th><th rowspan="1"></th></tr></thead><tbody><tr><td>title</td>
+<td>string</td>
+<td>CollectingEvent</td>
+<td>verbatim_label</td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_map</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_max_depth</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_max_elevation</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_min_depth</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_min_elevation</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_state_province</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_continent_or_ocean</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_coordinate_system</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr><tr><td>field_coordinate_uncertainty</td>
-<td></td>
-<td></td>
+<td>gm3 point</td>
+<td>CollectingEvent</td>
+<td>verbatim_latitude&#x2F;verbatim_longitude</td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_country</td>
+<td>string</td>
+<td>DataAttribute</td>
 <td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;country</td>
 <td></td>
+</tr><tr><td>field_continent_or_ocean</td>
+<td>string</td>
+<td>DataAttribute</td>
 <td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;higherGeography</td>
+<td>higherGeography</td>
+</tr><tr><td>field_locality</td>
+<td>string</td>
+<td>CollectingEvent</td>
+<td>verbatim_locality</td>
 <td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;locality</td>
+<td></td>
+</tr><tr><td>field_state_province</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;locality</td>
 <td></td>
 </tr><tr><td>field_county</td>
+<td>string</td>
+<td>DataAttribute</td>
 <td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;county</td>
 <td></td>
+</tr><tr><td>field_max_elevation</td>
+<td>string</td>
+<td>CollectingEvent</td>
+<td>maximum_elevation</td>
 <td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;maximumElevationInMeters</td>
 <td></td>
+</tr><tr><td>field_coordinate_system</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;verbatimCoordinateSystem</td>
+<td></td>
+</tr><tr><td>field_coordinate_uncertainty</td>
+<td>string</td>
+<td>CollectingEvent</td>
+<td>verbatim_geolocation_uncertainty</td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;coordinateUncertaintyInMeters</td>
 <td></td>
 </tr><tr><td>field_geodetic_datum</td>
+<td>string</td>
+<td>CollectingEvent</td>
+<td>verbatim_datum</td>
 <td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;geodeticDatum</td>
 <td></td>
+</tr><tr><td>field_min_elevation</td>
+<td>string</td>
+<td>CollectingEvent</td>
+<td>minimum_elevation</td>
 <td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;minimumElevationInMeters</td>
 <td></td>
+</tr><tr><td>field_island</td>
+<td>string</td>
+<td>DataAttribute</td>
 <td></td>
-</tr><tr><td>title</td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;island</td>
 <td></td>
+</tr><tr><td>field_georeference_remarks</td>
+<td>string</td>
+<td>DataAttribute</td>
 <td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;georeferenceRemarks</td>
 <td></td>
+</tr><tr><td>field_island_group</td>
+<td>string</td>
+<td>DataAttribute</td>
 <td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;islandGroup</td>
+<td></td>
+</tr><tr><td>field_max_depth</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;maximumDepthInMeters</td>
+<td></td>
+</tr><tr><td>field_min_depth</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;minimumDepthInMeters</td>
+<td></td>
+</tr><tr><td>field_georeference_protocol</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;georeferenceProtocol</td>
 <td></td>
 </tr></tbody></table>
 	
+	</section>
+
+
+	<section>
+		<h1>Observation</h1>
+
+		<p>For observations, a single location can be translated into a tree of GeographicAreas.</p>
+		<p>AssertedDistribution accepts DataAttributes, so remaining fields can be added using the same method as for the SPM fields.</p>
+		<p>Since it is considerably easier to create DataAttributes than it is to create GeographicArea items, we may also wish to consider using DataAttributes instead of GeographicAreas.</p>
+
+		
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;location-observation.csv">Download CSV</a>
+		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>title</td>
+<td>string</td>
+<td>GeographicArea</td>
+<td>name</td>
+<td></td>
+<td></td>
+</tr><tr><td>field_map</td>
+<td>gm3 point</td>
+<td>GeographicItem</td>
+<td>point</td>
+<td>Needs to be linked to the GeographicArea using GeographicAreaGeographicItem incorporating the date of the observation</td>
+<td></td>
+</tr><tr><td>field_country</td>
+<td>string</td>
+<td>GeographicArea</td>
+<td>name</td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;country</td>
+</tr><tr><td>field_continent_or_ocean</td>
+<td>string</td>
+<td>GeographicArea</td>
+<td>name</td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;higherGeography</td>
+</tr><tr><td>field_locality</td>
+<td>string</td>
+<td>GeographicArea</td>
+<td>name</td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;locality</td>
+</tr><tr><td>field_state_province</td>
+<td>string</td>
+<td>GeographicArea</td>
+<td>name</td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;locality</td>
+</tr><tr><td>field_county</td>
+<td>string</td>
+<td>GeographicArea</td>
+<td>name</td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;county</td>
+</tr><tr><td>field_max_elevation</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;maximumElevationInMeters</td>
+</tr><tr><td>field_coordinate_system</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;verbatimCoordinateSystem</td>
+</tr><tr><td>field_coordinate_uncertainty</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;coordinateUncertaintyInMeters</td>
+</tr><tr><td>field_geodetic_datum</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;geodeticDatum</td>
+</tr><tr><td>field_min_elevation</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;minimumElevationInMeters</td>
+</tr><tr><td>field_island</td>
+<td>string</td>
+<td>GeographicArea</td>
+<td>name</td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;island</td>
+</tr><tr><td>field_georeference_remarks</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;georeferenceRemarks</td>
+</tr><tr><td>field_island_group</td>
+<td>string</td>
+<td>GeographicArea</td>
+<td>name</td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;islandGroup</td>
+</tr><tr><td>field_max_depth</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;maximumDepthInMeters</td>
+</tr><tr><td>field_min_depth</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;minimumDepthInMeters</td>
+</tr><tr><td>field_georeference_protocol</td>
+<td>string</td>
+<td>DataAttribute</td>
+<td></td>
+<td>The predicate must be defined first</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;georeferenceProtocol</td>
+</tr></tbody></table>
+	
+	</section>
+
+	<p>Geographic items can hold different types of data:</p>
+
+	<ul>
+		<li>point</li>
+		<li>line_string</li>
+		<li>polygon</li>
+		<li>multi_point</li>
+		<li>multi_line_string</li>
+		<li>multi_polygon</li>
+		<li>geometry_collection</li>
+	</ul>
+
+	By default, locations are point data, but some scratchpads may have elected to change to a different data type.
 </section><section>
 <h1>Ecological Interactions</h1>
 

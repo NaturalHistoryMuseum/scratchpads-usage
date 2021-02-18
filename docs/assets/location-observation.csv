@@ -1,0 +1,19 @@
+Field,Data assumptions,Taxonworks content type,Taxonworks field name,Notes or processing instructions,Standard
+title,string,GeographicArea,name,,
+field_map,gm3 point,GeographicItem,point,Needs to be linked to the GeographicArea using GeographicAreaGeographicItem incorporating the date of the observation,
+field_country,string,GeographicArea,name,,http://rs.tdwg.org/dwc/terms/country
+field_continent_or_ocean,string,GeographicArea,name,,http://rs.tdwg.org/dwc/terms/higherGeography
+field_locality,string,GeographicArea,name,,http://rs.tdwg.org/dwc/terms/locality
+field_state_province,string,GeographicArea,name,,http://rs.tdwg.org/dwc/terms/locality
+field_county,string,GeographicArea,name,,http://rs.tdwg.org/dwc/terms/county
+field_max_elevation,string,DataAttribute,,The predicate must be defined first,http://rs.tdwg.org/dwc/terms/maximumElevationInMeters
+field_coordinate_system,string,DataAttribute,,The predicate must be defined first,http://rs.tdwg.org/dwc/terms/verbatimCoordinateSystem
+field_coordinate_uncertainty,string,DataAttribute,,The predicate must be defined first,http://rs.tdwg.org/dwc/terms/coordinateUncertaintyInMeters
+field_geodetic_datum,string,DataAttribute,,The predicate must be defined first,http://rs.tdwg.org/dwc/terms/geodeticDatum
+field_min_elevation,string,DataAttribute,,The predicate must be defined first,http://rs.tdwg.org/dwc/terms/minimumElevationInMeters
+field_island,string,GeographicArea,name,,http://rs.tdwg.org/dwc/terms/island
+field_georeference_remarks,string,DataAttribute,,The predicate must be defined first,http://rs.tdwg.org/dwc/terms/georeferenceRemarks
+field_island_group,string,GeographicArea,name,,http://rs.tdwg.org/dwc/terms/islandGroup
+field_max_depth,string,DataAttribute,,The predicate must be defined first,http://rs.tdwg.org/dwc/terms/maximumDepthInMeters
+field_min_depth,string,DataAttribute,,The predicate must be defined first,http://rs.tdwg.org/dwc/terms/minimumDepthInMeters
+field_georeference_protocol,string,DataAttribute,,The predicate must be defined first,http://rs.tdwg.org/dwc/terms/georeferenceProtocol

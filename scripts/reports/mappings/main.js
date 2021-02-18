@@ -26,10 +26,10 @@ The core data types of Scratchpads are:
 
 <ul>
 	<li><a href="#biblio">${biblio.title}</a></li>
-	<li>Taxonomy Term</li>
-	<li><a href="#location">Location</a></li>
-	<li><a href="#specimen-observation">Specimen/Observation</a></li>
 	<li><a href="#spm">Taxon Description</a></li>
+	<li><a href="#specimen-observation">Specimen/Observation</a></li>
+	<li><a href="#location">${locationBody.title}</a></li>
+	<li>Taxonomy Term</li>
 	<li>Taxonomy Vocabulary</li>
 	<li>Person</li>
 	<li>Page</li>
@@ -41,7 +41,7 @@ ${[
 	biblio({id:'biblio'}),
 	spm,
 	specObs,
-	locationBody,
+	locationBody({id:'location'}),
 	ecoInt,
 	importMarkdown('taxonomy-term.md')
 ]}
