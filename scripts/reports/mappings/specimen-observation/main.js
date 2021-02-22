@@ -1,8 +1,9 @@
 import html from 'encode-html-template-tag';
+import {section} from 'sp-templates';
 import csvToTable from '../csv-to-table.js';
 
-export default html`<section id="specimen-observation">
-<h1>Specimen/Observation</h1>
+export default section('Specimen/Observation',
+html`
 
 While there is a DWC_Occurrence class, it is used for auto-generating DWC records from other models.
 
@@ -19,7 +20,16 @@ FossilSpecimen</td><td>CollectionObject</td></tr>
 <tr><td>MachineObservation</td><td>AssertedDistribution with source=Source::??[Human/Verbatim/Bibtex]</td></tr>
 </table>
 
-${csvToTable('./spo.csv', import.meta)}
-
+<section>
+<h1>Specimen</h1>
+${csvToTable('./specimen.csv', import.meta)}
 </section>
-`;
+
+<section>
+<h1>Observation</h1>
+An observation must be created as an AssertedDistribution record, referencing an OTU record, a GeographicArea, and a Citation object.
+The citation record is itself a link between a subject and a Source.
+
+${csvToTable('./observation.csv', import.meta)}
+</section>
+`);

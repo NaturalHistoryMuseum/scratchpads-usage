@@ -157,13 +157,9 @@ The core data types of Scratchpads are:
 <ul>
 	<li><a href="#biblio">Biblio</a></li>
 	<li><a href="#spm">Taxon Description</a></li>
-	<li><a href="#specimen-observation">Specimen/Observation</a></li>
+	<li><a href="#specimen-observation">Specimen&#x2F;Observation</a></li>
 	<li><a href="#location">Location</a></li>
 	<li>Taxonomy Term</li>
-	<li>Taxonomy Vocabulary</li>
-	<li>Person</li>
-	<li>Page</li>
-	<li>Media Gallery</li>
 </ul>
 </nav>
 
@@ -2261,8 +2257,7 @@ sizeData = InternalAttribute.create!(
 </tr></tbody></table>
 	
 	</section>
-</section><section id="specimen-observation">
-<h1>Specimen/Observation</h1>
+</section><section id="specimen-observation"><h1>Specimen&#x2F;Observation</h1>
 
 While there is a DWC_Occurrence class, it is used for auto-generating DWC records from other models.
 
@@ -2279,8 +2274,10 @@ FossilSpecimen</td><td>CollectionObject</td></tr>
 <tr><td>MachineObservation</td><td>AssertedDistribution with source=Source::??[Human/Verbatim/Bibtex]</td></tr>
 </table>
 
+<section>
+<h1>Specimen</h1>
 
-		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;spo.csv">Download CSV</a>
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;specimen.csv">Download CSV</a>
 		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_basis_of_record</td>
 <td>One of:
 Fossil Specimen
@@ -2293,83 +2290,83 @@ Material Sample</td>
 <td>See notes above</td>
 <td>N&#x2F;A</td>
 <td>N&#x2F;A</td>
-<td>Darwincore</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;basisOfRecord</td>
 </tr><tr><td>field_catalogue_number</td>
 <td></td>
 <td>Identifier::Local::CatalogNumber</td>
 <td>identifier</td>
 <td>Must include a back reference to the taxonworks Collection&#x2F;Source object</td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;catalogNumber</td>
 </tr><tr><td>field_collection_code</td>
 <td></td>
 <td>Identifier::Local</td>
 <td>identifier</td>
 <td>“</td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;collectionCode</td>
 </tr><tr><td>field_collector</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>reference to Person&#x2F;User record</td>
+<td>CollectingEvent</td>
+<td>collector</td>
+<td>Requires Person to be migrated to Collector record</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;recordedBy</td>
 </tr><tr><td>field_collector_number</td>
 <td></td>
+<td>DataAttribute</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;recordNumber</td>
 </tr><tr><td>field_count</td>
 <td></td>
+<td>CollectionObject</td>
+<td>count&#x2F;total</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;individualCount</td>
 </tr><tr><td>field_date_collected</td>
+<td>yyyy&#x2F;mm&#x2F;dd</td>
+<td>CollectingEvent</td>
+<td>start_date_[year&#x2F;month&#x2F;day]</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;eventDate</td>
 </tr><tr><td>field_date_identified</td>
+<td>yyyy&#x2F;mm&#x2F;dd</td>
+<td>DataAttribute</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;dateIdentified</td>
 </tr><tr><td>field_genbank_number</td>
 <td></td>
-<td></td>
-<td></td>
+<td>Identifier::Global::GenBankAccessionCode</td>
+<td>identifier</td>
 <td></td>
 <td></td>
 </tr><tr><td>field_identification_qualifier</td>
 <td></td>
+<td>DataAttribute</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;iri&#x2F;identificationQualifier</td>
 </tr><tr><td>field_identified_by</td>
+<td>reference to Person&#x2F;User record</td>
+<td>Determination</td>
+<td>determiner</td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;identifiedBy</td>
 </tr><tr><td>field_institution_code</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>repository_id</td>
+<td>An instance of Repository must be created</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;institutionCode</td>
 </tr><tr><td>field_lifestage</td>
 <td></td>
+<td>DataAttribute</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;lifeStage</td>
 </tr><tr><td>field_location</td>
-<td></td>
-<td></td>
-<td></td>
+<td>ID of a Location node</td>
+<td>CollectingEvent</td>
+<td>geographic_area_id</td>
 <td></td>
 <td></td>
 </tr><tr><td>field_media</td>
@@ -2380,51 +2377,200 @@ Material Sample</td>
 <td></td>
 </tr><tr><td>field_notes</td>
 <td></td>
-<td></td>
-<td></td>
+<td>CollectingEvent</td>
+<td>field_notes</td>
 <td></td>
 <td></td>
 </tr><tr><td>field_number</td>
 <td></td>
+<td>DataAttribute</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;fieldNumber</td>
 </tr><tr><td>field_other_catalogue_numbers</td>
 <td></td>
+<td>DataAttribute</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;otherCatalogNumbers</td>
 </tr><tr><td>field_remarks</td>
 <td></td>
+<td>DataAttribute</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;organismRemarks</td>
 </tr><tr><td>field_sex</td>
 <td></td>
+<td>DataAttribute</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;iri&#x2F;sex</td>
 </tr><tr><td>field_taxonomic_name</td>
 <td></td>
+<td>DataAttribute</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;iri&#x2F;typeStatus</td>
 </tr><tr><td>field_type_status</td>
 <td></td>
-<td></td>
+<td>DataAttribute</td>
 <td></td>
 <td></td>
 <td></td>
 </tr></tbody></table>
 	
-
 </section>
-<section id="location"><h1>Location</h1>
+
+<section>
+<h1>Observation</h1>
+An observation must be created as an AssertedDistribution record, referencing an OTU record, a GeographicArea, and a Citation object.
+The citation record is itself a link between a subject and a Source.
+
+
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;observation.csv">Download CSV</a>
+		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_basis_of_record</td>
+<td>One of:
+Fossil Specimen
+Human observation
+Living specimen
+Machine observation
+Preserved specimen
+Occurence
+Material Sample</td>
+<td>See notes above</td>
+<td>N&#x2F;A</td>
+<td>N&#x2F;A</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;basisOfRecord</td>
+</tr><tr><td>field_catalogue_number</td>
+<td></td>
+<td>Identifier::Local::CatalogNumber</td>
+<td>identifier</td>
+<td>Must include a back reference to the taxonworks Collection&#x2F;Source object</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;catalogNumber</td>
+</tr><tr><td>field_collection_code</td>
+<td></td>
+<td>Identifier::Local</td>
+<td>identifier</td>
+<td>“</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;collectionCode</td>
+</tr><tr><td>field_collector</td>
+<td>reference to Person&#x2F;User record</td>
+<td>Source</td>
+<td>roles</td>
+<td>The roles array is a collection of Roles objects, each of which contains a reference to a Person and the type of role they play.</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;recordedBy</td>
+</tr><tr><td>field_collector_number</td>
+<td></td>
+<td>DataAttribute</td>
+<td></td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;recordNumber</td>
+</tr><tr><td>field_count</td>
+<td></td>
+<td>DataAttribute</td>
+<td></td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;individualCount</td>
+</tr><tr><td>field_date_collected</td>
+<td>yyyy&#x2F;mm&#x2F;dd</td>
+<td>Source</td>
+<td>day&#x2F;month&#x2F;year</td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;eventDate</td>
+</tr><tr><td>field_date_identified</td>
+<td>yyyy&#x2F;mm&#x2F;dd</td>
+<td>DataAttribute</td>
+<td></td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;dateIdentified</td>
+</tr><tr><td>field_genbank_number</td>
+<td></td>
+<td>Identifier::Global::GenBankAccessionCode</td>
+<td>identifier</td>
+<td></td>
+<td></td>
+</tr><tr><td>field_identification_qualifier</td>
+<td></td>
+<td>DataAttribute</td>
+<td></td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;iri&#x2F;identificationQualifier</td>
+</tr><tr><td>field_identified_by</td>
+<td>reference to Person&#x2F;User record</td>
+<td>Source</td>
+<td>roles</td>
+<td>This should in theory be the same as the collector field</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;identifiedBy</td>
+</tr><tr><td>field_institution_code</td>
+<td></td>
+<td></td>
+<td></td>
+<td>This field doesn’t make sense in relation to Observations, but may be added as a DataAttribute if present</td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;institutionCode</td>
+</tr><tr><td>field_lifestage</td>
+<td></td>
+<td>DataAttribute</td>
+<td></td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;lifeStage</td>
+</tr><tr><td>field_location</td>
+<td>ID of a Location node</td>
+<td>AssertedDistribution</td>
+<td>geographic_area_id</td>
+<td></td>
+<td></td>
+</tr><tr><td>field_media</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr><tr><td>field_notes</td>
+<td></td>
+<td>Note</td>
+<td></td>
+<td>No dedicated not field, but can use a Note object attached to the AssertedDistribution</td>
+<td></td>
+</tr><tr><td>field_number</td>
+<td></td>
+<td>DataAttribute</td>
+<td></td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;fieldNumber</td>
+</tr><tr><td>field_other_catalogue_numbers</td>
+<td></td>
+<td>DataAttribute</td>
+<td></td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;otherCatalogNumbers</td>
+</tr><tr><td>field_remarks</td>
+<td></td>
+<td>DataAttribute</td>
+<td></td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;terms&#x2F;organismRemarks</td>
+</tr><tr><td>field_sex</td>
+<td></td>
+<td>DataAttribute</td>
+<td></td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;iri&#x2F;sex</td>
+</tr><tr><td>field_taxonomic_name</td>
+<td></td>
+<td>DataAttribute</td>
+<td></td>
+<td></td>
+<td>http:&#x2F;&#x2F;rs.tdwg.org&#x2F;dwc&#x2F;iri&#x2F;typeStatus</td>
+</tr><tr><td>field_type_status</td>
+<td></td>
+<td>DataAttribute</td>
+<td></td>
+<td></td>
+<td></td>
+</tr></tbody></table>
+	
+</section>
+</section><section id="location"><h1>Location</h1>
 	<p>
 		In Scratchpads, the Location model is part of the Darwincore module.
 		It describes where an item was collected or observed with a combination of geographic data and verbatim descriptions.

@@ -1,0 +1,30 @@
+Field,Data assumptions,Taxonworks content type,Taxonworks field name,Notes or processing instructions,Standard
+field_basis_of_record,"One of:
+Fossil Specimen
+Human observation
+Living specimen
+Machine observation
+Preserved specimen
+Occurence
+Material Sample",See notes above,N/A,N/A,http://rs.tdwg.org/dwc/terms/basisOfRecord
+field_catalogue_number,,Identifier::Local::CatalogNumber,identifier,Must include a back reference to the taxonworks Collection/Source object,http://rs.tdwg.org/dwc/terms/catalogNumber
+field_collection_code,,Identifier::Local,identifier,“,http://rs.tdwg.org/dwc/terms/collectionCode
+field_collector,reference to Person/User record,CollectingEvent,collector,Requires Person to be migrated to Collector record,http://rs.tdwg.org/dwc/terms/recordedBy
+field_collector_number,,DataAttribute,,,http://rs.tdwg.org/dwc/terms/recordNumber
+field_count,,CollectionObject,count/total,,http://rs.tdwg.org/dwc/terms/individualCount
+field_date_collected,yyyy/mm/dd,CollectingEvent,start_date_[year/month/day],,http://rs.tdwg.org/dwc/terms/eventDate
+field_date_identified,yyyy/mm/dd,DataAttribute,,,http://rs.tdwg.org/dwc/terms/dateIdentified
+field_genbank_number,,Identifier::Global::GenBankAccessionCode,identifier,,
+field_identification_qualifier,,DataAttribute,,,http://rs.tdwg.org/dwc/iri/identificationQualifier
+field_identified_by,reference to Person/User record,Determination,determiner,,http://rs.tdwg.org/dwc/terms/identifiedBy
+field_institution_code,,,repository_id,An instance of Repository must be created,http://rs.tdwg.org/dwc/terms/institutionCode
+field_lifestage,,DataAttribute,,,http://rs.tdwg.org/dwc/terms/lifeStage
+field_location,ID of a Location node,CollectingEvent,geographic_area_id,,
+field_media,,,,,
+field_notes,,CollectingEvent,field_notes,,
+field_number,,DataAttribute,,,http://rs.tdwg.org/dwc/terms/fieldNumber
+field_other_catalogue_numbers,,DataAttribute,,,http://rs.tdwg.org/dwc/terms/otherCatalogNumbers
+field_remarks,,DataAttribute,,,http://rs.tdwg.org/dwc/terms/organismRemarks
+field_sex,,DataAttribute,,,http://rs.tdwg.org/dwc/iri/sex
+field_taxonomic_name,,DataAttribute,,,http://rs.tdwg.org/dwc/iri/typeStatus
+field_type_status,,DataAttribute,,,
