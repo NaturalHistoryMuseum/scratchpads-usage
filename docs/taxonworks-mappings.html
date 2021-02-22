@@ -159,7 +159,7 @@ The core data types of Scratchpads are:
 	<li><a href="#spm">Taxon Description</a></li>
 	<li><a href="#specimen-observation">Specimen&#x2F;Observation</a></li>
 	<li><a href="#location">Location</a></li>
-	<li>Taxonomy Term</li>
+	<li><a href="#taxonomy-term">Taxonomy Term</a></li>
 </ul>
 </nav>
 
@@ -2866,6 +2866,61 @@ Material Sample</td>
 	</ul>
 
 	By default, locations are point data, but some scratchpads may have elected to change to a different data type.
+</section><section id="taxonomy-term"><h1>Taxonomy Term</h1>
+
+<p>
+	Before migrating Taxonomy Term, it is important to know what nomenclatural code to use
+	(Iczn, Icnp, Ictv, or Icn).
+	Scratchpads does not explicitly record this by default, so it will need to
+	be deducted somehow (or entered manually for each taxon vocabulary).
+</p>
+
+
+		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;taxonomy-term.csv">Download CSV</a>
+		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_reference</td>
+<td></td>
+<td>Protonym</td>
+<td>source</td>
+<td>A taxonworks Source object representing the Biblio node in Field_reference</td>
+<td></td>
+</tr><tr><td>name</td>
+<td></td>
+<td>Protonym</td>
+<td>name</td>
+<td>Only the last part of the name is needed in Taxonworks, the rest is built from the tree heirarchy</td>
+<td></td>
+</tr><tr><td>field_rank</td>
+<td></td>
+<td></td>
+<td>rank&#x2F;rank_class</td>
+<td>Map field_rank to the appropriate Taxonworks NomenclaturalRank subclass</td>
+<td></td>
+</tr><tr><td>field_authors</td>
+<td></td>
+<td>Role&#x2F;TaxonNameAuthor</td>
+<td></td>
+<td>Create an array of authors surnames by splitting Field_authors split by “&amp;” or “and”
+Create an array of Person objects by mapping author surnames to Person objects with &#x60;lastname&#x60; set to the author surname
+Create an array of TaxonNameAuthor records by mapping the array of Person objects to TaxonNameAuthor objects with &#x60;person&#x60; as the Person object and &#x60;position&#x60; as Author</td>
+<td></td>
+</tr><tr><td>field_unacceptability_reason</td>
+<td></td>
+<td>Synonym</td>
+<td></td>
+<td>Get the synonym Protonym representing the term’s associated accepted name, if any.
+Get the field_unacceptability_reason from the associated accepted name
+Create a new Synonym object with object_taxon_name set to the synonym Protonym and type set to the appropriate TaxonNameRelationshop class for the associated accepted name</td>
+<td></td>
+</tr><tr><td>field_parent</td>
+<td></td>
+<td>Protonym</td>
+<td>parent</td>
+<td>Get the Taxonomy Term’s closest ancestor node with a different rank (ancestors with the same rank are synonyms)
+Create a taxonwokrs Protonym object representing the ancestor TaxonomyTerm if present, or the Taxonworks project’s Root term</td>
+<td></td>
+</tr></tbody></table>
+	
+
 </section><section>
 <h1>Ecological Interactions</h1>
 
@@ -2959,58 +3014,6 @@ Material Sample</td>
 	
 
 </section>
-<h2 id="taxonomy-term">Taxonomy Term</h2>
-<p>Fields:</p>
-<ul>
-<li><p>  Field_reference</p>
-</li>
-<li><p>  Name</p>
-</li>
-<li><p>  Field_usage</p>
-</li>
-<li><p>  field_rank</p>
-</li>
-<li><p>  Field_authors</p>
-</li>
-</ul>
-<p>Mapping:</p>
-<p>Create a new Protonym object with the following properties</p>
-<table>
-<thead>
-<tr>
-<th><strong>Taxonworks field</strong></th>
-<th><strong>Source</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>name</td>
-<td>The last part of name when split on whitespace</td>
-</tr>
-<tr>
-<td>Synonym</td>
-<td>Get the synonym Protonym representing the term’s associated accepted name, if any.<br>Get the field_unacceptability_reason from the associated accepted name<br>Create a new Synonym object with object_taxon_name set to the synonym Protonym and type set to the appropriate TaxonNameRelationshop class for the associated accepted name</td>
-</tr>
-<tr>
-<td>rank</td>
-<td>Field_rank</td>
-</tr>
-<tr>
-<td>roles</td>
-<td>Create an array of authors surnames by splitting Field_authors split by “&amp;” or “and”<br>Create an array of Person objects by mapping author surnames to Person objects with `lastname` set to the author surname<br>Create an array of TaxonNameAuthor records by mapping the array of Person objects to TaxonNameAuthor objects with `person` as the Person object and `position` as Author</td>
-</tr>
-<tr>
-<td>source</td>
-<td>A taxonworks Source object representing the Biblio node in Field_reference</td>
-</tr>
-<tr>
-<td>Parent</td>
-<td>Get the Taxonomy Term’s closest ancestor node with a different rank (ancestors with the same rank are synonyms)<br>Create a taxonwokrs Protonym object representing the ancestor TaxonomyTerm if present, or the Taxonworks project’s Root term</td>
-</tr>
-<tr>
-<td>Rank_class</td>
-<td>Map field_rank to the appropriate Taxonworks NomenclaturalRank subclass</td>
-</tr>
-</tbody></table>
 
 
 	</main>

@@ -1,0 +1,12 @@
+Field,Data assumptions,Taxonworks content type,Taxonworks field name,Notes or processing instructions,Standard
+field_reference,,Protonym,source,A taxonworks Source object representing the Biblio node in Field_reference,
+name,,Protonym,name,"Only the last part of the name is needed in Taxonworks, the rest is built from the tree heirarchy",
+field_rank,,,rank/rank_class,Map field_rank to the appropriate Taxonworks NomenclaturalRank subclass,
+field_authors,,Role/TaxonNameAuthor,,"Create an array of authors surnames by splitting Field_authors split by “&” or “and”
+Create an array of Person objects by mapping author surnames to Person objects with `lastname` set to the author surname
+Create an array of TaxonNameAuthor records by mapping the array of Person objects to TaxonNameAuthor objects with `person` as the Person object and `position` as Author",
+field_unacceptability_reason,,Synonym,,"Get the synonym Protonym representing the term’s associated accepted name, if any.
+Get the field_unacceptability_reason from the associated accepted name
+Create a new Synonym object with object_taxon_name set to the synonym Protonym and type set to the appropriate TaxonNameRelationshop class for the associated accepted name",
+field_parent,,Protonym,parent,"Get the Taxonomy Term’s closest ancestor node with a different rank (ancestors with the same rank are synonyms)
+Create a taxonwokrs Protonym object representing the ancestor TaxonomyTerm if present, or the Taxonworks project’s Root term",

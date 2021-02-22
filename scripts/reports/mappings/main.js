@@ -3,8 +3,8 @@ import locationBody from './location/main.js';
 import spm from './spm/spm.js';
 import specObs from './specimen-observation/main.js';
 import ecoInt from './ecoint/main.js';
-import importMarkdown from './import-markdown.js';
 import html from 'encode-html-template-tag';
+import taxonomyTerm from './taxonomy-term/main.js'
 
 const title = 'Scratchpads → Taxonworks Mappings';
 
@@ -29,7 +29,7 @@ The core data types of Scratchpads are:
 	<li><a href="#spm">Taxon Description</a></li>
 	<li><a href="#specimen-observation">${specObs.title}</a></li>
 	<li><a href="#location">${locationBody.title}</a></li>
-	<li>Taxonomy Term</li>
+	<li><a href="#taxonomy-term">${taxonomyTerm.title}</a></li>
 </ul>
 </nav>
 
@@ -38,8 +38,8 @@ ${[
 	spm,
 	specObs({id:'specimen-observation'}),
 	locationBody({id:'location'}),
-	ecoInt,
-	importMarkdown('taxonomy-term.md')
+	taxonomyTerm({id: 'taxonomy-term' }),
+	ecoInt
 ]}
 `;
 
