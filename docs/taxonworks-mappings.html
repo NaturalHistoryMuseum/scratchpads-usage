@@ -138,21 +138,32 @@ section > h1 {
 }
 
 .numeric{text-align:right;}
+
+p {
+    font-size: 1em;
+    line-height: calc(1ex / 0.32);
+    margin: calc(1ex / 0.32) 0;
+}
 </style>
 <h1>Scratchpads → Taxonworks Mappings</h1>
 
 <p>Describing the core data models of Scratchpads and how they map to Taxonworks data models.</p>
-<p>Where there is no one-to-one mapping for a Scratchpad field, Taxonworks provides us with two options for importing data:</p>
 
-<ol>
-	<li>InternalAttributes, whereby we can define a Predicate based on an RDF URL, and use it to define extra data about a data model. While Taxonworks doesn't apply any special treatment to these data, consuming applications that have knowledge of the RDF term will be able to represent the data in a useful way.</li>
-	<li>ImportAttributes, whereby we can attach extra text data to a model, but without providing any context for what this data means. This allows us to keep data available, but precludes applications from using the data with any kind of special processing or behaviour, since its only context is the association with a data model.</li>
-</ol>
+<section>
+	<h1>DataAttributes</h1>
+
+	<p>Where there is no one-to-one mapping for a Scratchpad field, Taxonworks provides us with two options for importing data:</p>
+
+	<ol>
+		<li><p>InternalAttributes, whereby we can define a Predicate based on an RDF URL, and use it to define extra data about a data model. While Taxonworks doesn't apply any special treatment to these data, consuming applications that have knowledge of the RDF term will be able to represent the data in a useful way.</p></li>
+		<li><p>ImportAttributes, whereby we can attach extra text data to a model, but without providing any context for what this data means. This allows us to keep data available, but precludes applications from using the data with any kind of special processing or behaviour, since its only context is the association with a data model.</p></li>
+	</ol>
+</section>
 
 <nav>
 <h1>Data Types</h1>
 
-The core data types of Scratchpads are:
+<p>The core data types of Scratchpads are:</p>
 
 <ul>
 	<li><a href="#biblio">Biblio</a></li>
@@ -160,21 +171,20 @@ The core data types of Scratchpads are:
 	<li><a href="#specimen-observation">Specimen&#x2F;Observation</a></li>
 	<li><a href="#location">Location</a></li>
 	<li><a href="#taxonomy-term">Taxonomy Term</a></li>
+	<li><a href="#ecological-interactions">Ecological Interactions</a></li>
+	<li><a href="#files">Files, Images and Galleries</a></li>
+
 </ul>
 </nav>
 
 <section id="biblio"><h1>Biblio</h1>
-<b>Todo: figure out how to link biblio to a taxon - possibly using Citation model</b>
-
 <p>Taxonworks can import sources as Bibtex files, creating ImportAttributes
 for any unrecognised fields. Import attributes are text attributes
-with no special meaning or behaviour.</p>
-
-<p>While there is a .bib format exporter already in Scratchpads,
+with no special meaning or behaviour.
+While there is a .bib format exporter already in Scratchpads,
 there are a large number of extra fields that are excluded from the
-exported file, since they are not all supported by the .bib file format.</p>
-
-<p>However, bibtex is a simple format, so writing a new exporter for biblio records
+exported file, since they are not all supported by the .bib file format.
+However, bibtex is a simple format, so writing a new exporter for biblio records
 is a straightforward task, making sure to follow these naming conventions:</p>
 
 
@@ -200,8 +210,8 @@ journal article, conference paper, book chapter, miscelaneous)</td>
 <td></td>
 </tr><tr><td>field_taxonomic_name</td>
 <td>tid of associated taxon</td>
-<td></td>
-<td></td>
+<td>Citation</td>
+<td>citation_object</td>
 <td></td>
 <td></td>
 </tr><tr><td>biblio_citekey</td>
@@ -525,13 +535,13 @@ journal article, conference paper, book chapter, miscelaneous)</td>
 <td>Bibtex</td>
 </tr><tr><td>field_file</td>
 <td>array of associated file objects</td>
+<td>Documentation&#x2F;Depiction</td>
 <td></td>
-<td></td>
-<td></td>
+<td>Only if file is image or pdf&#x2F;text</td>
 <td></td>
 </tr><tr><td>field_front_cover</td>
 <td></td>
-<td></td>
+<td>Depiction</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2232,28 +2242,28 @@ sizeData = InternalAttribute.create!(
 		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;spm.csv">Download CSV</a>
 		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_media</td>
 <td>Media</td>
+<td>Depiction</td>
 <td></td>
+<td>Since there is no SPM model, the depciton subject should be the TaxonName or OTU</td>
 <td></td>
-<td></td>
-<td>undefined</td>
 </tr><tr><td>field_phylogeny</td>
 <td>Phylogeny</td>
 <td></td>
 <td></td>
+<td>This field is not in the latest SPM ontology, however this may be an error – check earlier revisions of the ontology.</td>
 <td></td>
-<td>undefined</td>
 </tr><tr><td>field_spm_map</td>
 <td>SPM Map</td>
 <td></td>
 <td></td>
+<td>This could either be converted to an Observation record, or a DattaAttribute</td>
 <td></td>
-<td>undefined</td>
 </tr><tr><td>field_taxonomic_name</td>
 <td>Taxonomic Name</td>
+<td>DataAttribute</td>
+<td>attribute_subject</td>
+<td>Implied by the existence of the DataAttributes above</td>
 <td></td>
-<td></td>
-<td></td>
-<td>undefined</td>
 </tr></tbody></table>
 	
 	</section>
@@ -2921,100 +2931,129 @@ Create a taxonwokrs Protonym object representing the ancestor TaxonomyTerm if pr
 </tr></tbody></table>
 	
 
-</section><section>
-<h1>Ecological Interactions</h1>
-
-
+</section><section id="ecological-interactions"><h1>Ecological Interactions</h1>
+		<p>
+			Ecological Interactions can be represented as a BiologicalAssociation record, which links a subject and object taxa,
+			and specifies the type of relationship using the BiologicalRelationship model. BiologicalAssociation accepts Notes and
+			DataAttributes, so data that does not otherwise fit can be added.
+		</p>
+		
 		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;ecoint.csv">Download CSV</a>
 		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>body</td>
-<td></td>
-<td></td>
+<td>html</td>
+<td>Note</td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_date</td>
-<td></td>
+<td>Date representing when interaction was recorded, format yyyy-mm-dd</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_importance</td>
-<td></td>
+<td>enum</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_int_collection</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>reference to a FieldCollectionItemEntity, with taxon id, specimen, species status, life cylce stage and organism part fields for the second (object) taxon</td>
+<td>BiologicalAssociation</td>
+<td>biological_association_object_id</td>
+<td>Only the taxon_id can be extracted, other fields may have to be added as a DataAttribute</td>
 <td></td>
 </tr><tr><td>field_interaction_record_type</td>
-<td></td>
+<td>enum</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_life_cycle_stage</td>
-<td></td>
+<td>string</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_location_ref</td>
-<td></td>
+<td>reference to a Location</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_organism_part</td>
-<td></td>
+<td>string</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_reference</td>
-<td></td>
-<td></td>
-<td></td>
+<td>reference to a biblio field</td>
+<td>Citation</td>
+<td>source_id</td>
 <td></td>
 <td></td>
 </tr><tr><td>field_reference_page</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Citation</td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_species_status</td>
-<td></td>
+<td>enum</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_specimen_1</td>
-<td></td>
+<td>reference to a specimen&#x2F;observation record</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr><tr><td>field_taxonomic_name</td>
-<td></td>
-<td></td>
-<td></td>
+<td>reference to the subject taxon term</td>
+<td>BiologicalAssociation</td>
+<td>biological_association_subject_id</td>
 <td></td>
 <td></td>
 </tr><tr><td>field_interaction_type</td>
-<td></td>
-<td></td>
-<td></td>
+<td>reference to a taxonomy term representing the interaction type</td>
+<td>BiologicalRelationship</td>
+<td>biological_relationship_id</td>
 <td></td>
 <td></td>
 </tr></tbody></table>
 	
+	</section><section id="files"><h1>Files, Images and Galleries</h1>
+	<p>
+		Taxonworks currently only has support for storing two different kinds of files: Image files and Document (i.e. text or PDF) files.
+		These are stored on the filesystem and represented with the Image and Document models, respectively.
+		Other kinds of files, for example audio, are not supported.
+	</p>
 
+	<p>
+		The Depiction model can be used to link an Image to specific models, including the following:
+	</p>
+
+	<ul>
+		<li>CollectingEvent</li>
+		<li>CollectionObject</li>
+		<li>Observation</li>
+		<li>OTU</li>
+		<li>TaxonDetermination</li>
+		<li>TaxonName</li>
+	</ul>
+
+	<p>
+		The Documentation model can be used to link a Document to either a CollectingEvent or a Source.
+	</p>
+
+	<p>
+		There is no built-in media gallery, but a collection of Images can be simulated by creating an instance of Tag to represent the collection
+		and using it to tag the Images in that collection.
+	</p>
 </section>
-
 
 	</main>
 	<footer>

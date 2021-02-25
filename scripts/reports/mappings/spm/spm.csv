@@ -1,5 +1,5 @@
 Field,Data assumptions,Taxonworks content type,Taxonworks field name,Notes or processing instructions,Standard
-field_media,Media,,,
-field_phylogeny,Phylogeny,,,
-field_spm_map,SPM Map,,,
-field_taxonomic_name,Taxonomic Name,,,
+field_media,Media,Depiction,,"Since there is no SPM model, the depciton subject should be the TaxonName or OTU",
+field_phylogeny,Phylogeny,,,"This field is not in the latest SPM ontology, however this may be an error – check earlier revisions of the ontology.",
+field_spm_map,SPM Map,,,"This could either be converted to an Observation record, or a DattaAttribute",
+field_taxonomic_name,Taxonomic Name,DataAttribute,attribute_subject,Implied by the existence of the DataAttributes above,

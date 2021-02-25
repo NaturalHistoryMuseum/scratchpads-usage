@@ -32,4 +32,10 @@ section > h1 {
 }
 
 .numeric{text-align:right;}
+
+p {
+    font-size: 1em;
+    line-height: calc(1ex / 0.32);
+    margin: calc(1ex / 0.32) 0;
+}
 </style>`;

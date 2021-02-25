@@ -3,7 +3,7 @@ biblio_type,"integer representing item from biblio_types table (one of:
 journal article, conference paper, book chapter, miscelaneous)",Source::Bibtex,bibtex_type,"Value needs to be mapped to bibtex type string (https://www.bibtex.com/e/entry-types/); “journal article”=>article, “conference paper”=>conference, “book chapter”=>inbook, “miscelaneous”=>misc",Bibtex
 title,string,Source::Bibtex,title,,
 body,Full publication body as html,Source::Bibtex,body,Stored as ImportAttribute,
-field_taxonomic_name,tid of associated taxon,,,,
+field_taxonomic_name,tid of associated taxon,Citation,citation_object,,
 biblio_citekey,The citekey/ID for the bibtex record,Source::Bibtex,key,,Bibtex
 biblio_coins,,Source::Bibtex,coins,Stored as ImportAttribute,
 biblio_lang,3 letter ISO 639-2 language code,Source::Bibtex,language,This value is translated into the TW language_id,Bibtex
@@ -58,5 +58,5 @@ biblio_type_name,"string representing type name from biblio_types table  (one of
 journal article, conference paper, book chapter, miscelaneous)",n/a,,See biblio_type field,Bibtex
 biblio_contributors,array of biblio_contributor objects,Source::Bibtex,authors,"Map each contributor to a string of the form “[prefix] [last_name] [suffix], [first_name]” and join them all with the string “ and “",Bibtex
 biblio_keywords,array of strings,Source::Bibtex,keywords,Stored in verbatim_keywords property,Bibtex
-field_file,array of associated file objects,,,,
-field_front_cover,,,,,
+field_file,array of associated file objects,Documentation/Depiction,,Only if file is image or pdf/text,
+field_front_cover,,Depiction,,,
