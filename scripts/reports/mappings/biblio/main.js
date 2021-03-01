@@ -21,7 +21,9 @@ Some field types vary their meaning depending on the value of biblio_type.
 For properties that are stored as ImportAttributes, particularly the "custom" fields, it may be more useful to use the values in the following matrix as the field names:
 </p>
 
+<details>
 ${csvToTable('./biblio-field-names.csv', import.meta)}
+</details>
 </section>
 
 `);

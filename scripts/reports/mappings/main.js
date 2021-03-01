@@ -57,17 +57,6 @@ const body = html`
 	</p>
 </section>
 
-<section>
-	<h1>DataAttributes</h1>
-
-	<p>Where there is no one-to-one mapping for a Scratchpad field, Taxonworks provides us with two options for importing data:</p>
-
-	<ol>
-		<li><p>InternalAttributes, whereby we can define a Predicate based on an RDF URL, and use it to define extra data about a data model. While Taxonworks doesn't apply any special treatment to these data, consuming applications that have knowledge of the RDF term will be able to represent the data in a useful way.</p></li>
-		<li><p>ImportAttributes, whereby we can attach extra text data to a model, but without providing any context for what this data means. This allows us to keep data available, but precludes applications from using the data with any kind of special processing or behaviour, since its only context is the association with a data model.</p></li>
-	</ol>
-</section>
-
 <nav>
 <h1>Data Types</h1>
 
