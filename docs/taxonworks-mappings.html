@@ -163,15 +163,31 @@ p {
 	</p>
 
 	<p>
-
+		The mapping of these data types' field values is often not straight-forward.
+		Roughly half of the fields supported by Scratchpads are not directly supported
+		by Taxonworks, although there is a method of attaching arbitrary data to records using the concept of DataAttributes.
+		Where there is no one-to-one mapping for a Scratchpad field, Taxonworks provides two options for importing data:
 	</p>
-		field support
-		data DataAttributes
 
-		not included types
+	<ol>
+		<li><p>InternalAttributes, whereby we can define a Predicate based on an RDF URL, and use it to define extra data about a data model. While Taxonworks doesn't apply any special treatment to these data, consuming applications that have knowledge of the RDF term will be able to represent the data in a useful way.</p></li>
+		<li><p>ImportAttributes, whereby we can attach extra text data to a model, but without providing any context for what this data means. This allows us to keep data available, but precludes applications from using the data with any kind of special processing or behaviour, since its only context is the association with a data model.</p></li>
+	</ol>
 
-		complexity
-		validation
+	<p>
+		Taxonworks also has much stricter data validation requirements than Scratchpads,
+		so there may be additional complexity with migrating data that is correct but,
+		for example, not in the format required by Taxonworks.
+	</p>
+
+	<p>
+		The data types not supported by Taxonworks are the presentational and social data types: page, blog, forum, group, event, webform and news/simplenews.
+	</p>
+
+	<p>
+		Overall, Taxonworks could be a good fit for Scratchpads that are primarily data repositories
+		and mostly use the core types.
+		However, more specialist sites will require platforms taylored to their specific requirements.
 	</p>
 </section>
 
