@@ -150,6 +150,32 @@ p {
 <p>Describing the core data models of Scratchpads and how they map to Taxonworks data models.</p>
 
 <section>
+	<h1>Summary</h1>
+
+	<p>
+		Of the core Scratchpads data types, Taxonworks has a direct logical equivilent for Biblio, Taxonomy Term, Ecological Interaction, and Person data types.
+		The Specimen/Observation record type has two equivilent models, one for Specimens and one for Observations.
+		Similarly, Location can be translated to two different types depending on whether it represents the location of a Specimen or an Observation.
+		The Species Profile Model does not have an equivilent in Taxonworks, but since it represents properties of a Taxon, an individual record's field values can be attached to a Taxon in taxonworks.
+		Text and Image files are supported in taxonworks, but no other types.
+		The Media Gallery type does not have a direct equivilent but can be approximated
+		as a Tag that is attached to Image records.
+	</p>
+
+	<p>
+
+	</p>
+		field support
+		data DataAttributes
+
+		not included types
+
+		complexity
+		validation
+	</p>
+</section>
+
+<section>
 	<h1>DataAttributes</h1>
 
 	<p>Where there is no one-to-one mapping for a Scratchpad field, Taxonworks provides us with two options for importing data:</p>
@@ -3056,7 +3082,10 @@ Create a taxonwokrs Protonym object representing the ancestor TaxonomyTerm if pr
 	</p>
 </section><section id="person"><h1>Person</h1>
 		<p>
-			</p>
+			Taxonworks has only basic support for Person records.
+			Name, birth/death year, and ORCID are catered for,
+			but the remaining fields will need to be added as DataAttributes.
+		</p>
 		
 		<a href="&#x2F;scratchpads-usage&#x2F;&#x2F;assets&#x2F;person.csv">Download CSV</a>
 		<table><thead><tr><th rowspan="1">Field</th><th rowspan="1">Data assumptions</th><th rowspan="1">Taxonworks content type</th><th rowspan="1">Taxonworks field name</th><th rowspan="1">Notes or processing instructions</th><th rowspan="1">Standard</th></tr></thead><tbody><tr><td>field_user_country</td>
