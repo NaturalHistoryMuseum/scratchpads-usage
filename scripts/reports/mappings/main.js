@@ -6,6 +6,7 @@ import ecoInt from './ecoint/main.js';
 import html from 'encode-html-template-tag';
 import taxonomyTerm from './taxonomy-term/main.js'
 import files from './files.js'
+import person from './person/main.js';
 
 const title = 'Scratchpads → Taxonworks Mappings';
 
@@ -37,6 +38,7 @@ const body = html`
 	<li><a href="#location">${locationBody.title}</a></li>
 	<li><a href="#taxonomy-term">${taxonomyTerm.title}</a></li>
 	<li><a href="#ecological-interactions">${ecoInt.title}</a></li>
+	<li><a href="#person">${person.title}</a></li>
 	<li><a href="#files">${files.title}</a></li>
 
 </ul>
@@ -49,7 +51,8 @@ ${[
 	locationBody({id:'location'}),
 	taxonomyTerm({id: 'taxonomy-term' }),
 	ecoInt({id:'ecological-interactions'}),
-	files({id:'files'})
+	files({id:'files'}),
+	person({id:'person'})
 ]}
 `;
 
