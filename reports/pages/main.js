@@ -5,6 +5,8 @@ import fields from './fields/fields.js'
 import nodeBreakdown from './node-breakdown/main.js';
 import { page, replaceAsset, dedupeCss } from 'sp-templates';
 import css from './page.js';
+import siteList from './site-list/main.js';
+import revisions from './monthly-revisions/main.js';
 
 import index from './index/main.js';
 import biblio from './biblio-types/main.js';
@@ -19,7 +21,9 @@ const reports = [
 	{ title: 'Per-site Node Breakdown', id: 'node-breakdown', view: nodeBreakdown },
 	{ title: 'Fields and field usage', id: 'fields', view: fields },
 	{ title: 'Biblio Type Data', id: 'biblio-types', view:biblio },
-	{ title: mappings().title, id: 'taxonworks-mappings', view: () => mappings().body }
+	{ title: mappings().title, id: 'taxonworks-mappings', view: () => mappings().body },
+	{ title: 'Site List', id: 'site-list', view: siteList },
+	{ title: 'Monthly Revisions', id: 'monthly-revisions', view: revisions }
 ]
 
 function router(menu, id){

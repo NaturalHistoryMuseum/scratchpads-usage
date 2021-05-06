@@ -8,6 +8,7 @@ select "__table:system__" as ``;
 select name, status from system;
 
 -- Entity list
+-- NB: This might not be reliable if scratchpads_statistics cron job is disabled on newer sites
 select "__table:entities__" as ``;
 select entity, bundle from scratchpads_statistics_entity_bundle;
 
@@ -34,6 +35,14 @@ select t.tid, t.uid, t.timestamp, users.name from taxonomy_term_data_revision as
 
 select "__table:recent.changednodes__" as ``;
 select n.nid, n.uid, n.created, n.changed, u.name, n.type from node as n left join users as u on(n.uid=u.uid) where (n.created > unix_timestamp(now()-interval 3 month)) or (n.changed > unix_timestamp(now()-interval 3 month));
+
+-- Node and taxonomy edits per month
+select "__table:monthly_revisions.nodes" as ``;
+select date_format(FROM_UNIXTIME(timestamp), '%Y-%m') as time, count(*) from node_revision group by time order by timestamp desc;
+
+select "__table:monthly_revisions.taxonomy" as ``;
+select date_format(FROM_UNIXTIME(timestamp), '%Y-%m') as time, count(*) from taxonomy_term_data_revision group by time order by timestamp desc;
+
 
 -- Biblio usage data
 select "__table:biblio.types__" as ``;

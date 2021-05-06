@@ -63,7 +63,12 @@ async function parseSection(site, sections, sql) {
 
 				const columns = sql(header.map(h=>h.replace('(*)', '')).join(','))
 
-				const rows = lines.map(line => [site, ...line]);
+				const rows = lines.map(line => {
+					const ll = line.length;
+					line.length = header.length;
+					line.fill(null, ll)
+					return [site, ...line]
+				});
 
 				await sql`CREATE TABLE IF NOT EXISTS ${table} (site, ${columns})`;
 

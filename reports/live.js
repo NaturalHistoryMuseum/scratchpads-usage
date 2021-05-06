@@ -1,4 +1,4 @@
-import Router, { assets } from '../scripts/reports/main.js';
+import Router, { assets } from './reports/main.js';
 import fs from 'fs';
 
 const assetMap = {};
