@@ -1,5 +1,5 @@
 import fs from 'fs';
-import Router, {assets} from './reports/main.js';
+import Router, {assets} from './pages/main.js';
 
 // Also generate html pages in reports directory
 export default async function(sql, outputDir){
