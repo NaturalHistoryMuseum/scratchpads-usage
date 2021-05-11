@@ -31,13 +31,14 @@ ssh -t sp-control-01 "
 	rm $OUT_DIR/*
 	echo $GET_SITE_LIST | base64 -d | sudo -u aegir drush @hm sqlc --extra=-N | while read line
 	do
-		echo \$line
+		n=\$((n+1));
+		echo -n \"  [ \$n:\" \$line ']     ' \$'\\r'
 		./field-usage.sh \"sudo -u aegir drush @\$line\" > /tmp/field-usage.sql
 		cat /tmp/field-usage.sql | sudo -u aegir drush @\$line sqlc --extra=-fsN > $OUT_DIR/\$line
 		echo $SQL_SCRIPT | base64 -d | sudo -u aegir drush @\$line sqlc --extra=-f >> $OUT_DIR/\$line
 	done
-	tar -czf $OUT_DIR.tar.gz -C $OUT_DIR ./
-	rm -rf $OUT_DIR" >&2
+	tar -czf $OUT_DIR.tar.gz -C $OUT_DIR ./ && rm -rf $OUT_DIR
+" >&2
 
 # Download the file by writing it to stdout or to a file if provided
 if [ -z "$2" ]; then

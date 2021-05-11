@@ -1,24 +1,17 @@
 export default async function(sql){
 	const dates = Object.create(null);
 
-	const nodes = await sql`select time, sum(count) as count from monthly_revisions_nodes group by time`;
-	for(const node of nodes) {
-		dates[node.time] = {
-			nodes: node.count,
-			taxonomy: 0,
-			date: node.time
-		}
-	}
+	const nodes = await sql`
+		select
+			month,
+			sum(count) as total,
+			sum(nodes) as nodes,
+			sum(taxa) as taxa,
+			sum(users) as users,
+			count(*) as sites
+		from revisions
+		group by month
+		order by month desc`;
 
-	const taxa = await sql`select time, sum(count) as count from monthly_revisions_taxonomy group by time`;
-	for(const taxon of taxa) {
-		const r = dates[taxon.time] ?? (dates[taxon.time] = {
-			nodes: 0,
-			date: taxon.time
-		});
-
-		r.taxonomy = taxon.count;
-	}
-
-	return Object.keys(dates).sort().map(d=>dates[d]);
+	return nodes;
 }

@@ -37,12 +37,9 @@ select "__table:recent.changednodes__" as ``;
 select n.nid, n.uid, n.created, n.changed, u.name, n.type from node as n left join users as u on(n.uid=u.uid) where (n.created > unix_timestamp(now()-interval 3 month)) or (n.changed > unix_timestamp(now()-interval 3 month));
 
 -- Node and taxonomy edits per month
-select "__table:monthly_revisions.nodes" as ``;
-select date_format(FROM_UNIXTIME(timestamp), '%Y-%m') as time, count(*) from node_revision group by time order by timestamp desc;
-
-select "__table:monthly_revisions.taxonomy" as ``;
-select date_format(FROM_UNIXTIME(timestamp), '%Y-%m') as time, count(*) from taxonomy_term_data_revision group by time order by timestamp desc;
-
+-- If we wanted to count users per entity type we could include  count(distinct if(type='node', uid, null)), count(distinct if(type='taxonomy', uid, null))
+select "__table:revisions__" as ``;
+select date_format(from_unixtime(timestamp), '%Y-%m') as month, count(*) as count, count(if(type='node', 1, null)) as nodes, count(if(type='taxon', 1, null)) as taxa, count(distinct uid) as users from (select timestamp, 'taxon' as type, uid from taxonomy_term_data_revision union all select timestamp, 'node' as type, uid from node_revision order by timestamp desc) as revisions group by month;
 
 -- Biblio usage data
 select "__table:biblio.types__" as ``;

@@ -6,4 +6,5 @@ from
 	left join node as p on (s.platform=p.nid)
 where
 	s.status>0
-	and p.title like "scratchpads-%";
+	and p.title like "scratchpads-%"
+	and p.title not like "scratchpads-classifications.scratchpads%";

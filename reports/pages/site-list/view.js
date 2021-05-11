@@ -1,7 +1,7 @@
 import html from 'encode-html-template-tag';
 import {table, numeric} from 'sp-templates';
 
-const json = html`
+const json = data=>html`
 <textarea>[
 ${data.map(d=>JSON.stringify(d)).join(',\n')}
 ]</textarea>`;
@@ -12,5 +12,5 @@ export default (data) => html`
 		data
 	)}
 
-	${json}
+	${json(data)}
 `;
