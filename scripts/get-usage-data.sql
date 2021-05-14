@@ -145,4 +145,10 @@ select "biblio_refereed" as name, count(*) as count from biblio where biblio_ref
 union
 select "biblio_md5" as name, count(*) as count from biblio where biblio_md5 is not null and biblio_md5 != ''
 union
-select "biblio_formats" as name, count(*) as count from biblio where biblio_formats is not null and biblio_formats != '') as t1
+select "biblio_formats" as name, count(*) as count from biblio where biblio_formats is not null and biblio_formats != '') as t1;
+
+-- User data
+-- This is sensitive so make sure we don't publish it anywhere
+-- Only use it for internal stats
+select "__table:users__" as ``;
+select users.uid, name, mail, from_unixtime(login) as login, from_unixtime(access) as access, status, !isnull(role.uid) as maintainer from users left join users_roles as role on(users.uid=role.uid and role.rid=5) where status > 0;
