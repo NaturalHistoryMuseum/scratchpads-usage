@@ -2,7 +2,7 @@ import fs from 'fs';
 import Router, {assets} from './pages/main.js';
 
 // Also generate html pages in reports directory
-export default async function(sql, outputDir){
+export default async function(sql, date, outputDir){
 	const getUrlStatic = (path, options) => {
 		const filename = options ? path+'.'+Array.from(options).map(([k,v])=>`${k}_${v}`).join('.') : path;
 		return filename + '.html';
@@ -14,8 +14,8 @@ export default async function(sql, outputDir){
 		return path;
 	}
 
-	function StaticRouter(sql) {
-		return Router({sql, getUrl: (...args) => '/scratchpads-usage/' + getUrlStatic(...args), getAssetUrl: a=>'/scratchpads-usage/'+getAssetUrl(a) });
+	function StaticRouter(sql, date) {
+		return Router({sql, date, getUrl: (...args) => '/scratchpads-usage/' + getUrlStatic(...args), getAssetUrl: a=>'/scratchpads-usage/'+getAssetUrl(a) });
 	}
 
 	fs.mkdirSync(outputDir + '/assets', { recursive: true });
@@ -23,7 +23,7 @@ export default async function(sql, outputDir){
 	// 	fs.copyFileSync(asset.location, outputDir + getAssetUrl(asset))
 	// }
 
-	const router = StaticRouter(sql);
+	const router = StaticRouter(sql, date);
 
 	// Erase existing files
 	for(const file of fs.readdirSync(outputDir)) {

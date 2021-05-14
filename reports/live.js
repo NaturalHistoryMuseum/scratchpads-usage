@@ -24,16 +24,17 @@ function serveAsset(req, res){
 	return false;
 }
 
-function LiveRouter(sql){
+function LiveRouter(sql, date){
 	return  Router({
 		sql,
+		date,
 		getAssetUrl,
 		getUrl: (id, options) => '/' + id + (options ? ('?' + options.toString()) : '')
 	});
 }
 
-export default function(sql) {
-	const router = LiveRouter(sql);
+export default function(sql, date) {
+	const router = LiveRouter(sql, date);
 
 	// Serve pages dynamically
 	return async (req, res)=>{

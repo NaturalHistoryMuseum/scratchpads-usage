@@ -7,6 +7,7 @@ import { page, replaceAsset, dedupeCss } from 'sp-templates';
 import css from './page.js';
 import siteList from './site-list/main.js';
 import revisions from './monthly-revisions/main.js';
+import html from 'encode-html-template-tag';
 
 import index from './index/main.js';
 import biblio from './biblio-types/main.js';
@@ -38,7 +39,7 @@ function router(menu, id){
 	}
 }
 
-export default function Reports({sql, getUrl, getAssetUrl}) {
+export default function Reports({sql, date, getUrl, getAssetUrl}) {
 	const menu = reports.map(r => ({
 		title: r.title,
 		path: getUrl(r.id)
@@ -56,15 +57,19 @@ export default function Reports({sql, getUrl, getAssetUrl}) {
 		const view = route ? (await route.view(sql, options)) : 'Page not found';
 		const title = route ? route.title : 'Page not found';
 
-		return page(
+		const footer = html`Data last collected <time>${date}</time>`
+		const document = page(
 			{
 				title,
-				menu:[{name:'Home', href:getUrl(INDEX)}]
+				footer,
+				menu:[{name:'Home', href:getUrl(INDEX)}],
 				//menu:[{name:'Home', href:'/'}, ...menu.map(m=>({ name:m.title, href:m.path }))]
 			},
 			[css,
 			view]
-		).render([dedupeCss(), replaceAsset(getAssetUrl)].reduce((r1,r2)=>v=>r2(r1(v))))
+		);
+
+		return document.render([dedupeCss(), replaceAsset(getAssetUrl)].reduce((r1,r2)=>v=>r2(r1(v))))
 	}
 
 	getPage[Symbol.iterator] = function*(){
