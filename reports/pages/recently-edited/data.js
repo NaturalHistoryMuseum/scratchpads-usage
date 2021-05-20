@@ -4,10 +4,14 @@ export default async function getRecent(sql) {
 	return sql`
 	select
 		created.site,
-		created.created as site_created,
+		created.created * 1000 as site_created,
 		cnode.created as node_created,
 		unode.updated as node_updated,
-		taxon.updated as taxon_updated
+		taxon.updated as taxon_updated,
+		MAX(
+			case when unode.diff == 'NULL' then '0' else unode.diff end,
+			case when taxon.diff == 'NULL' then '0' else taxon.diff end
+		) as update_interval
 	from created
 		left join last_created_node as cnode on (cnode.site=created.site)
 		left join last_updated_node as unode on (unode.site=created.site)

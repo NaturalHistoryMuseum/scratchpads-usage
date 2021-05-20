@@ -157,8 +157,32 @@ select from_unixtime(max(created)) as created from node;
 
 -- Date of last updated node
 select "__table:last_updated_node" as ``;
-select from_unixtime(max(timestamp)) as updated from node_revision;
+SELECT
+	MAX(diff) as diff,
+	FROM_UNIXTIME(MAX(timestamp)) as updated
+FROM (
+	SELECT
+		IF(@prev_time=0, NULL, node_revision.timestamp-@prev_time) as diff,
+		@prev_time:=node_revision.timestamp as timestamp
+	FROM
+		node_revision,
+		(SELECT @prev_time:=0 AS num) as v
+	ORDER BY node_revision.timestamp ASC
+)
+AS t;
 
 -- Date of last updated taxon
 select "__table:last_updated_taxon" as ``;
-select from_unixtime(max(timestamp)) as updated from taxonomy_term_data_revision;
+SELECT
+	MAX(diff) as diff,
+	FROM_UNIXTIME(MAX(timestamp)) as updated
+FROM (
+	SELECT
+		IF(@prev_time=0, NULL, taxonomy_term_data_revision.timestamp-@prev_time) as diff,
+		@prev_time:=taxonomy_term_data_revision.timestamp as timestamp
+	FROM
+		taxonomy_term_data_revision,
+		(SELECT @prev_time:=0 AS num) as v
+	ORDER BY taxonomy_term_data_revision.timestamp ASC
+)
+AS t;
