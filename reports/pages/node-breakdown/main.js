@@ -6,9 +6,9 @@ import getNodes from '../node-counts/data.js';
 async function getData(sql) {
 	const sites = await getRecent(sql);
 
-	const siteNames = sites.map(site => site.site);
+	const siteNames = sites.map(site => site.site).slice(0, 40);
 
-	const cols = await getNodes(sql, siteNames);
+	const cols = await getNodes(sql);
 
 	const nodes = cols.map(c=>c.type)
 

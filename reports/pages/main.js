@@ -1,5 +1,5 @@
 import nodeCounts from './node-counts/main.js';
-import recentlyEdited, {options} from './recently-edited/main.js';
+import recentlyEdited from './recently-edited/main.js';
 import mappings, {assets} from './mappings/main.js'
 import fields from './fields/fields.js'
 import nodeBreakdown from './node-breakdown/main.js';
@@ -17,7 +17,7 @@ export { assets};
 const INDEX = 'index';
 
 const reports = [
-	{ title: 'Recently Edited Sites', id: 'recently-edited', view: recentlyEdited, options },
+	{ title: 'Recently Edited Sites', id: 'recently-edited', view: recentlyEdited },
 	{ title: 'Node Counts', id: 'node-count', view: nodeCounts },
 	{ title: 'Per-site Node Breakdown', id: 'node-breakdown', view: nodeBreakdown },
 	{ title: 'Fields and field usage', id: 'fields', view: fields },

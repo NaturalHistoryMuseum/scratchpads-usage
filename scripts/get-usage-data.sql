@@ -29,13 +29,6 @@ select value from variable where name like "none_biological_vids";
 select "__table:taxonomy_terms__" as '';
 select t.name, t.machine_name, t.vid, count(*) as total from taxonomy_term_data as d left join taxonomy_vocabulary as t on(t.vid=d.vid) group by vid;
 
--- Recently created/edited content
-select "__table:recent.taxonomy__" as ``;
-select t.tid, t.uid, t.timestamp, users.name from taxonomy_term_data_revision as t left join users on(t.uid=users.uid) where timestamp > unix_timestamp(now()-interval 3 month);
-
-select "__table:recent.changednodes__" as ``;
-select n.nid, n.uid, n.created, n.changed, u.name, n.type from node as n left join users as u on(n.uid=u.uid) where (n.created > unix_timestamp(now()-interval 3 month)) or (n.changed > unix_timestamp(now()-interval 3 month));
-
 -- Node and taxonomy edits per month
 -- If we wanted to count users per entity type we could include  count(distinct if(type='node', uid, null)), count(distinct if(type='taxonomy', uid, null))
 select "__table:revisions__" as ``;
@@ -152,3 +145,20 @@ select "biblio_formats" as name, count(*) as count from biblio where biblio_form
 -- Only use it for internal stats
 select "__table:users__" as ``;
 select users.uid, name, mail, from_unixtime(login) as login, from_unixtime(access) as access, status, !isnull(role.uid) as maintainer from users left join users_roles as role on(users.uid=role.uid and role.rid=5) where status > 0;
+
+-- Dates
+-- Date the site was created
+select "__table:created__" as ``;
+select created from users where uid=1;
+
+-- Date of last created node
+select "__table:last_created_node" as ``;
+select from_unixtime(max(created)) as created from node;
+
+-- Date of last updated node
+select "__table:last_updated_node" as ``;
+select from_unixtime(max(timestamp)) as updated from node_revision;
+
+-- Date of last updated taxon
+select "__table:last_updated_taxon" as ``;
+select from_unixtime(max(timestamp)) as updated from taxonomy_term_data_revision;
