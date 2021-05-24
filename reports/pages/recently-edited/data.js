@@ -4,7 +4,7 @@ export default async function getRecent(sql) {
 	return sql`
 	select
 		created.site,
-		datetime(created.created, 'unixepoch') as site_created,
+		datetime(created.created) as site_created,
 		datetime(cnode.created) as node_created,
 		datetime(unode.updated) as node_updated,
 		datetime(taxon.updated) as taxon_updated,

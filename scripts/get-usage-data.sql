@@ -149,7 +149,7 @@ select users.uid, name, mail, from_unixtime(login) as login, from_unixtime(acces
 -- Dates
 -- Date the site was created
 select "__table:created__" as ``;
-select created from users where uid=1;
+select from_unixtime(min(c)) as created from (select min(created) as c from users where created>0 union select min(created) as c from node) as t;
 
 -- Date of last created node
 select "__table:last_created_node" as ``;
